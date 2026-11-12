@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+:root {
+  --color-primary: #0057d2;
+  --color-primary-deep: #0040b0;
+  --color-primary-hover: #0049b0;
+  --color-primary-active: #00368a;
+  --color-canvas: #ffffff;
+  --color-chrome: #f5f6f7;
+  --color-band: #eaecee;
+  --color-band-blue: #ebf8ff;
+  --color-ink: #000000;
+  --color-ink-lead: #3c3c3c;
+  --color-ink-body: #223548;
+  --color-ink-list: #354a5f;
+  --color-ink-meta: #475e75;
+  --color-ink-nav: #545454;
+  --color-hairline: #475e75;
+  --color-hairline-subtle: #d5dce2;
+  
+  --status-positive-ink: #10683b;
+  --status-positive-bg: #eaf6ef;
+  --status-warning-ink: #8d4b00;
+  --status-warning-bg: #fff6e5;
+  --status-negative-ink: #b81d24;
+  --status-negative-bg: #fdecee;
+  --status-neutral-ink: #354a5f;
+  --status-neutral-bg: #eaecee;
+}
+
+body {
+  margin: 0;
+  background-color: #ffffff;
+  color: #223548;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Mandatory Tabular Figures for All ERP Numerics */
+.tnum,
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.01em;
+}
+
+/* Custom Scrollbar for high-density ERP views */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #f5f6f7;
+}
+::-webkit-scrollbar-thumb {
+  background: #d5dce2;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #475e75;
+}
