@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pengeluaran Material ke Lini Produksi (Material Issue) — NUTECH ERP</title>
+  <link rel="stylesheet" href="../../css/tokens.css" />
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/shell.css" />
+  <link rel="stylesheet" href="../../css/patterns.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-warehouse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z"/><path d="M6 18h12"/><path d="M6 14h12"/><rect width="12" height="12" x="6" y="10"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+    <symbol id="i-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+    <symbol id="i-arrow-down-left" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 7 7 17"/><path d="M17 17H7V7"/></symbol>
+    <symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="4" y1="21" y2="14"/><line x1="4" x2="4" y1="10" y2="3"/><line x1="12" x2="12" y1="21" y2="12"/><line x1="12" x2="12" y1="8" y2="3"/><line x1="20" x2="20" y1="21" y2="16"/><line x1="20" x2="20" y1="12" y2="3"/><line x1="2" x2="6" y1="14" y2="14"/><line x1="10" x2="14" y1="8" y2="8"/><line x1="18" x2="22" y1="16" y2="16"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  </svg>
+
+  <input type="checkbox" id="sidebar-toggle" class="shell-state-toggle" aria-label="Toggle Sidebar" />
+  <input type="checkbox" id="role-dropdown-toggle" class="shell-state-toggle" aria-label="Toggle Role Switcher" />
+
+  <div class="erp-shell">
+    <header class="global-topbar">
+      <div class="topbar-left">
+        <label for="sidebar-toggle" class="sidebar-toggle-btn" title="Buka / Kecilkan Navigasi Samping"><svg class="icon-md"><use href="#i-menu"/></svg></label>
+        <div class="brand-lockup">
+          <div class="brand-mark">N</div>
+          <div class="brand-Wordmark">
+            <div class="brand-title-row"><span class="brand-title">NUTECH ERP</span><span class="brand-env-badge">PROD-SIM</span></div>
+            <div class="brand-subtitle">Sistem Informasi Manufaktur Terintegrasi</div>
+          </div>
+        </div>
+        <div class="topbar-divider"></div>
+        <div class="plant-context-pill"><span class="plant-dot"></span><span>PLANT CIKARANG-01 • SHIFT 1 (PAGI)</span></div>
+      </div>
+      <div class="topbar-right">
+        <div class="date-context-box"><span class="date-context-label">Tgl Operasional:</span><span class="date-context-value">04 Nov 2026</span></div>
+        <div class="topbar-divider"></div>
+        <div class="role-switcher-wrap">
+          <label for="role-dropdown-toggle" class="role-switcher-btn">
+            <svg class="icon-sm" style="color:#60a5fa"><use href="#i-shield"/></svg>
+            <div class="role-switcher-text"><span class="role-switcher-label">Simulasi Peran Aktif</span><span class="role-switcher-value">Warehouse (Gudang RM)</span></div>
+            <svg class="icon-sm role-switcher-caret"><use href="#i-chevron-down"/></svg>
+          </label>
+          <label for="role-dropdown-toggle" class="role-dropdown-backdrop" aria-hidden="true"></label>
+          <div class="role-dropdown-panel">
+            <div class="role-dropdown-header"><div class="role-dropdown-title">Pilih Peran Pengguna (Role RBAC)</div><div class="role-dropdown-desc">Setiap peran memiliki hak akses menu dan otorisasi operasional yang terpisah</div></div>
+            <div class="role-dropdown-list">
+              <a href="../marketing/sales-orders.html" class="role-option"><div class="role-option-top"><span class="role-option-name">Marketing</span><span class="role-option-dept">Divisi Komersial &amp; Penjualan</span></div><div class="role-option-desc">Pencatatan PO Customer (Sales Order), katalog part, dan pantauan pemenuhan pesanan</div></a>
+              <a href="../ppic/spk.html" class="role-option"><div class="role-option-top"><span class="role-option-name">PPIC</span><span class="role-option-dept">Perencanaan &amp; Pengendalian Produksi</span></div><div class="role-option-desc">Penerbitan SPK, alokasi target harian per lini, rasio kemasan, dan pantauan defisit produksi</div></a>
+              <a href="../purchasing/mrp.html" class="role-option"><div class="role-option-top"><span class="role-option-name">Purchasing</span><span class="role-option-dept">Pengadaan &amp; Pembelian Material</span></div><div class="role-option-desc">Kalkulasi kebutuhan bahan baku (MRP), penerbitan PO Supplier, dan pemantauan kedatangan</div></a>
+              <a href="monitoring.html" class="role-option is-active"><div class="role-option-top"><span class="role-option-name">Warehouse (Gudang RM) <svg class="icon-xs" style="display:inline;vertical-align:middle;margin-left:4px"><use href="#i-check"/></svg></span><span class="role-option-dept">Gudang Bahan Baku &amp; Logistik Masuk</span></div><div class="role-option-desc">Penerimaan barang supplier (GRN), pengeluaran material ke lini (Issue), dan kartu stok</div></a>
+              <a href="../production/monitoring.html" class="role-option"><div class="role-option-top"><span class="role-option-name">Admin Produksi &amp; Pengiriman</span><span class="role-option-dept">Operasional Lantai Produksi &amp; Ekspedisi</span></div><div class="role-option-desc">Input hasil produksi aktual per shift, stok FG multi-lokasi, penerbitan &amp; konfirmasi Surat Jalan</div></a>
+              <a href="../finance/dashboard.html" class="role-option"><div class="role-option-top"><span class="role-option-name">Finance</span><span class="role-option-dept">Keuangan, Penagihan &amp; Piutang</span></div><div class="role-option-desc">Verifikasi pengiriman siap tagih, penerbitan faktur (Invoice), pencatatan pembayaran &amp; AR Aging</div></a>
+              <a href="../management/dashboard.html" class="role-option"><div class="role-option-top"><span class="role-option-name">Management</span><span class="role-option-dept">Direksi &amp; Eksekutif (Read-Only)</span></div><div class="role-option-desc">Ringkasan eksekutif, pencapaian target vs aktual, valuasi inventori, dan kontrol integritas data</div></a>
+            </div>
+          </div>
+        </div>
+        <div class="user-profile-chip">
+          <div class="user-avatar">WH</div>
+          <div class="user-info"><span class="user-name">Hendra Wijaya</span><span class="user-role">Kepala Gudang RM</span></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="erp-body">
+      <aside class="sidebar-nav">
+        <div class="sidebar-role-box">
+          <div class="sidebar-role-label">Konteks Modul Aktif</div>
+          <div class="sidebar-role-title">Gudang Bahan Baku (RM)</div>
+        </div>
+        <div class="sidebar-scroll">
+          <div class="nav-group">
+            <div class="nav-group-label">Operasional Gudang</div>
+            <ul class="nav-list">
+              <li class="nav-item"><a href="monitoring.html" class="nav-link" title="Monitoring Gudang"><svg class="nav-icon"><use href="#i-warehouse"/></svg><span class="nav-text">Monitoring Gudang</span></a></li>
+              <li class="nav-item"><a href="grn.html" class="nav-link" title="Penerimaan Bahan (GRN)"><svg class="nav-icon"><use href="#i-arrow-down-left"/></svg><span class="nav-text">Penerimaan Bahan (GRN)</span><span class="nav-badge is-info">3</span></a></li>
+              <li class="nav-item"><a href="material-issue.html" class="nav-link is-active" title="Material Issue ke Lini"><svg class="nav-icon"><use href="#i-arrow-up-right"/></svg><span class="nav-text">Material Issue ke Lini</span><span class="nav-badge">3</span></a></li>
+            </ul>
+          </div>
+          <div class="nav-group">
+            <div class="nav-group-label">Persediaan &amp; Ledger</div>
+            <ul class="nav-list">
+              <li class="nav-item"><a href="raw-materials.html" class="nav-link" title="Saldo Stok &amp; Lokasi Rak"><svg class="nav-icon"><use href="#i-layers"/></svg><span class="nav-text">Saldo Stok &amp; Lokasi Rak</span><span class="nav-badge is-warning">3</span></a></li>
+              <li class="nav-item"><a href="stock-ledger.html" class="nav-link" title="Kartu Stok Ledger Material"><svg class="nav-icon"><use href="#i-file-text"/></svg><span class="nav-text">Kartu Stok Ledger Material</span></a></li>
+              <li class="nav-item"><a href="stock-adjustment.html" class="nav-link" title="Penyesuaian Stok (Adjustment)"><svg class="nav-icon"><use href="#i-sliders"/></svg><span class="nav-text">Penyesuaian Stok (Adjustment)</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="sidebar-footer">
+          <div class="sidebar-Shortcut-hint"><span>Rasio Konversi Aktif</span><span class="kbd-badge">Roll/Pallet → Kg/Sheet</span></div>
+        </div>
+      </aside>
+
+      <div class="main-workspace">
+        <div class="page-header-rail">
+          <div class="header-rail-left">
+            <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+              <span class="breadcrumb-item">Gudang Bahan Baku (RM)</span>
+              <svg class="breadcrumb-sep"><use href="#i-chevron-right"/></svg>
+              <span class="breadcrumb-item">Operasional Gudang</span>
+              <svg class="breadcrumb-sep"><use href="#i-chevron-right"/></svg>
+              <span class="breadcrumb-current">Pengeluaran Material ke Lini Produksi (Material Issue)</span>
+            </nav>
+            <div class="page-title-row">
+              <h1 class="page-title">Pengeluaran Material ke Lini Produksi (Material Issue Slip)</h1>
+              <span class="mode-badge is-edit"><svg class="icon-xs"><use href="#i-arrow-up-right"/></svg> DISTRIBUSI BAHAN BAKU SPK</span>
+            </div>
+            <p class="page-subtitle">Serah terima fisik bahan baku dari Gudang RM ke Foreman Lini Produksi berdasarkan dokumen SPK aktif dari PPIC.</p>
+          </div>
+          <div class="header-rail-actions">
+            <a href="stock-ledger.html" class="btn btn-secondary"><svg class="icon-sm"><use href="#i-file-text"/></svg> Kartu Stok</a>
+            <a href="#modal-create-issue" class="btn btn-primary"><svg class="icon-sm"><use href="#i-plus"/></svg> Buat Slip Pengeluaran Material</a>
+          </div>
+        </div>
+
+        <main class="workspace-canvas">
+          <!-- Radio Filter Lini & Split-Pane Detail Issue -->
+          <input type="radio" name="issue-filter" id="issue-filter-all" class="css-filter-radio" checked />
+          <input type="radio" name="issue-filter" id="issue-filter-l1" class="css-filter-radio" />
+          <input type="radio" name="issue-filter" id="issue-filter-l2" class="css-filter-radio" />
+          <input type="radio" name="issue-filter" id="issue-filter-l3" class="css-filter-radio" />
+
+          <input type="radio" name="issue-detail" id="issue-sel-1" class="css-split-radio" checked />
+          <input type="radio" name="issue-detail" id="issue-sel-2" class="css-split-radio" />
+          <input type="radio" name="issue-detail" id="issue-sel-3" class="css-split-radio" />
+
+          <div class="toolbar-card mb-16">
+            <div class="toolbar-left">
+              <span class="toolbar-label">Filter Lini Tujuan:</span>
+              <div class="filter-pill-group">
+                <label for="issue-filter-all" class="filter-pill">Semua Lini (3)</label>
+                <label for="issue-filter-l1" class="filter-pill">Lane 1 • Rubber (1)</label>
+                <label for="issue-filter-l2" class="filter-pill">Lane 2 • Foam (1)</label>
+                <label for="issue-filter-l3" class="filter-pill">Lane 3 • EVA (1)</label>
+              </div>
+            </div>
+            <div class="toolbar-right">
+              <span class="text-xs text-muted">Setiap pengeluaran material otomatis memotong saldo On-Hand Gudang RM</span>
+            </div>
+          </div>
+
+          <div class="split-pane-layout">
+            <div class="section-card">
+              <div class="section-header">
+                <div>
+                  <h2 class="section-title">Daftar Bukti Pengeluaran Material (Material Issue Slip)</h2>
+                  <p class="section-subtitle">3 dokumen distribusi pagi pada Shift 1 (04 Nov 2026)</p>
+                </div>
+              </div>
+              <div class="table-container">
+                <table class="data-table issue-table">
+                  <thead>
+                    <tr>
+                      <th>No. Issue &amp; Jam</th>
+                      <th>Ref. SPK &amp; Lini</th>
+                      <th>Material</th>
+                      <th class="text-right">Qty Keluar</th>
+                      <th class="text-right">Saldo Sesudah</th>
+                      <th>Foreman Penerima</th>
+                      <th>Detail</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="issue-row-l1">
+                      <td>
+                        <div class="font-mono font-semibold text-primary">ISSUE-2026-11-001</div>
+                        <div class="cell-secondary">04 Nov 2026 • 07:30</div>
+                      </td>
+                      <td>
+                        <div class="font-mono font-semibold">SPK-2026-11-L1</div>
+                        <div class="cell-secondary">Lane 1 (Rubber Cutting)</div>
+                      </td>
+                      <td>
+                        <div class="font-mono font-semibold">MAT-EPDM-01</div>
+                        <div class="cell-secondary">EPDM 3mm • RAK-A-01</div>
+                      </td>
+                      <td class="text-right tnum font-bold text-danger">-160 Kg</td>
+                      <td class="text-right tnum font-semibold">840 Kg</td>
+                      <td>Supardi (Foreman Lini 1)</td>
+                      <td><label for="issue-sel-1" class="btn btn-xs btn-secondary">Pilih</label></td>
+                    </tr>
+                    <tr class="issue-row-l2">
+                      <td>
+                        <div class="font-mono font-semibold text-primary">ISSUE-2026-11-002</div>
+                        <div class="cell-secondary">04 Nov 2026 • 07:45</div>
+                      </td>
+                      <td>
+                        <div class="font-mono font-semibold">SPK-2026-11-L2</div>
+                        <div class="cell-secondary">Lane 2 (Foam Slicing)</div>
+                      </td>
+                      <td>
+                        <div class="font-mono font-semibold">MAT-FOAM-PU10</div>
+                        <div class="cell-secondary">PU Foam 10mm • RAK-B-04</div>
+                      </td>
+                      <td class="text-right tnum font-bold text-danger">-150 Sheet</td>
+                      <td class="text-right tnum font-semibold">1.250 Sheet</td>
+                      <td>Slamet Riyadi (Foreman Lini 2)</td>
+                      <td><label for="issue-sel-2" class="btn btn-xs btn-secondary">Pilih</label></td>
+                    </tr>
+                    <tr class="issue-row-l3">
+                      <td>
+                        <div class="font-mono font-semibold text-primary">ISSUE-2026-11-003</div>
+                        <div class="cell-secondary">04 Nov 2026 • 08:00</div>
+                      </td>
+                      <td>
+                        <div class="font-mono font-semibold">SPK-2026-11-L3</div>
+                        <div class="cell-secondary">Lane 3 (EVA Die-cut)</div>
+                      </td>
+                      <td>
+                        <div class="font-mono font-semibold">MAT-EVA-SP20</div>
+                        <div class="cell-secondary">EVA Sponge 5mm • PALLET-C-02</div>
+                      </td>
+                      <td class="text-right tnum font-bold text-danger">-50 Sheet</td>
+                      <td class="text-right tnum font-semibold">950 Sheet</td>
+                      <td>Hendra Gunawan (Foreman Lini 3)</td>
+                      <td><label for="issue-sel-3" class="btn btn-xs btn-secondary">Pilih</label></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Panel Kanan: Rincian Slip Pengeluaran -->
+            <div class="detail-pane-card">
+              <div class="issue-detail-panel issue-detail-1">
+                <div class="detail-pane-header">
+                  <div>
+                    <span class="badge is-primary mb-4">SERAH TERIMA SELESAI • SHIFT 1</span>
+                    <h3 class="detail-pane-title font-mono">ISSUE-2026-11-001</h3>
+                    <p class="detail-pane-subtitle">04 Nov 2026 • 07:30 WIB — Ke Lane 1 (Stamping Press Line A)</p>
+                  </div>
+                </div>
+                <div class="detail-pane-body">
+                  <div class="kv-grid mb-12">
+                    <div class="kv-item"><span class="kv-label">Referensi SPK</span><span class="kv-value font-mono font-semibold">SPK-2026-11-L1</span></div>
+                    <div class="kv-item"><span class="kv-label">Part FG Diproduksi</span><span class="kv-value font-mono">NTC-RUB-0101 &amp; NTC-RUB-0104</span></div>
+                    <div class="kv-item"><span class="kv-label">Target Harian Lini 1</span><span class="kv-value tnum font-bold">2.800 PCS</span></div>
+                    <div class="kv-item"><span class="kv-label">Material Dikeluarkan</span><span class="kv-value font-mono font-semibold text-primary">MAT-EPDM-01 (RAK-A-01)</span></div>
+                    <div class="kv-item"><span class="kv-label">Kuantitas Keluar</span><span class="kv-value tnum font-bold text-danger">-160 Kg (3,2 Roll)</span></div>
+                    <div class="kv-item"><span class="kv-label">Saldo Rak Sebelum → Sesudah</span><span class="kv-value tnum">1.000 Kg → <strong>840 Kg</strong></span></div>
+                    <div class="kv-item"><span class="kv-label">Petugas Gudang RM</span><span class="kv-value">Hendra Wijaya</span></div>
+                    <div class="kv-item"><span class="kv-label">Penerima Lini Produksi</span><span class="kv-value">Supardi - Foreman Lini 1</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="issue-detail-panel issue-detail-2">
+                <div class="detail-pane-header">
+                  <div>
+                    <span class="badge is-primary mb-4">SERAH TERIMA SELESAI • SHIFT 1</span>
+                    <h3 class="detail-pane-title font-mono">ISSUE-2026-11-002</h3>
+                    <p class="detail-pane-subtitle">04 Nov 2026 • 07:45 WIB — Ke Lane 2 (Foam Cutting Line B)</p>
+                  </div>
+                </div>
+                <div class="detail-pane-body">
+                  <div class="kv-grid mb-12">
+                    <div class="kv-item"><span class="kv-label">Referensi SPK</span><span class="kv-value font-mono font-semibold">SPK-2026-11-L2</span></div>
+                    <div class="kv-item"><span class="kv-label">Part FG Diproduksi</span><span class="kv-value font-mono">NTC-FOAM-0201 &amp; NTC-FOAM-0208</span></div>
+                    <div class="kv-item"><span class="kv-label">Target Harian Lini 2</span><span class="kv-value tnum font-bold">2.000 PCS</span></div>
+                    <div class="kv-item"><span class="kv-label">Material Dikeluarkan</span><span class="kv-value font-mono font-semibold text-primary">MAT-FOAM-PU10 (RAK-B-04)</span></div>
+                    <div class="kv-item"><span class="kv-label">Kuantitas Keluar</span><span class="kv-value tnum font-bold text-danger">-150 Sheet (6 Bal)</span></div>
+                    <div class="kv-item"><span class="kv-label">Saldo Rak Sebelum → Sesudah</span><span class="kv-value tnum">1.400 Sheet → <strong>1.250 Sheet</strong></span></div>
+                    <div class="kv-item"><span class="kv-label">Petugas Gudang RM</span><span class="kv-value">Hendra Wijaya</span></div>
+                    <div class="kv-item"><span class="kv-label">Penerima Lini Produksi</span><span class="kv-value">Slamet Riyadi - Foreman Lini 2</span></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="issue-detail-panel issue-detail-3">
+                <div class="detail-pane-header">
+                  <div>
+                    <span class="badge is-primary mb-4">SERAH TERIMA SELESAI • SHIFT 1</span>
+                    <h3 class="detail-pane-title font-mono">ISSUE-2026-11-003</h3>
+                    <p class="detail-pane-subtitle">04 Nov 2026 • 08:00 WIB — Ke Lane 3 (EVA Thermoforming Line C)</p>
+                  </div>
+                </div>
+                <div class="detail-pane-body">
+                  <div class="kv-grid mb-12">
+                    <div class="kv-item"><span class="kv-label">Referensi SPK</span><span class="kv-value font-mono font-semibold">SPK-2026-11-L3</span></div>
+                    <div class="kv-item"><span class="kv-label">Part FG Diproduksi</span><span class="kv-value font-mono">NTC-EVA-0301 &amp; NTC-EVA-0305</span></div>
+                    <div class="kv-item"><span class="kv-label">Target Harian Lini 3</span><span class="kv-value tnum font-bold">2.000 PCS</span></div>
+                    <div class="kv-item"><span class="kv-label">Material Dikeluarkan</span><span class="kv-value font-mono font-semibold text-primary">MAT-EVA-SP20 (PALLET-C-02)</span></div>
+                    <div class="kv-item"><span class="kv-label">Kuantitas Keluar</span><span class="kv-value tnum font-bold text-danger">-50 Sheet (0,5 Pallet)</span></div>
+                    <div class="kv-item"><span class="kv-label">Saldo Rak Sebelum → Sesudah</span><span class="kv-value tnum">1.000 Sheet → <strong>950 Sheet</strong></span></div>
+                    <div class="kv-item"><span class="kv-label">Petugas Gudang RM</span><span class="kv-value">Hendra Wijaya</span></div>
+                    <div class="kv-item"><span class="kv-label">Penerima Lini Produksi</span><span class="kv-value">Hendra Gunawan - Foreman Lini 3</span></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer class="footer-status-bar">
+          <div class="footer-left">
+            <span class="status-indicator is-online"><span class="status-dot"></span> Terhubung ke Jadwal SPK PPIC</span>
+            <span class="footer-sep">•</span>
+            <span>Distribusi Hari Ini: <strong>160 Kg EPDM, 150 Sheet Foam, 50 Sheet EVA</strong></span>
+          </div>
+          <div class="footer-right">
+            <span>Petugas: <strong>Hendra Wijaya</strong></span>
+            <span class="footer-sep">•</span>
+            <span class="font-mono">v2.4.0-HTML5</span>
+          </div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Modal Buat Slip Material Issue (:target) -->
+    <div id="modal-create-issue" class="modal-overlay">
+      <a href="#" class="modal-backdrop" aria-label="Tutup Modal"></a>
+      <div class="modal-dialog modal-lg">
+        <div class="modal-header">
+          <div>
+            <h3 class="modal-title">Buat Slip Pengeluaran Material ke Lini Produksi (Material Issue)</h3>
+            <p class="modal-subtitle">Otorisasi pengeluaran bahan baku dari rak Gudang RM menuju Lini Produksi berdasarkan SPK aktif</p>
+          </div>
+          <a href="#" class="modal-close-btn" title="Tutup"><svg class="icon-sm"><use href="#i-x"/></svg></a>
+        </div>
+        <div class="modal-body">
+          <div class="form-grid-2">
+            <div class="form-group">
+              <label class="form-label">Nomor Dokumen Issue</label>
+              <input type="text" class="form-control font-mono" value="ISSUE-2026-11-004" readonly />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Pilih Referensi SPK Aktif</label>
+              <select class="form-control">
+                <option selected>SPK-2026-11-L1 — Lane 1 (Rubber Cutting • Target 2.800 PCS)</option>
+                <option>SPK-2026-11-L2 — Lane 2 (Foam Slicing • Target 2.000 PCS)</option>
+                <option>SPK-2026-11-L3 — Lane 3 (EVA Die-cut • Target 2.000 PCS)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Pilih Bahan Baku &amp; Rak Asal</label>
+              <select class="form-control">
+                <option selected>MAT-EPDM-01 — RAK-A-01 (Saldo Tersedia: 840 Kg)</option>
+                <option>MAT-FOAM-PU10 — RAK-B-04 (Saldo Tersedia: 1.250 Sheet)</option>
+                <option>MAT-EVA-SP20 — PALLET-C-02 (Saldo Tersedia: 950 Sheet)</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Kuantitas Dikeluarkan (Satuan Dasar)</label>
+              <input type="number" class="form-control tnum" value="100" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Foreman Lini Penerima</label>
+              <input type="text" class="form-control" value="Supardi - Foreman Lini 1" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Proyeksi Saldo Akhir Rak</label>
+              <input type="text" class="form-control tnum font-bold" value="740 Kg (840 Kg - 100 Kg)" readonly />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn btn-secondary">Batal</a>
+          <a href="#" class="btn btn-primary"><svg class="icon-sm"><use href="#i-check"/></svg> Posting Pengeluaran &amp; Potong Stok Rak</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dev-showcase-bar">
+      <div class="showcase-left">
+        <span class="showcase-badge">PURE HTML5/CSS3</span>
+        <span class="showcase-text">Peran: <strong>Warehouse (Gudang RM)</strong> — Pengeluaran Material ke Lini Produksi (Material Issue)</span>
+      </div>
+      <div class="showcase-links">
+        <a href="monitoring.html" class="showcase-chip">Monitoring RM</a>
+        <a href="grn.html" class="showcase-chip">Penerimaan (GRN)</a>
+        <a href="raw-materials.html" class="showcase-chip">Inventori &amp; Rak</a>
+        <a href="material-issue.html" class="showcase-chip is-current">Material Issue</a>
+        <a href="stock-ledger.html" class="showcase-chip">Kartu Stok</a>
+        <a href="stock-adjustment.html" class="showcase-chip">Stock Opname</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

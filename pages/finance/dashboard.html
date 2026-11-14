@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard Keuangan, Billing Gate &amp; Piutang — NUTECH ERP</title>
+  <link rel="stylesheet" href="../../css/tokens.css" />
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/shell.css" />
+  <link rel="stylesheet" href="../../css/patterns.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-dollar-sign" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+    <symbol id="i-file-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></symbol>
+    <symbol id="i-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+    <symbol id="i-credit-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-alert-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+  </svg>
+
+  <input type="checkbox" id="sidebar-toggle" class="shell-state-toggle" aria-label="Toggle Sidebar" />
+  <input type="checkbox" id="role-dropdown-toggle" class="shell-state-toggle" aria-label="Toggle Role Switcher" />
+
+  <div class="erp-shell">
+    <header class="global-topbar">
+      <div class="topbar-left">
+        <label for="sidebar-toggle" class="sidebar-toggle-btn"><svg class="icon-md"><use href="#i-menu"/></svg></label>
+        <div class="brand-lockup"><div class="brand-mark">N</div><div class="brand-Wordmark"><div class="brand-title-row"><span class="brand-title">NUTECH ERP</span><span class="brand-env-badge">PROD-SIM</span></div><div class="brand-subtitle">Sistem Informasi Manufaktur Terintegrasi</div></div></div>
+        <div class="topbar-divider"></div>
+        <div class="plant-context-pill"><span class="plant-dot"></span><span>PLANT CIKARANG-01 • DIVISI KEUANGAN</span></div>
+      </div>
+      <div class="topbar-right">
+        <div class="date-context-box"><span class="date-context-label">Tgl Operasional:</span><span class="date-context-value">04 Nov 2026</span></div>
+        <div class="topbar-divider"></div>
+        <div class="role-switcher-wrap">
+          <label for="role-dropdown-toggle" class="role-switcher-btn">
+            <svg class="icon-sm" style="color:#60a5fa"><use href="#i-shield"/></svg>
+            <div class="role-switcher-text"><span class="role-switcher-label">Simulasi Peran Aktif</span><span class="role-switcher-value">Finance</span></div>
+            <svg class="icon-sm role-switcher-caret"><use href="#i-chevron-down"/></svg>
+          </label>
+          <label for="role-dropdown-toggle" class="role-dropdown-backdrop" aria-hidden="true"></label>
+          <div class="role-dropdown-panel">
+            <div class="role-dropdown-header"><div class="role-dropdown-title">Pilih Peran Pengguna (Role RBAC)</div></div>
+            <div class="role-dropdown-list">
+              <a href="../marketing/sales-orders.html" class="role-option"><div class="role-option-top"><span class="role-option-name">Marketing</span><span class="role-option-dept">Divisi Komersial &amp; Penjualan</span></div></a>
+              <a href="../ppic/spk.html" class="role-option"><div class="role-option-top"><span class="role-option-name">PPIC</span><span class="role-option-dept">Perencanaan &amp; Pengendalian Produksi</span></div></a>
+              <a href="../purchasing/mrp.html" class="role-option"><div class="role-option-top"><span class="role-option-name">Purchasing</span><span class="role-option-dept">Pengadaan &amp; Pembelian Material</span></div></a>
+              <a href="../warehouse/monitoring.html" class="role-option"><div class="role-option-top"><span class="role-option-name">Warehouse (Gudang RM)</span><span class="role-option-dept">Gudang Bahan Baku &amp; Logistik Masuk</span></div></a>
+              <a href="../production/monitoring.html" class="role-option"><div class="role-option-top"><span class="role-option-name">Admin Produksi &amp; Pengiriman</span><span class="role-option-dept">Operasional Lantai Produksi &amp; Ekspedisi</span></div></a>
+              <a href="dashboard.html" class="role-option is-active"><div class="role-option-top"><span class="role-option-name">Finance <svg class="icon-xs" style="display:inline;vertical-align:middle;margin-left:4px"><use href="#i-check"/></svg></span><span class="role-option-dept">Keuangan, Penagihan &amp; Piutang</span></div></a>
+              <a href="../management/dashboard.html" class="role-option"><div class="role-option-top"><span class="role-option-name">Management</span><span class="role-option-dept">Direksi &amp; Eksekutif (Read-Only)</span></div></a>
+            </div>
+          </div>
+        </div>
+        <div class="user-profile-chip"><div class="user-avatar">FN</div><div class="user-info"><span class="user-name">Lina Kusuma</span><span class="user-role">Supervisor Finance &amp; AR</span></div></div>
+      </div>
+    </header>
+
+    <div class="erp-body">
+      <aside class="sidebar-nav">
+        <div class="sidebar-role-box"><div class="sidebar-role-label">Divisi Keuangan</div><div class="sidebar-role-title">Finance</div></div>
+        <div class="sidebar-scroll">
+          <div class="nav-group">
+            <div class="nav-group-label">Dashboard &amp; Ringkasan</div>
+            <ul class="nav-list">
+              <li class="nav-item"><a href="dashboard.html" class="nav-link is-active"><svg class="nav-icon"><use href="#i-dollar-sign"/></svg><span class="nav-text">Dashboard Keuangan &amp; AR</span></a></li>
+            </ul>
+          </div>
+          <div class="nav-group">
+            <div class="nav-group-label">Kontrol Surat Jalan &amp; Penagihan</div>
+            <ul class="nav-list">
+              <li class="nav-item"><a href="ready-to-bill.html" class="nav-link"><svg class="nav-icon"><use href="#i-file-check"/></svg><span class="nav-text">Surat Jalan Siap Tagih</span><span class="nav-badge is-warning">2 SJ</span></a></li>
+              <li class="nav-item"><a href="invoices.html" class="nav-link"><svg class="nav-icon"><use href="#i-file-text"/></svg><span class="nav-text">Manajemen Faktur (Invoice)</span><span class="nav-badge is-primary">1</span></a></li>
+            </ul>
+          </div>
+          <div class="nav-group">
+            <div class="nav-group-label">Manajemen Piutang (AR)</div>
+            <ul class="nav-list">
+              <li class="nav-item"><a href="accounts-receivable.html" class="nav-link"><svg class="nav-icon"><use href="#i-credit-card"/></svg><span class="nav-text">Pelacakan Piutang Dagang</span></a></li>
+              <li class="nav-item"><a href="ar-aging.html" class="nav-link"><svg class="nav-icon"><use href="#i-clock"/></svg><span class="nav-text">AR Aging &amp; Jatuh Tempo</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="sidebar-footer"><div class="sidebar-Shortcut-hint"><span>Sisa AR</span><span class="kbd-badge">Rp 20.535.000</span></div></div>
+      </aside>
+
+      <div class="main-workspace">
+        <div class="page-header-rail">
+          <div class="header-rail-left">
+            <nav class="breadcrumb-nav">
+              <span class="breadcrumb-item">Divisi Keuangan</span>
+              <svg class="breadcrumb-sep"><use href="#i-chevron-right"/></svg>
+              <span class="breadcrumb-current">Dashboard Keuangan, Billing Gate &amp; Piutang (AR)</span>
+            </nav>
+            <div class="page-title-row">
+              <h1 class="page-title">Ringkasan Keuangan, Billing Gate &amp; Posisi Piutang Pelanggan</h1>
+              <span class="mode-badge is-edit"><svg class="icon-xs"><use href="#i-dollar-sign"/></svg> PENAGIHAN &amp; PIUTANG DAGANG</span>
+            </div>
+            <p class="page-subtitle">Kontrol 3-Way Matching antara PO Customer, Surat Jalan Fisik (Delivered), dan Faktur Penjualan beserta pemantauan saldo AR.</p>
+          </div>
+          <div class="header-rail-actions">
+            <a href="ready-to-bill.html#modal-create-invoice" class="btn btn-secondary">Terbitkan Faktur dari SJ</a>
+            <a href="invoices.html#modal-record-payment" class="btn btn-primary"><svg class="icon-sm"><use href="#i-plus"/></svg> Catat Pelunasan Masuk</a>
+          </div>
+        </div>
+
+        <main class="workspace-canvas">
+          <!-- Banner Proteksi Billing Gate terhadap SO-2026-0043 -->
+          <div class="inline-banner is-danger mb-16">
+            <svg class="icon-md banner-icon"><use href="#i-alert-triangle"/></svg>
+            <div class="banner-body">
+              <div class="banner-title">Proteksi Billing Gate Aktif: Anomali SO-2026-0043 (6.000 PCS) Diblokir Otomatis dari Penagihan</div>
+              <div class="banner-desc">Sales Order <span class="font-mono font-semibold">SO-2026-0043</span> (PT Nusantara Karoseri Utama • <strong class="tnum">6.000 PCS</strong>) ditahan pada gerbang verifikasi karena <strong>tidak memiliki bukti Surat Jalan (SJ) fisik</strong>. Hanya pengiriman terverifikasi (<strong class="tnum">7.700 PCS</strong>: <strong class="tnum">2.500 PCS Billed</strong> + <strong class="tnum">5.200 PCS Unbilled</strong>) yang diizinkan masuk ke penerbitan faktur.</div>
+            </div>
+            <div class="banner-actions">
+              <a href="ready-to-bill.html" class="btn btn-xs btn-secondary">Periksa Antrean Siap Tagih</a>
+            </div>
+          </div>
+
+          <div class="kpi-grid-4 mb-16">
+            <div class="kpi-card is-primary">
+              <div class="kpi-header"><span class="kpi-label">Total Faktur Terbit (Billed)</span><span class="badge is-primary">2.500 PCS</span></div>
+              <div class="kpi-value-row"><span class="kpi-value tnum text-primary">Rp 41.070.000</span></div>
+              <div class="kpi-footer"><span>INV-2026-11-001 (DPP Rp 37jt + PPN Rp 4,07jt)</span></div>
+            </div>
+            <div class="kpi-card is-success">
+              <div class="kpi-header"><span class="kpi-label">Kas Masuk Diterima (Paid)</span><span class="badge is-success">50% LUNAS</span></div>
+              <div class="kpi-value-row"><span class="kpi-value tnum text-success">Rp 20.535.000</span></div>
+              <div class="kpi-footer"><span>PAY-2026-11-001 • BCA TRF-BCA-261104-8821</span></div>
+            </div>
+            <div class="kpi-card is-warning">
+              <div class="kpi-header"><span class="kpi-label">Sisa Piutang Aktif (Outstanding AR)</span><span class="badge is-warning">BELUM JATUH TEMPO</span></div>
+              <div class="kpi-value-row"><span class="kpi-value tnum text-warning">Rp 20.535.000</span></div>
+              <div class="kpi-footer"><span>PT Auto Dinamika Manufaktur • Due: 03 Des 2026</span></div>
+            </div>
+            <div class="kpi-card is-info">
+              <div class="kpi-header"><span class="kpi-label">Pengiriman Siap Ditagih (Unbilled)</span><span class="badge is-info">5.200 PCS VALID</span></div>
+              <div class="kpi-value-row"><span class="kpi-value tnum">Rp 118.104.000</span></div>
+              <div class="kpi-footer"><span>SJ-2026-0089 (4.000 PCS) &amp; SJ-2026-0090 (1.200 PCS)</span></div>
+            </div>
+          </div>
+
+          <div class="grid-2-cols">
+            <div class="section-card">
+              <div class="section-header">
+                <div>
+                  <h2 class="section-title">Antrean Pengiriman Siap Tagih (Unbilled Delivered = 5.200 PCS)</h2>
+                  <p class="section-subtitle">Dokumen SJ berstatus Delivered &amp; Matched yang siap diterbitkan Invoice</p>
+                </div>
+                <a href="ready-to-bill.html" class="btn btn-xs btn-primary">Proses Penagihan</a>
+              </div>
+              <div class="table-container">
+                <table class="data-table">
+                  <thead>
+                    <tr><th>No. SJ &amp; SO</th><th>Customer &amp; Part</th><th class="text-right">Qty Valid</th><th class="text-right">Estimasi Nilai (+PPN)</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><div class="font-mono font-semibold text-primary">SJ-2026-0089</div><div class="cell-secondary">SO-2026-0041 (Item 2)</div></td>
+                      <td>PT Auto Dinamika Manufaktur<div class="cell-secondary">NTC-EVA-0301 @ Rp 20.000</div></td>
+                      <td class="text-right tnum font-bold">4.000 PCS</td>
+                      <td class="text-right tnum font-semibold">Rp 88.800.000</td>
+                    </tr>
+                    <tr>
+                      <td><div class="font-mono font-semibold text-primary">SJ-2026-0090</div><div class="cell-secondary">SO-2026-0044</div></td>
+                      <td>PT Heavy Mobil Manufaktur Indonesia<div class="cell-secondary">NTC-RUB-0104 @ Rp 22.000</div></td>
+                      <td class="text-right tnum font-bold">1.200 PCS</td>
+                      <td class="text-right tnum font-semibold">Rp 29.304.000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div class="section-card">
+              <div class="section-header">
+                <div>
+                  <h2 class="section-title">Posisi Faktur &amp; Piutang Berjalan (Active Invoices)</h2>
+                  <p class="section-subtitle">Status pelunasan faktur penjualan yang telah diterbitkan</p>
+                </div>
+                <a href="invoices.html" class="btn btn-xs btn-secondary">Kelola Faktur</a>
+              </div>
+              <div class="table-container">
+                <table class="data-table">
+                  <thead>
+                    <tr><th>No. Invoice</th><th>Customer</th><th class="text-right">Total Tagihan</th><th class="text-right">Sisa Piutang</th><th>Status</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td><div class="font-mono font-semibold text-primary">INV-2026-11-001</div><div class="cell-secondary">Alias: INV-2026-1101</div></td>
+                      <td>PT Auto Dinamika Manufaktur<div class="cell-secondary">Ref: SJ-2026-0089 (2.500 PCS)</div></td>
+                      <td class="text-right tnum font-bold">Rp 41.070.000</td>
+                      <td class="text-right tnum font-bold text-warning">Rp 20.535.000</td>
+                      <td><span class="badge is-warning">Partially Paid (50%)</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer class="footer-status-bar">
+          <div class="footer-left"><span>Billed Terverifikasi: <strong>2.500 PCS</strong> • Unbilled Valid: <strong>5.200 PCS</strong> • Sisa AR: <strong>Rp 20.535.000</strong></span></div>
+          <div class="footer-right"><span class="font-mono">v2.4.0-HTML5</span></div>
+        </footer>
+      </div>
+    </div>
+
+    <div class="dev-showcase-bar">
+      <div class="showcase-left"><span class="showcase-badge">PURE HTML5/CSS3</span><span class="showcase-text">Peran: <strong>Finance</strong> — Dashboard Keuangan, Billing Gate &amp; AR</span></div>
+      <div class="showcase-links">
+        <a href="dashboard.html" class="showcase-chip is-current">Dashboard Finance</a>
+        <a href="ready-to-bill.html" class="showcase-chip">Siap Tagih (5.200 PCS)</a>
+        <a href="invoices.html" class="showcase-chip">Faktur (Invoice)</a>
+        <a href="accounts-receivable.html" class="showcase-chip">Buku Besar AR</a>
+        <a href="ar-aging.html" class="showcase-chip">AR Aging</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

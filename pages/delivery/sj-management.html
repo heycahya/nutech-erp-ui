@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pengelolaan Surat Jalan (SJ Management) — NUTECH ERP</title>
+  <link rel="stylesheet" href="../../css/tokens.css" />
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/shell.css" />
+  <link rel="stylesheet" href="../../css/patterns.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
+    <symbol id="i-clipboard-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+    <symbol id="i-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  </svg>
+
+  <input type="checkbox" id="sidebar-toggle" class="shell-state-toggle" aria-label="Toggle Sidebar" />
+  <input type="checkbox" id="role-dropdown-toggle" class="shell-state-toggle" aria-label="Toggle Role Switcher" />
+
+  <div class="erp-shell">
+    <header class="global-topbar">
+      <div class="topbar-left">
+        <label for="sidebar-toggle" class="sidebar-toggle-btn" title="Buka / Kecilkan Navigasi Samping"><svg class="icon-md"><use href="#i-menu"/></svg></label>
+        <div class="brand-lockup">
+          <div class="brand-mark">N</div>
+          <div class="brand-Wordmark">
+            <div class="brand-title-row"><span class="brand-title">NUTECH ERP</span><span class="brand-env-badge">PROD-SIM</span></div>
+            <div class="brand-subtitle">Sistem Informasi Manufaktur Terintegrasi</div>
+          </div>
+        </div>
+        <div class="topbar-divider"></div>
+        <div class="plant-context-pill"><span class="plant-dot"></span><span>PLANT CIKARANG-01 • SHIFT 1 (PAGI)</span></div>
+      </div>
+      <div class="topbar-right">
+        <div class="date-context-box"><span class="date-context-label">Tgl Operasional:</span><span class="date-context-value">04 Nov 2026</span></div>
+        <div class="topbar-divider"></div>
+        <div class="role-switcher-wrap">
+          <label for="role-dropdown-toggle" class="role-switcher-btn">
+            <svg class="icon-sm" style="color:#60a5fa"><use href="#i-shield"/></svg>
+            <div class="role-switcher-text"><span class="role-switcher-label">Simulasi Peran Aktif</span><span class="role-switcher-value">Admin Produksi &amp; Pengiriman</span></div>
+            <svg class="icon-sm role-switcher-caret"><use href="#i-chevron-down"/></svg>
+          </label>
+          <label for="role-dropdown-toggle" class="role-dropdown-backdrop" aria-hidden="true"></label>
+          <div class="role-dropdown-panel">
+            <div class="role-dropdown-header"><div class="role-dropdown-title">Pilih Peran Pengguna (Role RBAC)</div><div class="role-dropdown-desc">Setiap peran memiliki hak akses menu dan otorisasi operasional yang terpisah</div></div>
+            <div class="role-dropdown-list">
+              <a href="../marketing/sales-orders.html" class="role-option"><div class="role-option-top"><span class="role-option-name">Marketing</span><span class="role-option-dept">Divisi Komersial &amp; Penjualan</span></div><div class="role-option-desc">Pencatatan PO Customer (Sales Order), katalog part, dan pantauan pemenuhan pesanan</div></a>
+              <a href="../ppic/spk.html" class="role-option"><div class="role-option-top"><span class="role-option-name">PPIC</span><span class="role-option-dept">Perencanaan &amp; Pengendalian Produksi</span></div><div class="role-option-desc">Penerbitan SPK, alokasi target harian per lini, rasio kemasan, dan pantauan defisit produksi</div></a>
+              <a href="../purchasing/mrp.html" class="role-option"><div class="role-option-top"><span class="role-option-name">Purchasing</span><span class="role-option-dept">Pengadaan &amp; Pembelian Material</span></div><div class="role-option-desc">Kalkulasi kebutuhan bahan baku (MRP), penerbitan PO Supplier, dan pemantauan kedatangan</div></a>
+              <a href="../warehouse/monitoring.html" class="role-option"><div class="role-option-top"><span class="role-option-name">Warehouse (Gudang RM)</span><span class="role-option-dept">Gudang Bahan Baku &amp; Logistik Masuk</span></div><div class="role-option-desc">Penerimaan barang supplier (GRN), pengeluaran material ke lini (Issue), dan kartu stok</div></a>
+              <a href="../production/monitoring.html" class="role-option is-active"><div class="role-option-top"><span class="role-option-name">Admin Produksi &amp; Pengiriman <svg class="icon-xs" style="display:inline;vertical-align:middle;margin-left:4px"><use href="#i-check"/></svg></span><span class="role-option-dept">Operasional Lantai Produksi &amp; Ekspedisi</span></div><div class="role-option-desc">Input hasil produksi aktual per shift, stok FG multi-lokasi, penerbitan &amp; konfirmasi Surat Jalan</div></a>
+              <a href="../finance/dashboard.html" class="role-option"><div class="role-option-top"><span class="role-option-name">Finance</span><span class="role-option-dept">Keuangan, Penagihan &amp; Piutang</span></div><div class="role-option-desc">Verifikasi pengiriman siap tagih, penerbitan faktur (Invoice), pencatatan pembayaran &amp; AR Aging</div></a>
+              <a href="../management/dashboard.html" class="role-option"><div class="role-option-top"><span class="role-option-name">Management</span><span class="role-option-dept">Direksi &amp; Eksekutif (Read-Only)</span></div><div class="role-option-desc">Ringkasan eksekutif, pencapaian target vs aktual, valuasi inventori, dan kontrol integritas data</div></a>
+            </div>
+          </div>
+        </div>
+        <div class="user-profile-chip">
+          <div class="user-avatar">OP</div>
+          <div class="user-info"><span class="user-name">Rudi Hartono</span><span class="user-role">Admin Operasional Pabrik</span></div>
+        </div>
+      </div>
+    </header>
+
+    <div class="erp-body">
+      <aside class="sidebar-nav">
+        <div class="sidebar-role-box">
+          <div class="sidebar-role-label">Operasional Pabrik</div>
+          <div class="sidebar-role-title">Admin Produksi &amp; Pengiriman</div>
+        </div>
+        <div class="sidebar-scroll">
+          <div class="nav-group">
+            <div class="nav-group-label">MODUL PRODUKSI (Lantai Lini)</div>
+            <ul class="nav-list">
+              <li class="nav-item"><a href="../production/monitoring.html" class="nav-link" title="Monitoring Produksi Lini"><svg class="nav-icon"><use href="#i-activity"/></svg><span class="nav-text">Monitoring Produksi Lini</span></a></li>
+              <li class="nav-item"><a href="../production/daily-report.html" class="nav-link" title="Laporan &amp; Input Aktual Harian"><svg class="nav-icon"><use href="#i-clipboard-check"/></svg><span class="nav-text">Laporan &amp; Input Aktual Harian</span></a></li>
+              <li class="nav-item"><a href="../production/history.html" class="nav-link" title="Riwayat &amp; Log Produksi Shift"><svg class="nav-icon"><use href="#i-history"/></svg><span class="nav-text">Riwayat &amp; Log Produksi Shift</span></a></li>
+              <li class="nav-item"><a href="../production/downtime.html" class="nav-link" title="Monitoring Downtime &amp; OEE"><svg class="nav-icon"><use href="#i-clock"/></svg><span class="nav-text">Monitoring Downtime &amp; OEE</span></a></li>
+              <li class="nav-item"><a href="../production/fg-stocks.html" class="nav-link" title="Stok Multi-Lokasi Finished Goods"><svg class="nav-icon"><use href="#i-layers"/></svg><span class="nav-text">Stok Multi-Lokasi Finished Goods</span></a></li>
+            </ul>
+          </div>
+          <div class="nav-group">
+            <div class="nav-group-label">MODUL PENGIRIMAN (Surat Jalan)</div>
+            <ul class="nav-list">
+              <li class="nav-item"><a href="monitoring.html" class="nav-link" title="Monitoring Pengiriman"><svg class="nav-icon"><use href="#i-truck"/></svg><span class="nav-text">Monitoring Pengiriman</span></a></li>
+              <li class="nav-item"><a href="sj-management.html" class="nav-link is-active" title="Pengelolaan Surat Jalan (SJ)"><svg class="nav-icon"><use href="#i-file-text"/></svg><span class="nav-text">Pengelolaan Surat Jalan (SJ)</span><span class="nav-badge is-primary">4</span></a></li>
+              <li class="nav-item"><a href="so-matching.html" class="nav-link" title="Pencocokan SO &amp; Tagihan"><svg class="nav-icon"><use href="#i-shield"/></svg><span class="nav-text">Pencocokan SO &amp; Tagihan</span></a></li>
+              <li class="nav-item"><a href="history.html" class="nav-link" title="Riwayat &amp; Log Pengiriman"><svg class="nav-icon"><use href="#i-history"/></svg><span class="nav-text">Riwayat &amp; Log Pengiriman</span></a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="sidebar-footer">
+          <div class="sidebar-Shortcut-hint"><span>Siklus SJ</span><span class="kbd-badge">Draft→Print→Deliv</span></div>
+        </div>
+      </aside>
+
+      <div class="main-workspace">
+        <div class="page-header-rail">
+          <div class="header-rail-left">
+            <nav class="breadcrumb-nav" aria-label="Breadcrumb">
+              <span class="breadcrumb-item">Operasional Pabrik</span>
+              <svg class="breadcrumb-sep"><use href="#i-chevron-right"/></svg>
+              <span class="breadcrumb-item">Modul Pengiriman</span>
+              <svg class="breadcrumb-sep"><use href="#i-chevron-right"/></svg>
+              <span class="breadcrumb-current">Pengelolaan Surat Jalan (SJ Management)</span>
+            </nav>
+            <div class="page-title-row">
+              <h1 class="page-title">Pengelolaan Dokumen Surat Jalan (Delivery Order / SJ)</h1>
+              <span class="mode-badge is-edit"><svg class="icon-xs"><use href="#i-file-text"/></svg> PENERBITAN, CETAK &amp; KONFIRMASI POD</span>
+            </div>
+            <p class="page-subtitle">Kelola dokumen pengiriman dari pembuatan Draft, pencetakan fisik, hingga konfirmasi serah terima pelanggan (Proof of Delivery / POD).</p>
+          </div>
+          <div class="header-rail-actions">
+            <a href="#modal-sj-printed" class="btn btn-secondary">Preview Cetak SJ</a>
+            <a href="#modal-confirm-sj" class="btn btn-secondary">Konfirmasi POD</a>
+            <a href="#modal-create-sj" class="btn btn-primary"><svg class="icon-sm"><use href="#i-plus"/></svg> Buat Surat Jalan Baru</a>
+          </div>
+        </div>
+
+        <main class="workspace-canvas">
+          <!-- Radio Filter Status SJ & Split-Pane Detail 4 SJ -->
+          <input type="radio" name="sj-filter" id="sj-filter-all" class="css-filter-radio" checked />
+          <input type="radio" name="sj-filter" id="sj-filter-delivered" class="css-filter-radio" />
+          <input type="radio" name="sj-filter" id="sj-filter-printed" class="css-filter-radio" />
+          <input type="radio" name="sj-filter" id="sj-filter-draft" class="css-filter-radio" />
+
+          <input type="radio" name="sj-detail" id="sj-sel-1" class="css-split-radio" checked />
+          <input type="radio" name="sj-detail" id="sj-sel-2" class="css-split-radio" />
+          <input type="radio" name="sj-detail" id="sj-sel-3" class="css-split-radio" />
+          <input type="radio" name="sj-detail" id="sj-sel-4" class="css-split-radio" />
+
+          <div class="toolbar-card mb-16">
+            <div class="toolbar-left">
+              <span class="toolbar-label">Filter Status SJ:</span>
+              <div class="filter-pill-group">
+                <label for="sj-filter-all" class="filter-pill">Semua SJ (4)</label>
+                <label for="sj-filter-delivered" class="filter-pill">Delivered (2)</label>
+                <label for="sj-filter-printed" class="filter-pill">Printed • In-Transit (1)</label>
+                <label for="sj-filter-draft" class="filter-pill">Draft (1)</label>
+              </div>
+            </div>
+            <div class="toolbar-right">
+              <a href="create-sj-modal.html" class="btn btn-xs btn-secondary">State Modal Buat SJ</a>
+              <a href="confirm-sj-modal.html" class="btn btn-xs btn-secondary">State Modal Confirm</a>
+              <a href="sj-printed.html" class="btn btn-xs btn-secondary">State Cetak SJ</a>
+            </div>
+          </div>
+
+          <div class="split-pane-layout">
+            <div class="section-card">
+              <div class="section-header">
+                <div>
+                  <h2 class="section-title">Daftar Dokumen Surat Jalan (4 SJ)</h2>
+                  <p class="section-subtitle">Klik Pilih untuk menampilkan rincian muatan, lokasi pengambilan FG, dan tanda tangan penerima</p>
+                </div>
+              </div>
+              <div class="table-container">
+                <table class="data-table sj-table">
+                  <thead>
+                    <tr>
+                      <th>No. SJ &amp; Tgl</th>
+                      <th>SO &amp; Customer</th>
+                      <th class="text-right">Total Qty</th>
+                      <th>Lokasi FG</th>
+                      <th>Status</th>
+                      <th>Detail</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr class="sj-row-delivered">
+                      <td><div class="font-mono font-semibold text-primary">SJ-2026-0089</div><div class="cell-secondary">02 Nov 2026</div></td>
+                      <td><div class="font-mono font-semibold">SO-2026-0041</div><div class="cell-secondary">PT Auto Dinamika Manufaktur</div></td>
+                      <td class="text-right tnum font-bold">6.500 PCS</td>
+                      <td><span class="badge is-neutral">Gudang FG</span></td>
+                      <td><span class="badge is-success">Delivered</span></td>
+                      <td><label for="sj-sel-1" class="btn btn-xs btn-secondary">Pilih</label></td>
+                    </tr>
+                    <tr class="sj-row-delivered">
+                      <td><div class="font-mono font-semibold text-primary">SJ-2026-0090</div><div class="cell-secondary">03 Nov 2026</div></td>
+                      <td><div class="font-mono font-semibold">SO-2026-0044</div><div class="cell-secondary">PT Heavy Mobil Manufaktur Indonesia</div></td>
+                      <td class="text-right tnum font-bold">1.200 PCS</td>
+                      <td><span class="badge is-neutral">Gudang FG</span></td>
+                      <td><span class="badge is-success">Delivered</span></td>
+                      <td><label for="sj-sel-2" class="btn btn-xs btn-secondary">Pilih</label></td>
+                    </tr>
+                    <tr class="sj-row-printed">
+                      <td><div class="font-mono font-semibold text-primary">SJ-2026-0091</div><div class="cell-secondary">04 Nov 2026</div></td>
+                      <td><div class="font-mono font-semibold">SO-2026-0042</div><div class="cell-secondary">PT Trans Mega Motor Indonesia</div></td>
+                      <td class="text-right tnum font-bold">1.500 PCS</td>
+                      <td><span class="badge is-info">Ujung Lini</span></td>
+                      <td><span class="badge is-info">Printed</span></td>
+                      <td><label for="sj-sel-3" class="btn btn-xs btn-secondary">Pilih</label></td>
+                    </tr>
+                    <tr class="sj-row-draft">
+                      <td><div class="font-mono font-semibold text-primary">SJ-2026-0092</div><div class="cell-secondary">04 Nov 2026</div></td>
+                      <td><div class="font-mono font-semibold">SO-2026-0041</div><div class="cell-secondary">PT Auto Dinamika Manufaktur</div></td>
+                      <td class="text-right tnum font-bold">2.500 PCS</td>
+                      <td><span class="badge is-info">Ujung Lini</span></td>
+                      <td><span class="badge is-neutral">Draft</span></td>
+                      <td><label for="sj-sel-4" class="btn btn-xs btn-secondary">Pilih</label></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Panel Kanan: Rincian 4 SJ -->
+            <div class="detail-pane-card">
+              <!-- SJ 1 -->
+              <div class="sj-detail-panel sj-detail-1">
+                <div class="detail-pane-header">
+                  <div>
+                    <span class="badge is-success mb-4">DELIVERED • FG DEDUCTED • SIAP TAGIH</span>
+                    <h3 class="detail-pane-title font-mono">SJ-2026-0089</h3>
+                    <p class="detail-pane-subtitle">PT Auto Dinamika Manufaktur • Ref PO: ADM-PO-2610-8812</p>
+                  </div>
+                </div>
+                <div class="detail-pane-body">
+                  <div class="kv-grid mb-12">
+                    <div class="kv-item"><span class="kv-label">Item 1</span><span class="kv-value font-mono">NTC-RUB-0101 • 2.500 PCS (Billed)</span></div>
+                    <div class="kv-item"><span class="kv-label">Item 2</span><span class="kv-value font-mono">NTC-EVA-0301 • 4.000 PCS (Unbilled)</span></div>
+                    <div class="kv-item"><span class="kv-label">Armada &amp; Supir</span><span class="kv-value">B 9104 TCD • Budi Santoso</span></div>
+                    <div class="kv-item"><span class="kv-label">Penerima (POD)</span><span class="kv-value">Bpk. Hendrawan - Receiving ADM</span></div>
+                  </div>
+                  <div class="flex gap-8">
+                    <a href="#modal-sj-printed" class="btn btn-xs btn-secondary">Lihat Dokumen Cetak</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SJ 2 -->
+              <div class="sj-detail-panel sj-detail-2">
+                <div class="detail-pane-header">
+                  <div>
+                    <span class="badge is-success mb-4">DELIVERED • FG DEDUCTED • UNBILLED</span>
+                    <h3 class="detail-pane-title font-mono">SJ-2026-0090</h3>
+                    <p class="detail-pane-subtitle">PT Heavy Mobil Manufaktur Indonesia • Ref PO: HMMI-PO-2026-331</p>
+                  </div>
+                </div>
+                <div class="detail-pane-body">
+                  <div class="kv-grid mb-12">
+                    <div class="kv-item"><span class="kv-label">Item Dikirim</span><span class="kv-value font-mono">NTC-RUB-0104 • 1.200 PCS (12 Box)</span></div>
+                    <div class="kv-item"><span class="kv-label">Lokasi Asal FG</span><span class="kv-value">Gudang FG Utama</span></div>
+                    <div class="kv-item"><span class="kv-label">Armada &amp; Supir</span><span class="kv-value">B 9452 KQA • Agus Salim</span></div>
+                    <div class="kv-item"><span class="kv-label">Penerima (POD)</span><span class="kv-value">Bpk. Kurniawan - Gudang HMMI</span></div>
+                  </div>
+                  <div class="flex gap-8">
+                    <a href="#modal-sj-printed" class="btn btn-xs btn-secondary">Lihat Dokumen Cetak</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SJ 3 -->
+              <div class="sj-detail-panel sj-detail-3">
+                <div class="detail-pane-header">
+                  <div>
+                    <span class="badge is-info mb-4">PRINTED • IN-TRANSIT (MENUNGGU POD)</span>
+                    <h3 class="detail-pane-title font-mono">SJ-2026-0091</h3>
+                    <p class="detail-pane-subtitle">PT Trans Mega Motor Indonesia • Ref PO: TMMI-URG-2611-004</p>
+                  </div>
+                </div>
+                <div class="detail-pane-body">
+                  <div class="kv-grid mb-12">
+                    <div class="kv-item"><span class="kv-label">Item Dikirim</span><span class="kv-value font-mono">NTC-FOAM-0201 • 1.500 PCS (30 Bag)</span></div>
+                    <div class="kv-item"><span class="kv-label">Lokasi Asal FG</span><span class="kv-value">Ujung Lini Produksi (Direct Load)</span></div>
+                    <div class="kv-item"><span class="kv-label">Armada &amp; Supir</span><span class="kv-value">B 9821 TZX • Ahmad Fauzi</span></div>
+                    <div class="kv-item"><span class="kv-label">Status Stok FG</span><span class="kv-value text-warning">Belum Terpotong (Tunggu Konfirmasi POD)</span></div>
+                  </div>
+                  <div class="flex gap-8">
+                    <a href="#modal-confirm-sj" class="btn btn-xs btn-primary">Konfirmasi Diterima (POD)</a>
+                    <a href="#modal-sj-printed" class="btn btn-xs btn-secondary">Cetak Ulang SJ</a>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SJ 4 -->
+              <div class="sj-detail-panel sj-detail-4">
+                <div class="detail-pane-header">
+                  <div>
+                    <span class="badge is-neutral mb-4">DRAFT • BELUM DICETAK</span>
+                    <h3 class="detail-pane-title font-mono">SJ-2026-0092</h3>
+                    <p class="detail-pane-subtitle">PT Auto Dinamika Manufaktur • Ref PO: ADM-PO-2610-8812</p>
+                  </div>
+                </div>
+                <div class="detail-pane-body">
+                  <div class="kv-grid mb-12">
+                    <div class="kv-item"><span class="kv-label">Item Direncanakan</span><span class="kv-value font-mono">NTC-RUB-0101 • 2.500 PCS</span></div>
+                    <div class="kv-item"><span class="kv-label">Lokasi Asal FG</span><span class="kv-value">Ujung Lini Produksi</span></div>
+                    <div class="kv-item"><span class="kv-label">Armada &amp; Supir</span><span class="kv-value">B 9104 TCD • Budi Santoso</span></div>
+                    <div class="kv-item"><span class="kv-label">Status Kontrol</span><span class="kv-value">Menunggu Otorisasi Cetak</span></div>
+                  </div>
+                  <div class="flex gap-8">
+                    <a href="#modal-sj-printed" class="btn btn-xs btn-primary">Otorisasi &amp; Cetak SJ</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </main>
+
+        <footer class="footer-status-bar">
+          <div class="footer-left"><span>Referensi Visual: <strong>admin_del_sj_management.png</strong></span></div>
+          <div class="footer-right"><span class="font-mono">v2.4.0-HTML5</span></div>
+        </footer>
+      </div>
+    </div>
+
+    <!-- Modal 1: Buat Surat Jalan Baru (#modal-create-sj) -->
+    <div id="modal-create-sj" class="modal-overlay">
+      <a href="#" class="modal-backdrop" aria-label="Tutup Modal"></a>
+      <div class="modal-dialog modal-lg">
+        <div class="modal-header">
+          <div>
+            <span class="badge is-primary mb-4">PENERBITAN DOKUMEN EKSPEDISI</span>
+            <h3 class="modal-title">Buat Surat Jalan Baru (Create Delivery Order / SJ)</h3>
+            <p class="modal-subtitle">Pilih referensi Sales Order (SO) dan lokasi pengambilan barang jadi (Ujung Lini atau Gudang FG)</p>
+          </div>
+          <a href="#" class="modal-close-btn" title="Tutup"><svg class="icon-sm"><use href="#i-x"/></svg></a>
+        </div>
+        <div class="modal-body">
+          <div class="form-grid-2">
+            <div class="form-group"><label class="form-label">Nomor Surat Jalan (Otomatis)</label><input type="text" class="form-control font-mono" value="SJ-2026-0093" readonly /></div>
+            <div class="form-group"><label class="form-label">Tanggal Pengiriman</label><input type="text" class="form-control tnum" value="04 Nov 2026" readonly /></div>
+            <div class="form-group"><label class="form-label">Pilih Referensi Sales Order (SO Aktif)</label><select class="form-control"><option selected>SO-2026-0041 — PT Auto Dinamika Manufaktur (ADM-PO-2610-8812)</option><option>SO-2026-0042 — PT Trans Mega Motor Indonesia (TMMI-URG-2611-004)</option><option>SO-2026-0044 — PT Heavy Mobil Manufaktur Indonesia (HMMI-PO-2026-331)</option></select></div>
+            <div class="form-group"><label class="form-label">Pilih Lokasi Pengambilan Stok FG</label><select class="form-control"><option selected>Gudang FG Utama (Tersedia: 1.000 PCS NTC-RUB-0101)</option><option>Ujung Lini Produksi (Tersedia: 1.500 PCS NTC-RUB-0101)</option></select></div>
+            <div class="form-group"><label class="form-label">Part FG &amp; Kuantitas Kirim (PCS)</label><input type="text" class="form-control tnum font-bold" value="NTC-RUB-0101 — 1.000 PCS (5 Box @ 200 PCS)" /></div>
+            <div class="form-group"><label class="form-label">No. Polisi Armada &amp; Nama Pengemudi</label><input type="text" class="form-control" value="B 9104 TCD — Budi Santoso" /></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn btn-secondary">Batal</a>
+          <a href="#" class="btn btn-primary"><svg class="icon-sm"><use href="#i-check"/></svg> Simpan sebagai Draft SJ</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 2: Konfirmasi Penerimaan Pelanggan / POD (#modal-confirm-sj) -->
+    <div id="modal-confirm-sj" class="modal-overlay">
+      <a href="#" class="modal-backdrop" aria-label="Tutup Modal"></a>
+      <div class="modal-dialog modal-lg">
+        <div class="modal-header">
+          <div>
+            <span class="badge is-success mb-4">KONFIRMASI PROOF OF DELIVERY (POD)</span>
+            <h3 class="modal-title">Konfirmasi Surat Jalan Diterima Pelanggan &amp; Potong Stok FG</h3>
+            <p class="modal-subtitle">Tindakan ini akan mengubah status SJ-2026-0091 menjadi Delivered, memotong stok Ujung Lini (-1.500 PCS), dan membuka akses penagihan Finance.</p>
+          </div>
+          <a href="#" class="modal-close-btn" title="Tutup"><svg class="icon-sm"><use href="#i-x"/></svg></a>
+        </div>
+        <div class="modal-body">
+          <div class="form-grid-2">
+            <div class="form-group"><label class="form-label">Nomor Surat Jalan</label><input type="text" class="form-control font-mono font-bold" value="SJ-2026-0091 (SO-2026-0042)" readonly /></div>
+            <div class="form-group"><label class="form-label">Pelanggan Tujuan</label><input type="text" class="form-control" value="PT Trans Mega Motor Indonesia (TMMI)" readonly /></div>
+            <div class="form-group"><label class="form-label">Part &amp; Kuantitas Dikonfirmasi</label><input type="text" class="form-control tnum font-bold" value="NTC-FOAM-0201 — 1.500 PCS (30 Polybag)" readonly /></div>
+            <div class="form-group"><label class="form-label">Lokasi Pemotongan Stok FG</label><input type="text" class="form-control font-semibold" value="Ujung Lini Produksi (800 PCS → Potong Batch)" readonly /></div>
+            <div class="form-group"><label class="form-label">Nama Pejabat Penerima &amp; Stempel Gudang Customer</label><input type="text" class="form-control" value="Bpk. Rahmat Hidayat - Receiving Dock TMMI" /></div>
+            <div class="form-group"><label class="form-label">Waktu Serah Terima Aktual</label><input type="text" class="form-control tnum" value="04 Nov 2026 • 14:10 WIB" /></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn btn-secondary">Batal</a>
+          <a href="#" class="btn btn-primary"><svg class="icon-sm"><use href="#i-check"/></svg> Konfirmasi Delivered &amp; Potong Stok FG</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Modal 3: Preview Cetak Dokumen Surat Jalan (#modal-sj-printed) -->
+    <div id="modal-sj-printed" class="modal-overlay">
+      <a href="#" class="modal-backdrop" aria-label="Tutup Modal"></a>
+      <div class="modal-dialog modal-lg">
+        <div class="modal-header">
+          <div>
+            <span class="badge is-info mb-4">DOKUMEN CETAK RESMI (3 RANGKAP)</span>
+            <h3 class="modal-title">Pratinjau Cetak Surat Jalan — SJ-2026-0091</h3>
+            <p class="modal-subtitle">Lembar Putih: Finance (Penagihan) • Lembar Merah: Customer • Lembar Kuning: Arsip Ekspedisi</p>
+          </div>
+          <a href="#" class="modal-close-btn" title="Tutup"><svg class="icon-sm"><use href="#i-x"/></svg></a>
+        </div>
+        <div class="modal-body">
+          <div class="print-document-sheet">
+            <div class="flex justify-between items-center mb-12" style="border-bottom:2px solid #1e293b;padding-bottom:10px">
+              <div>
+                <div class="font-bold" style="font-size:16px">PT NUTECH MANUFAKTUR KOMPONEN</div>
+                <div class="text-xs text-secondary">Kawasan Industri Jababeka Tahap II, Cikarang, Bekasi</div>
+              </div>
+              <div class="text-right">
+                <div class="font-mono font-bold text-primary" style="font-size:16px">SURAT JALAN: SJ-2026-0091</div>
+                <div class="text-xs tnum">Tanggal: 04 Nov 2026 • Ref SO: SO-2026-0042</div>
+              </div>
+            </div>
+            <div class="kv-grid mb-12">
+              <div class="kv-item"><span class="kv-label">Kepada Yth.</span><span class="kv-value font-semibold">PT Trans Mega Motor Indonesia (TMMI)</span></div>
+              <div class="kv-item"><span class="kv-label">No. PO Pelanggan</span><span class="kv-value font-mono">TMMI-URG-2611-004</span></div>
+              <div class="kv-item"><span class="kv-label">Kendaraan / Nopol</span><span class="kv-value font-mono">B 9821 TZX (Pengemudi: Ahmad Fauzi)</span></div>
+              <div class="kv-item"><span class="kv-label">Lokasi Muat</span><span class="kv-value">Ujung Lini Produksi — Plant Cikarang-01</span></div>
+            </div>
+            <table class="data-table mb-12">
+              <thead>
+                <tr><th>No</th><th>Kode Part</th><th>Nama Barang</th><th>Kemasan</th><th class="text-right">Kuantitas</th></tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="tnum">1</td>
+                  <td class="font-mono font-semibold">NTC-FOAM-0201</td>
+                  <td>Acoustic Foam Barrier Firewall 10mm</td>
+                  <td class="tnum">30 Polybag (@ 50 PCS)</td>
+                  <td class="text-right tnum font-bold">1.500 PCS</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="kpi-grid-3 text-center" style="padding-top:12px;border-top:1px dashed #cbd5e1">
+              <div><div class="text-xs text-muted mb-16">Diserahkan Oleh (Ekspedisi)</div><div class="font-semibold text-xs">( Rudi Hartono )</div></div>
+              <div><div class="text-xs text-muted mb-16">Dibawa Oleh (Pengemudi)</div><div class="font-semibold text-xs">( Ahmad Fauzi )</div></div>
+              <div><div class="text-xs text-muted mb-16">Diterima Oleh (Customer POD)</div><div class="font-semibold text-xs">( ___________________ )</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#" class="btn btn-secondary">Tutup Pratinjau</a>
+          <a href="#modal-confirm-sj" class="btn btn-primary">Lanjut ke Konfirmasi POD</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dev-showcase-bar">
+      <div class="showcase-left">
+        <span class="showcase-badge">PURE HTML5/CSS3</span>
+        <span class="showcase-text">Peran: <strong>Admin Pengiriman</strong> — Pengelolaan SJ (<code>admin_del_sj_management.png</code>)</span>
+      </div>
+      <div class="showcase-links">
+        <a href="monitoring.html" class="showcase-chip">Monitoring SJ</a>
+        <a href="sj-management.html" class="showcase-chip is-current">Kelola SJ</a>
+        <a href="create-sj-modal.html" class="showcase-chip">Modal Buat SJ</a>
+        <a href="confirm-sj-modal.html" class="showcase-chip">Modal Confirm POD</a>
+        <a href="sj-printed.html" class="showcase-chip">Preview Cetak SJ</a>
+        <a href="so-matching.html" class="showcase-chip">SO Matching &amp; Gate</a>
+        <a href="history.html" class="showcase-chip">Riwayat SJ</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

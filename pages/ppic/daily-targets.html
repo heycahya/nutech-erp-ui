@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NUTECH ERP — Perencanaan Target Harian Lini (PPIC)</title>
+  <link rel="stylesheet" href="../../css/tokens.css" />
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/shell.css" />
+  <link rel="stylesheet" href="../../css/patterns.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body>
+
+  <!-- ===================== SVG SPRITE ===================== -->
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-chevron-up" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-user-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></symbol>
+    <symbol id="i-shield-alert" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></symbol>
+    <symbol id="i-clipboard-list" viewBox="0 0 24 24"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></symbol>
+    <symbol id="i-bar-chart-3" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14"/><line x1="4" x2="4" y1="10" y2="3"/><line x1="12" x2="12" y1="21" y2="12"/><line x1="12" x2="12" y1="8" y2="3"/><line x1="20" x2="20" y1="21" y2="16"/><line x1="20" x2="20" y1="12" y2="3"/><line x1="2" x2="6" y1="14" y2="14"/><line x1="10" x2="14" y1="8" y2="8"/><line x1="18" x2="22" y1="16" y2="16"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+    <symbol id="i-lock" viewBox="0 0 24 24"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></symbol>
+    <symbol id="i-edit-2" viewBox="0 0 24 24"><path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  </svg>
+
+  <!-- ===================== PURE-CSS STATE TOGGLES ===================== -->
+  <input type="checkbox" id="sidebar-toggle" class="toggle-input" />
+  <input type="checkbox" id="role-dropdown-toggle" class="toggle-input" />
+  <input type="checkbox" id="devbar-collapse" class="toggle-input" />
+  <input type="checkbox" id="devbar-min" class="toggle-input" />
+  <input type="checkbox" id="devbar-off" class="toggle-input" />
+
+  <div class="app-shell">
+
+    <!-- ===================== TIER 1: GLOBAL TOPBAR ===================== -->
+    <header class="topbar">
+      <div class="topbar-brand">
+        <div class="topbar-logo">NT</div>
+        <div class="topbar-brand-text">
+          <span class="topbar-title">PT NUTECH PUNDI ARTA</span>
+          <span class="topbar-subtitle">Integrated Manufacturing ERP System</span>
+        </div>
+      </div>
+
+      <div class="topbar-search">
+        <div class="topbar-search-inner">
+          <svg class="icon topbar-search-icon" aria-hidden="true"><use href="#i-search"/></svg>
+          <input type="text" class="topbar-search-input" disabled placeholder="Pencarian dokumen, part, customer... (TBD)" />
+          <span class="topbar-search-badge">TBD</span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <div class="topbar-proto-pill">
+          <span>PROTOTYPE UI</span>
+          <span>·</span>
+          <span>SIMULASI</span>
+        </div>
+
+        <div class="role-switcher">
+          <label for="role-dropdown-toggle" class="role-btn" aria-label="Ganti Role Simulasi" aria-haspopup="listbox">
+            <svg class="icon role-btn-icon" aria-hidden="true"><use href="#i-user-circle"/></svg>
+            <span class="role-btn-text">
+              <span class="role-btn-caption">Role Aktif</span>
+              <span class="role-btn-value">PPIC</span>
+            </span>
+            <svg class="icon role-btn-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+          </label>
+          <label for="role-dropdown-toggle" class="role-dropdown-backdrop" aria-hidden="true"></label>
+          <div class="role-menu" role="listbox">
+            <div class="role-menu-head">
+              <p class="role-menu-title">Role Switcher (Simulasi 7 Role)</p>
+              <p class="role-menu-desc">Pilih salah satu role untuk menguji tampilan dan navigasi sesuai hak akses BRD.</p>
+            </div>
+            <div class="role-menu-list">
+              <a href="../marketing/sales-orders.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Staff Marketing &amp; Komersial</span></span>
+                  <span class="role-option-dept">Divisi Komersial</span>
+                </span>
+              </a>
+              <a href="spk.html" class="role-option is-selected" role="option" aria-selected="true">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">PPIC Planner</span></span>
+                  <span class="role-option-dept">Divisi Perencanaan Produksi</span>
+                </span>
+                <svg class="icon role-option-check" aria-hidden="true"><use href="#i-check"/></svg>
+              </a>
+              <a href="../purchasing/mrp.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Purchasing Officer</span></span>
+                  <span class="role-option-dept">Divisi Pengadaan</span>
+                </span>
+              </a>
+              <a href="../warehouse/monitoring.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Admin Gudang Bahan Baku</span></span>
+                  <span class="role-option-dept">Gudang Material</span>
+                </span>
+              </a>
+              <a href="../production/monitoring.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Admin Produksi &amp; Pengiriman</span></span>
+                  <span class="role-option-dept">Operasional Pabrik</span>
+                </span>
+              </a>
+              <a href="../finance/dashboard.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Finance &amp; Billing Specialist</span></span>
+                  <span class="role-option-dept">Divisi Keuangan</span>
+                </span>
+              </a>
+              <a href="../management/dashboard.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row">
+                    <span class="role-option-title">Direksi &amp; Manajemen</span>
+                    <span class="role-option-badge">READ ONLY</span>
+                  </span>
+                  <span class="role-option-dept">Executive Board</span>
+                </span>
+              </a>
+            </div>
+            <div class="role-menu-foot">
+              <div class="role-menu-foot-row">
+                <svg class="icon icon-14" aria-hidden="true"><use href="#i-shield-alert"/></svg>
+                <span>Tanpa autentikasi backend · Mode UI Mock</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================== TIER 2: PAGE HEADER RAIL ===================== -->
+    <div class="page-header-rail">
+      <div class="page-header-left">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <span>PPIC</span>
+          <span class="breadcrumb-sep">/</span>
+          <span>Perencanaan Produksi</span>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Target Harian (PCS Terkunci)</span>
+        </nav>
+        <div class="page-title-row">
+          <h1 class="page-title">Perencanaan Target Produksi Harian per Lini (6.800 PCS / Hari)</h1>
+          <span class="badge badge--11 badge--positive">LOCKED TARGETS · BR-PR-01</span>
+        </div>
+      </div>
+
+      <div class="page-actions">
+        <a href="gap-monitoring.html" class="btn-header btn-header--r4">
+          <svg class="icon icon-muted" aria-hidden="true"><use href="#i-bar-chart-3"/></svg>
+          <span>Monitoring Gap</span>
+        </a>
+        <a href="#modal-edit-target" class="btn-primary-header">
+          <svg class="icon" aria-hidden="true"><use href="#i-edit-2"/></svg>
+          <span>Sesuaikan Target Harian</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ===================== WORKSPACE FRAME: SIDEBAR + MAIN ===================== -->
+    <div class="app-body">
+
+      <aside class="sidebar" aria-label="Navigasi Role PPIC">
+        <div class="sidebar-scroll">
+          <div class="role-box">
+            <div class="role-box-expanded">
+              <div class="role-box-meta">
+                <span class="role-box-dept">Divisi Perencanaan Produksi</span>
+                <span class="role-box-name">PPIC</span>
+              </div>
+            </div>
+            <div class="role-box-collapsed" title="PPIC">
+              <div class="role-box-avatar">PP</div>
+            </div>
+          </div>
+
+          <nav class="nav-groups">
+            <div class="nav-group">
+              <h3 class="nav-group-title">Perencanaan Produksi</h3>
+              <div class="nav-group-divider"></div>
+              <div class="nav-list">
+                <a href="spk.html" class="nav-item" title="SPK Bulanan per Lini">
+                  <svg class="icon" aria-hidden="true"><use href="#i-clipboard-list"/></svg>
+                  <span class="nav-text"><span class="nav-label">SPK Bulanan per Lini</span><span class="nav-badge">Aktif</span></span>
+                </a>
+                <a href="daily-targets.html" class="nav-item is-active" title="Target Harian (PCS Terkunci)" aria-current="page">
+                  <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
+                  <span class="nav-text"><span class="nav-label">Target Harian (PCS Terkunci)</span></span>
+                </a>
+                <a href="gap-monitoring.html" class="nav-item" title="Monitoring Gap Produksi">
+                  <svg class="icon" aria-hidden="true"><use href="#i-bar-chart-3"/></svg>
+                  <span class="nav-text"><span class="nav-label">Monitoring Gap Produksi</span></span>
+                </a>
+              </div>
+            </div>
+
+            <div class="nav-group">
+              <h3 class="nav-group-title">Konfigurasi Lini</h3>
+              <div class="nav-group-divider"></div>
+              <div class="nav-list">
+                <a href="pack-ratio.html" class="nav-item" title="Rasio Pack-to-PCS">
+                  <svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>
+                  <span class="nav-text"><span class="nav-label">Rasio Pack-to-PCS</span></span>
+                </a>
+                <a href="master-lanes.html" class="nav-item" title="Master Lini Kerja (Lanes)">
+                  <svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>
+                  <span class="nav-text"><span class="nav-label">Master Lini Kerja (Lanes)</span></span>
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <div class="sidebar-foot">
+          <label for="sidebar-toggle" class="sidebar-collapse-btn" title="Ciutkan / Perluas Sidebar">
+            <span class="collapse-expanded">
+              <svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg>
+              <span>Ciutkan Sidebar</span>
+            </span>
+            <span class="collapse-collapsed">
+              <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg>
+            </span>
+          </label>
+        </div>
+      </aside>
+
+      <!-- ===================== MAIN WORKSPACE ===================== -->
+      <main class="main-workspace">
+        <div class="role-page">
+
+          <!-- 1. Callout Otoritas Kunci Target -->
+          <div class="callout-banner callout-banner--warn">
+            <svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>
+            <div>
+              <strong>Otoritas Eksklusif Target Harian PPIC (BR-PR-01):</strong>
+              <div>
+                Hanya PPIC Planner yang memiliki wewenang menetapkan dan mengubah kuota target produksi harian per lini. Di layar <em>Admin Produksi &amp; Operator Lini</em>, angka target harian sebesar <strong>6.800 PCS</strong> bersifat <strong>Read-Only (Terkunci)</strong> agar evaluasi gap harian tetap objektif.
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. 4 Kartu Alokasi Target Harian Lini (04 Nov 2026) -->
+          <div class="grid-cols-4">
+            <div class="stat-card-sm" style="border-left:4px solid #0057d2">
+              <span class="stat-card-sm-label">Target Pabrik Harian (04 Nov)</span>
+              <div class="stat-card-sm-val tnum" style="color:#0057d2">6.800 <span style="font-size:12px;font-weight:400;color:#545454">PCS</span></div>
+              <span class="stat-card-sm-note">Agregat 3 lini utama berjalan Shift 1</span>
+            </div>
+            <div class="stat-card-sm">
+              <span class="stat-card-sm-label">Lane 1 (Rubber Cutting)</span>
+              <div class="stat-card-sm-val tnum">3.300 <span style="font-size:12px;font-weight:400;color:#545454">PCS / Hari</span></div>
+              <span class="stat-card-sm-note">NTC-RUB-0101 · Setara 66 Box (@50 PCS)</span>
+            </div>
+            <div class="stat-card-sm">
+              <span class="stat-card-sm-label">Lane 2 (Foam Slicing) — Urgent</span>
+              <div class="stat-card-sm-val tnum">2.500 <span style="font-size:12px;font-weight:400;color:#545454">PCS / Hari</span></div>
+              <span class="stat-card-sm-note">NTC-FOAM-0201 · Setara 100 Bag (@25 PCS)</span>
+            </div>
+            <div class="stat-card-sm">
+              <span class="stat-card-sm-label">Lane 3 (EVA Die-cut)</span>
+              <div class="stat-card-sm-val tnum">1.000 <span style="font-size:12px;font-weight:400;color:#545454">PCS / Hari</span></div>
+              <span class="stat-card-sm-note">NTC-EVA-0301 · Setara 10 Bag (@100 PCS)</span>
+            </div>
+          </div>
+
+          <!-- 3. Pure CSS View Mode & Lane Filter -->
+          <input type="radio" name="dt-view" id="dt-view-table" class="toggle-input" checked />
+          <input type="radio" name="dt-view" id="dt-view-matrix" class="toggle-input" />
+          <input type="radio" name="dt-lane" id="dt-lane-all" class="toggle-input" checked />
+          <input type="radio" name="dt-lane" id="dt-lane-1" class="toggle-input" />
+          <input type="radio" name="dt-lane" id="dt-lane-2" class="toggle-input" />
+          <input type="radio" name="dt-lane" id="dt-lane-3" class="toggle-input" />
+
+          <div class="ppic-dt-wrap">
+            <div class="panel-card">
+              <div class="panel-card-head">
+                <div class="filter-pill-group">
+                  <span style="font-size:11px;font-weight:700;color:#545454;margin-right:4px">Filter Lini:</span>
+                  <label for="dt-lane-all" class="filter-pill">Semua Lini (6 Part)</label>
+                  <label for="dt-lane-1" class="filter-pill">Lane 1 Rubber</label>
+                  <label for="dt-lane-2" class="filter-pill">Lane 2 Foam</label>
+                  <label for="dt-lane-3" class="filter-pill">Lane 3 EVA</label>
+                </div>
+                <div class="filter-pill-group">
+                  <span style="font-size:11px;font-weight:700;color:#545454;margin-right:4px">Mode Tampilan:</span>
+                  <label for="dt-view-table" class="filter-pill">Tabel Alokasi</label>
+                  <label for="dt-view-matrix" class="filter-pill">Matriks Kalender 7 Hari</label>
+                </div>
+              </div>
+
+              <!-- View 1: Tabel Alokasi Target Harian -->
+              <div class="ppic-dt-view-table">
+                <div class="dt-table-wrap">
+                  <table class="dt-table ppic-dt-table">
+                    <thead>
+                      <tr>
+                        <th style="width:155px">Lini Manufaktur</th>
+                        <th style="width:130px">Ref. SPK</th>
+                        <th style="min-width:210px">Part Number &amp; Deskripsi</th>
+                        <th class="text-right" style="width:130px">Target Bulanan</th>
+                        <th class="text-right" style="width:140px">Target Harian (PCS)</th>
+                        <th class="text-right" style="width:135px">Ekuivalen Pack</th>
+                        <th style="width:140px">Alokasi Shift</th>
+                        <th class="text-center" style="width:110px">Status Kunci</th>
+                        <th class="text-center" style="width:95px">Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- Row 1: NTC-RUB-0101 (Primary Active on 04 Nov) -->
+                      <tr data-lane="lane-1">
+                        <td>
+                          <div class="dt-cell-name">Lane 1 (Rubber Cutting)</div>
+                          <div class="dt-cell-sub">Stamping Press Line A</div>
+                        </td>
+                        <td class="dt-cell-mono tnum" style="font-weight:700;color:#0057d2">SPK-2026-11-L1</td>
+                        <td>
+                          <div class="dt-cell-primary font-mono">NTC-RUB-0101</div>
+                          <div class="dt-cell-sub">Gasket Seal Cylinder Head EPDM</div>
+                        </td>
+                        <td class="text-right tnum">85.800 PCS</td>
+                        <td class="text-right tnum" style="font-weight:700;color:#0057d2;font-size:13px">3.300 PCS</td>
+                        <td class="text-right tnum" style="color:#475e75">66 Box (@50 PCS)</td>
+                        <td>Shift 1 Utama (08:00-16:00)</td>
+                        <td class="text-center"><span class="badge badge--11 badge--positive"><svg class="icon icon-12" aria-hidden="true"><use href="#i-lock"/></svg> Locked</span></td>
+                        <td class="text-center"><a href="#modal-edit-target" class="btn-row"><svg class="icon" aria-hidden="true"><use href="#i-edit-2"/></svg><span>Ubah</span></a></td>
+                      </tr>
+
+                      <!-- Row 2: NTC-FOAM-0201 (Primary Active on 04 Nov) -->
+                      <tr data-lane="lane-2">
+                        <td>
+                          <div class="dt-cell-name">Lane 2 (Foam Slicing)</div>
+                          <div class="dt-cell-sub">Foam Cutting Line B</div>
+                        </td>
+                        <td class="dt-cell-mono tnum" style="font-weight:700;color:#0057d2">SPK-2026-11-L2</td>
+                        <td>
+                          <div class="dt-cell-primary font-mono">NTC-FOAM-0201</div>
+                          <div class="dt-cell-sub">Acoustic Foam Barrier Firewall 10mm</div>
+                        </td>
+                        <td class="text-right tnum">65.000 PCS</td>
+                        <td class="text-right tnum" style="font-weight:700;color:#0057d2;font-size:13px">2.500 PCS</td>
+                        <td class="text-right tnum" style="color:#475e75">100 Bag (@25 PCS)</td>
+                        <td>Shift 1 Utama (Prioritas Urgent)</td>
+                        <td class="text-center"><span class="badge badge--11 badge--positive"><svg class="icon icon-12" aria-hidden="true"><use href="#i-lock"/></svg> Locked</span></td>
+                        <td class="text-center"><a href="#modal-edit-target" class="btn-row"><svg class="icon" aria-hidden="true"><use href="#i-edit-2"/></svg><span>Ubah</span></a></td>
+                      </tr>
+
+                      <!-- Row 3: NTC-EVA-0301 (Primary Active on 04 Nov) -->
+                      <tr data-lane="lane-3">
+                        <td>
+                          <div class="dt-cell-name">Lane 3 (EVA Die-cut)</div>
+                          <div class="dt-cell-sub">EVA Thermoforming Line C</div>
+                        </td>
+                        <td class="dt-cell-mono tnum" style="font-weight:700;color:#0057d2">SPK-2026-11-L3</td>
+                        <td>
+                          <div class="dt-cell-primary font-mono">NTC-EVA-0301</div>
+                          <div class="dt-cell-sub">EVA Sponge Weatherstrip Door Sash</div>
+                        </td>
+                        <td class="text-right tnum">26.000 PCS</td>
+                        <td class="text-right tnum" style="font-weight:700;color:#0057d2;font-size:13px">1.000 PCS</td>
+                        <td class="text-right tnum" style="color:#475e75">10 Bag (@100 PCS)</td>
+                        <td>Shift 1 Utama (08:00-16:00)</td>
+                        <td class="text-center"><span class="badge badge--11 badge--positive"><svg class="icon icon-12" aria-hidden="true"><use href="#i-lock"/></svg> Locked</span></td>
+                        <td class="text-center"><a href="#modal-edit-target" class="btn-row"><svg class="icon" aria-hidden="true"><use href="#i-edit-2"/></svg><span>Ubah</span></a></td>
+                      </tr>
+
+                      <!-- Row 4: NTC-RUB-0104 (Secondary Schedule) -->
+                      <tr data-lane="lane-1">
+                        <td>
+                          <div class="dt-cell-name">Lane 1 (Rubber Cutting)</div>
+                          <div class="dt-cell-sub">Jadwal Batch Kedua</div>
+                        </td>
+                        <td class="dt-cell-mono tnum" style="color:#475e75">SPK-2026-11-L1</td>
+                        <td>
+                          <div class="dt-cell-primary font-mono">NTC-RUB-0104</div>
+                          <div class="dt-cell-sub">Bushing Arm Cushion Rubber NR</div>
+                        </td>
+                        <td class="text-right tnum">31.200 PCS</td>
+                        <td class="text-right tnum" style="font-weight:700;color:#475e75">1.200 PCS</td>
+                        <td class="text-right tnum" style="color:#475e75">30 Box (@40 PCS)</td>
+                        <td>Batch Terjadwal (Mulai 10 Nov)</td>
+                        <td class="text-center"><span class="badge badge--11 badge--neutral">Terjadwal</span></td>
+                        <td class="text-center"><a href="#modal-edit-target" class="btn-row"><svg class="icon" aria-hidden="true"><use href="#i-edit-2"/></svg><span>Ubah</span></a></td>
+                      </tr>
+
+                      <!-- Row 5: NTC-FOAM-0208 (Secondary Schedule) -->
+                      <tr data-lane="lane-2">
+                        <td>
+                          <div class="dt-cell-name">Lane 2 (Foam Slicing)</div>
+                          <div class="dt-cell-sub">Jadwal Batch Kedua</div>
+                        </td>
+                        <td class="dt-cell-mono tnum" style="color:#475e75">SPK-2026-11-L2</td>
+                        <td>
+                          <div class="dt-cell-primary font-mono">NTC-FOAM-0208</div>
+                          <div class="dt-cell-sub">Insulation Pad Roof Lining PU Foam</div>
+                        </td>
+                        <td class="text-right tnum">20.000 PCS</td>
+                        <td class="text-right tnum" style="font-weight:700;color:#475e75">770 PCS</td>
+                        <td class="text-right tnum" style="color:#475e75">39 Bag (@20 PCS)</td>
+                        <td>Batch Terjadwal (Mulai 12 Nov)</td>
+                        <td class="text-center"><span class="badge badge--11 badge--neutral">Terjadwal</span></td>
+                        <td class="text-center"><a href="#modal-edit-target" class="btn-row"><svg class="icon" aria-hidden="true"><use href="#i-edit-2"/></svg><span>Ubah</span></a></td>
+                      </tr>
+
+                      <!-- Row 6: NTC-EVA-0305 (Secondary Schedule) -->
+                      <tr data-lane="lane-3">
+                        <td>
+                          <div class="dt-cell-name">Lane 3 (EVA Die-cut)</div>
+                          <div class="dt-cell-sub">Jadwal Batch Kedua</div>
+                        </td>
+                        <td class="dt-cell-mono tnum" style="color:#475e75">SPK-2026-11-L3</td>
+                        <td>
+                          <div class="dt-cell-primary font-mono">NTC-EVA-0305</div>
+                          <div class="dt-cell-sub">Seal Garnish Tailgate EVA 5mm</div>
+                        </td>
+                        <td class="text-right tnum">15.600 PCS</td>
+                        <td class="text-right tnum" style="font-weight:700;color:#475e75">600 PCS</td>
+                        <td class="text-right tnum" style="color:#475e75">6 Bag (@100 PCS)</td>
+                        <td>Batch Terjadwal (Mulai 14 Nov)</td>
+                        <td class="text-center"><span class="badge badge--11 badge--neutral">Terjadwal</span></td>
+                        <td class="text-center"><a href="#modal-edit-target" class="btn-row"><svg class="icon" aria-hidden="true"><use href="#i-edit-2"/></svg><span>Ubah</span></a></td>
+                      </tr>
+                    </tbody>
+                    <tfoot>
+                      <tr>
+                        <td colspan="4" class="text-right" style="font-weight:700">TARGET HARIAN AKTIF BERJALAN (TANGGAL ACUAN 04 NOV 2026):</td>
+                        <td class="text-right tnum" style="font-weight:700;color:#0057d2;font-size:13px">6.800 PCS / Hari</td>
+                        <td colspan="4" style="color:#545454">Terdiri dari: Lane 1 (3.300) + Lane 2 (2.500) + Lane 3 (1.000)</td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+
+              <!-- View 2: Matriks Kalender 7 Hari -->
+              <div class="ppic-dt-view-matrix">
+                <div class="panel-card-body">
+                  <div class="mgmt-subtable-wrap">
+                    <table class="mgmt-subtable">
+                      <thead>
+                        <tr>
+                          <th>Lini &amp; Part Utama</th>
+                          <th class="text-right">02 Nov</th>
+                          <th class="text-right">03 Nov</th>
+                          <th class="text-right" style="background-color:#ebf8ff;color:#0057d2">04 Nov (Acuan)</th>
+                          <th class="text-right">05 Nov</th>
+                          <th class="text-right">06 Nov</th>
+                          <th class="text-right">07 Nov</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td><strong>Lane 1 (Rubber Cutting)</strong> — <span class="font-mono">NTC-RUB-0101</span></td>
+                          <td class="text-right tnum">3.300 PCS</td>
+                          <td class="text-right tnum">3.300 PCS</td>
+                          <td class="text-right tnum" style="font-weight:700;background-color:#f0f7ff;color:#0057d2">3.300 PCS</td>
+                          <td class="text-right tnum">3.300 PCS</td>
+                          <td class="text-right tnum">3.300 PCS</td>
+                          <td class="text-right tnum">3.300 PCS</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Lane 2 (Foam Slicing)</strong> — <span class="font-mono">NTC-FOAM-0201</span></td>
+                          <td class="text-right tnum">2.500 PCS</td>
+                          <td class="text-right tnum">2.500 PCS</td>
+                          <td class="text-right tnum" style="font-weight:700;background-color:#f0f7ff;color:#0057d2">2.500 PCS</td>
+                          <td class="text-right tnum">2.500 PCS</td>
+                          <td class="text-right tnum">2.500 PCS</td>
+                          <td class="text-right tnum">2.500 PCS</td>
+                        </tr>
+                        <tr>
+                          <td><strong>Lane 3 (EVA Die-cut)</strong> — <span class="font-mono">NTC-EVA-0301</span></td>
+                          <td class="text-right tnum">1.000 PCS</td>
+                          <td class="text-right tnum">1.000 PCS</td>
+                          <td class="text-right tnum" style="font-weight:700;background-color:#f0f7ff;color:#0057d2">1.000 PCS</td>
+                          <td class="text-right tnum">1.000 PCS</td>
+                          <td class="text-right tnum">1.000 PCS</td>
+                          <td class="text-right tnum">1.000 PCS</td>
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr>
+                          <td><strong>TOTAL TARGET PABRIK HARIAN</strong></td>
+                          <td class="text-right tnum">6.800 PCS</td>
+                          <td class="text-right tnum">6.800 PCS</td>
+                          <td class="text-right tnum" style="color:#0057d2">6.800 PCS</td>
+                          <td class="text-right tnum">6.800 PCS</td>
+                          <td class="text-right tnum">6.800 PCS</td>
+                          <td class="text-right tnum">6.800 PCS</td>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div>
+                </div>
+              </div>
+
+              <div class="panel-card-foot">
+                <span>Status Otorisasi: <strong>Terkunci Resmi oleh PPIC Planner</strong></span>
+                <span>Sinkron dengan layar Operator Produksi &amp; Management Hero</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <!-- ===================== FOOTER STATUS BAR ===================== -->
+    <footer class="footer-status">
+      <div class="footer-group">
+        <span class="footer-strong">PT NUTECH PUNDI ARTA — MINI ERP PROTOTYPE</span>
+        <span class="footer-sep">|</span>
+        <span>Mode: UI Verification (Frontend-Only)</span>
+        <span class="footer-sep">|</span>
+        <span>Single Source of Truth: BRD v3.0</span>
+      </div>
+      <div class="footer-group footer-group--right">
+        <div class="footer-user">
+          <span class="footer-user-label">Simulasi User:</span>
+          <span class="footer-user-value">PPIC Planner</span>
+        </div>
+        <span class="footer-sep">|</span>
+        <span class="footer-baseline">Baseline: 1440 × 900 Desktop</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===================== DEVELOPMENT SHOWCASE BAR ===================== -->
+  <aside class="devbar" aria-label="Panel Evaluasi Internal">
+    <div class="devbar-head">
+      <div class="devbar-head-left">
+        <svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>
+        <span class="devbar-title">Evaluasi UI Phase 01</span>
+        <span class="devbar-tag">DEV / QA TOOL</span>
+      </div>
+      <div class="devbar-head-right">
+        <label for="devbar-collapse" class="devbar-icon-btn" title="Ciutkan / Perluas Kontrol Evaluasi">
+          <svg class="icon devbar-ico-down" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+          <svg class="icon devbar-ico-up" aria-hidden="true"><use href="#i-chevron-up"/></svg>
+        </label>
+        <label for="devbar-min" class="devbar-icon-btn devbar-icon-btn--close" title="Sembunyikan Panel">
+          <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+        </label>
+      </div>
+    </div>
+    <div class="devbar-body">
+      <span class="devbar-body-label">Modul PPIC:</span>
+      <a href="spk.html" class="devbar-pattern">1. SPK Bulanan</a>
+      <a href="daily-targets.html" class="devbar-pattern is-active">2. Target Harian</a>
+      <a href="gap-monitoring.html" class="devbar-pattern">3. Gap Monitoring</a>
+      <a href="pack-ratio.html" class="devbar-pattern">4. Pack Ratio</a>
+      <a href="master-lanes.html" class="devbar-pattern">5. Master Lanes</a>
+    </div>
+  </aside>
+
+  <div class="devbar-mini">
+    <label for="devbar-min" class="devbar-mini-open">
+      <svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>
+      <span>Panel QA</span>
+    </label>
+    <label for="devbar-off" class="devbar-mini-close">
+      <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+    </label>
+  </div>
+
+  <!-- ===================== MODAL: EDIT TARGET HARIAN (:target) ===================== -->
+  <div id="modal-edit-target" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title-edit-target">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:560px">
+      <div class="modal-head">
+        <div class="modal-head-left">
+          <svg class="icon c-primary" aria-hidden="true"><use href="#i-edit-2"/></svg>
+          <h2 id="modal-title-edit-target" class="modal-title">Penyesuaian Kuota Target Produksi Harian (PPIC Only)</h2>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body">
+        <div class="grid-cols-2">
+          <div class="form-field">
+            <label class="form-label">Lini Manufaktur</label>
+            <select class="form-select">
+              <option selected>Lane 1 (Rubber Cutting)</option>
+              <option>Lane 2 (Foam Slicing)</option>
+              <option>Lane 3 (EVA Die-cut)</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Part Komponen</label>
+            <input type="text" class="form-input font-mono" value="NTC-RUB-0101" readonly />
+          </div>
+          <div class="form-field">
+            <label class="form-label">Target Harian Saat Ini (PCS)</label>
+            <input type="number" class="form-input tnum" value="3300" />
+          </div>
+          <div class="form-field">
+            <label class="form-label">Ekuivalen Kemasan (Rasio 50 PCS)</label>
+            <input type="text" class="form-input tnum" value="66 Box" readonly />
+          </div>
+        </div>
+        <div class="form-field">
+          <label class="form-label">Alasan Penyesuaian Jadwal PPIC</label>
+          <input type="text" class="form-input" value="Penyesuaian jadwal shift pagi mengikuti kapasitas mesin press" />
+        </div>
+      </div>
+      <div class="modal-foot">
+        <a href="#" class="btn btn-secondary">Batal</a>
+        <a href="#" class="btn btn-primary">Kunci &amp; Perbarui Target Harian</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+

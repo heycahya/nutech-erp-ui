@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NUTECH ERP — Valuasi Stok Material &amp; FG (Management Read-Only)</title>
+  <link rel="stylesheet" href="../../css/tokens.css" />
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/shell.css" />
+  <link rel="stylesheet" href="../../css/patterns.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body>
+
+  <!-- ===================== SVG SPRITE (Lucide, stroke 2) ===================== -->
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-chevron-up" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-user-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></symbol>
+    <symbol id="i-shield-alert" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></symbol>
+    <symbol id="i-pie-chart" viewBox="0 0 24 24"><path d="M21.21 15.89A10 10 0 1 1 8 2.83"/><path d="M22 12A10 10 0 0 0 12 2v10z"/></symbol>
+    <symbol id="i-bar-chart-3" viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+    <symbol id="i-credit-card" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/></symbol>
+    <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+    <symbol id="i-warehouse" viewBox="0 0 24 24"><path d="M22 8.35V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.35A2 2 0 0 1 3.26 6.5l8-3.2a2 2 0 0 1 1.48 0l8 3.2A2 2 0 0 1 22 8.35Z"/><path d="M6 18h12"/><path d="M6 14h12"/><rect width="12" height="12" x="6" y="10"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></symbol>
+    <symbol id="i-help-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14"/><line x1="4" x2="4" y1="10" y2="3"/><line x1="12" x2="12" y1="21" y2="12"/><line x1="12" x2="12" y1="8" y2="3"/><line x1="20" x2="20" y1="21" y2="16"/><line x1="20" x2="20" y1="12" y2="3"/><line x1="2" x2="6" y1="14" y2="14"/><line x1="10" x2="14" y1="8" y2="8"/><line x1="18" x2="22" y1="16" y2="16"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  </svg>
+
+  <!-- ===================== PURE-CSS STATE TOGGLES ===================== -->
+  <input type="checkbox" id="sidebar-toggle" class="toggle-input" />
+  <input type="checkbox" id="role-dropdown-toggle" class="toggle-input" />
+  <input type="checkbox" id="devbar-collapse" class="toggle-input" />
+  <input type="checkbox" id="devbar-min" class="toggle-input" />
+  <input type="checkbox" id="devbar-off" class="toggle-input" />
+
+  <div class="app-shell">
+
+    <!-- ===================== TIER 1: GLOBAL TOPBAR (60px) ===================== -->
+    <header class="topbar">
+      <div class="topbar-brand">
+        <div class="topbar-logo">NT</div>
+        <div class="topbar-brand-text">
+          <span class="topbar-title">PT NUTECH PUNDI ARTA</span>
+          <span class="topbar-subtitle">Integrated Manufacturing ERP System</span>
+        </div>
+      </div>
+
+      <div class="topbar-search">
+        <div class="topbar-search-inner">
+          <svg class="icon topbar-search-icon" aria-hidden="true"><use href="#i-search"/></svg>
+          <input type="text" class="topbar-search-input" disabled placeholder="Pencarian dokumen, part, customer... (TBD)" title="Global Search is currently non-active (Pending Decision per BRD)" />
+          <span class="topbar-search-badge">TBD</span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <div class="topbar-proto-pill">
+          <span>PROTOTYPE UI</span>
+          <span>·</span>
+          <span>SIMULASI</span>
+        </div>
+
+        <div class="role-switcher">
+          <label for="role-dropdown-toggle" class="role-btn" aria-label="Ganti Role Simulasi" aria-haspopup="listbox">
+            <svg class="icon role-btn-icon" aria-hidden="true"><use href="#i-user-circle"/></svg>
+            <span class="role-btn-text">
+              <span class="role-btn-caption">Role Aktif</span>
+              <span class="role-btn-value">Management</span>
+            </span>
+            <span class="role-btn-ro">READ ONLY</span>
+            <svg class="icon role-btn-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+          </label>
+
+          <label for="role-dropdown-toggle" class="role-dropdown-backdrop" aria-hidden="true"></label>
+
+          <div class="role-menu" role="listbox">
+            <div class="role-menu-head">
+              <p class="role-menu-title">Role Switcher (Simulasi 7 Role)</p>
+              <p class="role-menu-desc">Pilih salah satu role untuk menguji tampilan dan navigasi sesuai hak akses BRD.</p>
+            </div>
+
+            <div class="role-menu-list">
+              <a href="../marketing/sales-orders.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Staff Marketing &amp; Komersial</span></span>
+                  <span class="role-option-dept">Divisi Komersial</span>
+                </span>
+              </a>
+              <a href="../ppic/spk.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">PPIC Planner</span></span>
+                  <span class="role-option-dept">Divisi Perencanaan Produksi</span>
+                </span>
+              </a>
+              <a href="../purchasing/mrp.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Purchasing Officer</span></span>
+                  <span class="role-option-dept">Divisi Pengadaan</span>
+                </span>
+              </a>
+              <a href="../warehouse/monitoring.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Admin Gudang Bahan Baku</span></span>
+                  <span class="role-option-dept">Gudang Material</span>
+                </span>
+              </a>
+              <a href="../production/monitoring.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Admin Produksi &amp; Pengiriman</span></span>
+                  <span class="role-option-dept">Operasional Pabrik</span>
+                </span>
+              </a>
+              <a href="../finance/dashboard.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Finance &amp; Billing Specialist</span></span>
+                  <span class="role-option-dept">Divisi Keuangan</span>
+                </span>
+              </a>
+              <a href="dashboard.html" class="role-option is-selected" role="option" aria-selected="true">
+                <span class="role-option-main">
+                  <span class="role-option-row">
+                    <span class="role-option-title">Direksi &amp; Manajemen</span>
+                    <span class="role-option-badge">READ ONLY</span>
+                  </span>
+                  <span class="role-option-dept">Executive Board</span>
+                </span>
+                <svg class="icon role-option-check" aria-hidden="true"><use href="#i-check"/></svg>
+              </a>
+            </div>
+
+            <div class="role-menu-foot">
+              <div class="role-menu-foot-row">
+                <svg class="icon icon-14" aria-hidden="true"><use href="#i-shield-alert"/></svg>
+                <span>Tanpa autentikasi backend · Mode UI Mock</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================== TIER 2: PAGE HEADER RAIL ===================== -->
+    <div class="page-header-rail">
+      <div class="page-header-left">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <span>Manajemen</span>
+          <span class="breadcrumb-sep">/</span>
+          <span>Persediaan</span>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Valuasi Stok Material &amp; FG</span>
+        </nav>
+        <div class="page-title-row">
+          <h1 class="page-title">Valuasi &amp; Saldo Persediaan: Bahan Baku &amp; Barang Jadi (FG)</h1>
+          <span class="page-readonly-badge">MODE READ-ONLY (BR-ROL-01)</span>
+        </div>
+      </div>
+
+      <div class="page-actions">
+        <button type="button" disabled aria-disabled="true" title="Format pelaporan direksi menunggu standarisasi template resmi (TBD)" class="btn-disabled-tbd">
+          <svg class="icon" aria-hidden="true"><use href="#i-download"/></svg>
+          <span>Unduh Laporan Direksi (PDF) (TBD)</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- ===================== WORKSPACE FRAME: SIDEBAR + MAIN ===================== -->
+    <div class="app-body">
+
+      <!-- SIDEBAR NAVIGATION (Management) -->
+      <aside class="sidebar" aria-label="Navigasi Role Management">
+        <div class="sidebar-scroll">
+          <div class="role-box">
+            <div class="role-box-expanded">
+              <div class="role-box-meta">
+                <span class="role-box-dept">Executive Board</span>
+                <span class="role-box-name">Management</span>
+              </div>
+              <span class="role-box-ro">READ ONLY</span>
+            </div>
+            <div class="role-box-collapsed" title="Management (Executive Board)">
+              <div class="role-box-avatar">MA</div>
+            </div>
+          </div>
+
+          <nav class="nav-groups">
+            <div class="nav-group">
+              <h3 class="nav-group-title">Executive Monitoring (Read-Only)</h3>
+              <div class="nav-group-divider"></div>
+              <div class="nav-list">
+                <a href="dashboard.html" class="nav-item" title="Executive Dashboard KPI">
+                  <svg class="icon" aria-hidden="true"><use href="#i-pie-chart"/></svg>
+                  <span class="nav-text"><span class="nav-label">Executive Dashboard KPI</span></span>
+                </a>
+                <a href="production-monitoring.html" class="nav-item" title="Monitoring Produksi Lini">
+                  <svg class="icon" aria-hidden="true"><use href="#i-bar-chart-3"/></svg>
+                  <span class="nav-text"><span class="nav-label">Monitoring Produksi Lini</span></span>
+                </a>
+                <a href="stock-valuation.html" class="nav-item is-active" title="Valuasi Stok Material &amp; FG" aria-current="page">
+                  <svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>
+                  <span class="nav-text"><span class="nav-label">Valuasi Stok Material &amp; FG</span></span>
+                </a>
+                <a href="ar-aging.html" class="nav-item" title="Aging Piutang AR">
+                  <svg class="icon" aria-hidden="true"><use href="#i-credit-card"/></svg>
+                  <span class="nav-text"><span class="nav-label">Aging Piutang AR</span></span>
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <div class="sidebar-foot">
+          <label for="sidebar-toggle" class="sidebar-collapse-btn" title="Ciutkan / Perluas Sidebar">
+            <span class="collapse-expanded">
+              <svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg>
+              <span>Ciutkan Sidebar</span>
+            </span>
+            <span class="collapse-collapsed">
+              <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg>
+            </span>
+          </label>
+        </div>
+      </aside>
+
+      <!-- ===================== MAIN WORKSPACE: STOCK VALUATION ===================== -->
+      <main class="main-workspace">
+        <div class="role-page">
+
+          <!-- 1. HEADER & READ-ONLY ENFORCEMENT -->
+          <div class="subview-head">
+            <div>
+              <div class="flex-center-gap-2 mb-1">
+                <span class="exec-badge-ro">
+                  <svg class="icon" aria-hidden="true"><use href="#i-shield-alert"/></svg>
+                  <span>HANYA BACA / READ-ONLY (BR-ROL-01)</span>
+                </span>
+                <span class="badge badge--sm badge--neutral">BAHAN BAKU: KG / SHEET / ROLL</span>
+                <span class="badge badge--sm badge--primary">FINISHED GOODS: PCS</span>
+              </div>
+              <h2 class="subview-title">Valuasi &amp; Saldo Persediaan: Bahan Baku &amp; Barang Jadi (FG)</h2>
+              <p class="subview-desc">
+                Pemantauan posisi stok fisik gudang material, alokasi SPK, serta pemisahan lokasi FG antara Ujung Lini dan Gudang FG.
+              </p>
+            </div>
+
+            <div class="exec-meta-box">
+              <div class="exec-meta-item">
+                <svg class="icon" aria-hidden="true"><use href="#i-calendar"/></svg>
+                <div>
+                  <span class="exec-meta-label">Snapshot Stok</span>
+                  <span class="exec-meta-value tnum">04 Nov 2026</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. FINANCIAL VALUATION / COGS WIREFRAME (PENDING DECISION — ZERO FAKE CURRENCY POLICY) -->
+          <div class="tbd-dashed-box" style="padding:16px">
+            <svg class="icon icon-20 c-nav shrink-0 mt-0-5" aria-hidden="true"><use href="#i-help-circle"/></svg>
+            <div style="flex:1">
+              <div class="flex-row-between">
+                <h3 class="t-13 font-bold c-body">Valuasi Finansial Persediaan &amp; HPP (COGS): PENDING DECISION (TBD)</h3>
+                <span class="badge badge--sm badge--neutral">TANPA ANGKA RUPIAH FIKTIF</span>
+              </div>
+              <p class="t-11 c-nav mt-1 leading-relaxed">
+                Sesuai aturan BRD, metode penilaian harga pokok persediaan (FIFO vs Moving Average) dan integrasi nilai mata uang buku besar akuntansi belum ditetapkan. Tampilan direksi saat ini <strong>hanya menyajikan kuantitas fisik terverifikasi (Kg / Sheet / PCS)</strong> tanpa estimasi nilai Rupiah fiktif.
+              </p>
+              <div class="mt-2 pt-2 border-t border-subtle flex-center-gap-3 t-11 font-mono c-nav">
+                <span>Nilai Buku Persediaan Rp (IDR): <strong>— (Menunggu Rumus COGS)</strong></span>
+                <span>|</span>
+                <span>Mutasi Kuantitas: <strong>Aktif (Append-Only Ledger)</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. EXECUTIVE SNAPSHOT SUMMARY ROW (FG 7.200 PCS + RAW MATERIAL) -->
+          <div class="grid-cols-4">
+            <div class="stat-card-sm">
+              <span class="stat-card-sm-label">Total Stok Barang Jadi (FG)</span>
+              <div class="stat-card-sm-val tnum c-primary">7.200 <span class="t-12 font-normal c-nav">PCS</span></div>
+              <span class="stat-card-sm-note">4.200 Ujung Lini + 3.000 Gudang FG</span>
+            </div>
+            <div class="stat-card-sm">
+              <span class="stat-card-sm-label">MAT-EPDM-01 (Karet EPDM)</span>
+              <div class="stat-card-sm-val tnum">840 <span class="t-12 font-normal c-nav">Kg</span></div>
+              <span class="stat-card-sm-note">Alokasi SPK: 620 Kg · Tersedia: 220 Kg</span>
+            </div>
+            <div class="stat-card-sm">
+              <span class="stat-card-sm-label">MAT-FOAM-PU10 (Busa PU)</span>
+              <div class="stat-card-sm-val tnum">1.250 <span class="t-12 font-normal c-nav">Sheet</span></div>
+              <span class="stat-card-sm-note">Alokasi SPK: 980 Sheet · Tersedia: 270 Sheet</span>
+            </div>
+            <div class="stat-card-sm">
+              <span class="stat-card-sm-label">MAT-EVA-SP20 (EVA Sponge)</span>
+              <div class="stat-card-sm-val tnum">950 <span class="t-12 font-normal c-nav">Sheet</span></div>
+              <span class="stat-card-sm-note">Alokasi SPK: 700 Sheet · Tersedia: 250 Sheet</span>
+            </div>
+          </div>
+
+          <!-- 4. PURE-CSS TAB SWITCHER (MATERIAL INVENTORY vs FINISHED GOODS) -->
+          <div>
+            <input type="radio" name="mgmt-stock-tab" id="stock-tab-material" class="toggle-input" checked />
+            <input type="radio" name="mgmt-stock-tab" id="stock-tab-fg" class="toggle-input" />
+
+            <div class="stock-tabs-bar">
+              <div class="stock-tab-list">
+                <label for="stock-tab-material" class="stock-tab-btn">
+                  <svg class="icon" aria-hidden="true"><use href="#i-layers"/></svg>
+                  <span>Material Inventory (Bahan Baku)</span>
+                  <span class="badge badge--sm badge--neutral">3 Jenis</span>
+                </label>
+                <label for="stock-tab-fg" class="stock-tab-btn">
+                  <svg class="icon" aria-hidden="true"><use href="#i-box"/></svg>
+                  <span>Finished Goods (Barang Jadi)</span>
+                  <span class="badge badge--sm badge--primary tnum">7.200 PCS</span>
+                </label>
+              </div>
+
+              <div class="input-search input-search--sm mb-1">
+                <svg class="icon input-search-icon" aria-hidden="true"><use href="#i-search"/></svg>
+                <input type="text" class="input-search-field" placeholder="Cari kode material atau part FG..." />
+              </div>
+            </div>
+
+            <!-- TAB 1 CONTENT: MATERIAL INVENTORY -->
+            <div class="stock-panel-material mt-4">
+              <div class="panel panel--r4">
+                <div class="panel-head">
+                  <div>
+                    <h3 class="t-13 font-bold c-ink">Tabel Persediaan Bahan Baku (Raw Material Inventory)</h3>
+                    <p class="t-11 c-nav">Satuan mengikuti dokumen PO Supplier dan Penerimaan Barang (GRN): Kg, Sheet, atau Roll.</p>
+                  </div>
+                  <span class="font-mono t-11 c-nav">Ref: BR-WH-01 · BR-PUR-02</span>
+                </div>
+
+                <div class="matrix-wrap">
+                  <table class="mgmt-subtable">
+                    <thead>
+                      <tr>
+                        <th class="py-2-5 px-4">Kode Material</th>
+                        <th class="py-2-5 px-4">Nama &amp; Kategori Bahan</th>
+                        <th class="py-2-5 px-4">Lokasi Penyimpanan</th>
+                        <th class="py-2-5 px-4 text-right">Stok Fisik (On-Hand)</th>
+                        <th class="py-2-5 px-4 text-right">Alokasi SPK</th>
+                        <th class="py-2-5 px-4 text-right">Stok Bebas (Available)</th>
+                        <th class="py-2-5 px-4 text-center">Status Stok</th>
+                        <th class="py-2-5 px-4 text-center">Inspeksi</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- MAT-EPDM-01 -->
+                      <tr>
+                        <td class="py-3 px-4 font-mono font-bold c-primary">MAT-EPDM-01</td>
+                        <td class="py-3 px-4">
+                          <div class="font-bold c-ink">EPDM Synthetic Rubber Roll 3mm</div>
+                          <div class="t-11 c-nav">Karet / Rubber</div>
+                        </td>
+                        <td class="py-3 px-4 t-11 c-body">Gudang Material Rak A-01</td>
+                        <td class="py-3 px-4 text-right font-bold c-ink tnum">840 <span class="font-normal c-nav">Kg</span></td>
+                        <td class="py-3 px-4 text-right c-meta tnum">620 <span class="t-11">Kg</span></td>
+                        <td class="py-3 px-4 text-right font-bold c-positive tnum">220 <span class="font-normal t-11">Kg</span></td>
+                        <td class="py-3 px-4 text-center"><span class="badge badge--sm badge--positive">Normal</span></td>
+                        <td class="py-3 px-4 text-center">
+                          <a href="#modal-mat-1" class="btn-row" style="padding:4px 8px;color:#223548">
+                            <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                            <span>Detail</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                      <!-- MAT-FOAM-PU10 -->
+                      <tr>
+                        <td class="py-3 px-4 font-mono font-bold c-primary">MAT-FOAM-PU10</td>
+                        <td class="py-3 px-4">
+                          <div class="font-bold c-ink">PU Open-Cell Acoustic Foam Block</div>
+                          <div class="t-11 c-nav">Busa / Foam</div>
+                        </td>
+                        <td class="py-3 px-4 t-11 c-body">Gudang Material Rak B-04</td>
+                        <td class="py-3 px-4 text-right font-bold c-ink tnum">1.250 <span class="font-normal c-nav">Sheet</span></td>
+                        <td class="py-3 px-4 text-right c-meta tnum">980 <span class="t-11">Sheet</span></td>
+                        <td class="py-3 px-4 text-right font-bold c-positive tnum">270 <span class="font-normal t-11">Sheet</span></td>
+                        <td class="py-3 px-4 text-center"><span class="badge badge--sm badge--positive">Normal</span></td>
+                        <td class="py-3 px-4 text-center">
+                          <a href="#modal-mat-2" class="btn-row" style="padding:4px 8px;color:#223548">
+                            <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                            <span>Detail</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                      <!-- MAT-EVA-SP20 -->
+                      <tr>
+                        <td class="py-3 px-4 font-mono font-bold c-primary">MAT-EVA-SP20</td>
+                        <td class="py-3 px-4">
+                          <div class="font-bold c-ink">EVA High-Density Closed Cell Sheet</div>
+                          <div class="t-11 c-nav">EVA Sponge</div>
+                        </td>
+                        <td class="py-3 px-4 t-11 c-body">Gudang Material Pallet C-02</td>
+                        <td class="py-3 px-4 text-right font-bold c-ink tnum">950 <span class="font-normal c-nav">Sheet</span></td>
+                        <td class="py-3 px-4 text-right c-meta tnum">700 <span class="t-11">Sheet</span></td>
+                        <td class="py-3 px-4 text-right font-bold c-positive tnum">250 <span class="font-normal t-11">Sheet</span></td>
+                        <td class="py-3 px-4 text-center"><span class="badge badge--sm badge--positive">Normal</span></td>
+                        <td class="py-3 px-4 text-center">
+                          <a href="#modal-mat-3" class="btn-row" style="padding:4px 8px;color:#223548">
+                            <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                            <span>Detail</span>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- BOM & Scrap Allowance TBD Callout -->
+              <div class="tbd-dashed-box mt-4" style="padding:14px">
+                <svg class="icon icon-16 c-nav shrink-0 mt-0-5" aria-hidden="true"><use href="#i-help-circle"/></svg>
+                <div class="t-11 c-nav">
+                  <strong class="c-body">Asumsi BOM &amp; Scrap Allowance: PENDING DECISION (TBD)</strong> — Standar rasio konversi bahan mentah ke produk jadi (PCS) serta persentase toleransi <em>scrap allowance</em> menunggu ketetapan teknis sebelum simulasi kebutuhan bahan otomatis (MRP) diaktifkan secara penuh.
+                </div>
+              </div>
+            </div>
+
+            <!-- TAB 2 CONTENT: FINISHED GOODS INVENTORY -->
+            <div class="stock-panel-fg mt-4">
+              <!-- Location Split Summary Cards -->
+              <div class="grid-cols-3 mb-4">
+                <div class="stat-card-sm">
+                  <span class="stat-card-sm-label">Total FG Siap Kirim (Lolos QC)</span>
+                  <div class="stat-card-sm-val tnum">7.200 <span class="t-12 font-normal c-nav">PCS</span></div>
+                  <span class="stat-card-sm-note c-positive font-medium">Satuan resmi terkunci pada PCS</span>
+                </div>
+
+                <div class="stat-card-sm">
+                  <div class="flex-center-gap-1-5 stat-card-sm-label">
+                    <svg class="icon icon-14 c-primary" aria-hidden="true"><use href="#i-factory"/></svg>
+                    <span>Lokasi 1: Ujung Lini Produksi</span>
+                  </div>
+                  <div class="stat-card-sm-val tnum">4.200 <span class="t-12 font-normal c-nav">PCS</span></div>
+                  <span class="stat-card-sm-note">58.3% dari total persediaan FG</span>
+                </div>
+
+                <div class="stat-card-sm">
+                  <div class="flex-center-gap-1-5 stat-card-sm-label">
+                    <svg class="icon icon-14 c-primary" aria-hidden="true"><use href="#i-warehouse"/></svg>
+                    <span>Lokasi 2: Gudang Finished Goods</span>
+                  </div>
+                  <div class="stat-card-sm-val tnum">3.000 <span class="t-12 font-normal c-nav">PCS</span></div>
+                  <span class="stat-card-sm-note">41.7% dari total persediaan FG</span>
+                </div>
+              </div>
+
+              <div class="panel panel--r4">
+                <div class="panel-head">
+                  <div>
+                    <h3 class="t-13 font-bold c-ink">Tabel Persediaan Barang Jadi per Lokasi (FG Inventory — PCS)</h3>
+                    <p class="t-11 c-nav">Pengiriman Surat Jalan (SJ) dapat mengambil stok langsung dari Ujung Lini maupun dari Gudang FG.</p>
+                  </div>
+                  <span class="font-mono t-11 c-nav">Ref: BR-FG-01 · BR-DEL-02</span>
+                </div>
+
+                <div class="matrix-wrap">
+                  <table class="mgmt-subtable">
+                    <thead>
+                      <tr>
+                        <th class="py-2-5 px-4">Part Number</th>
+                        <th class="py-2-5 px-4">Deskripsi Komponen &amp; Kategori</th>
+                        <th class="py-2-5 px-4 text-right">Ujung Lini (PCS)</th>
+                        <th class="py-2-5 px-4 text-right">Gudang FG (PCS)</th>
+                        <th class="py-2-5 px-4 text-right">Total FG (PCS)</th>
+                        <th class="py-2-5 px-4">Status Alokasi Pengiriman</th>
+                        <th class="py-2-5 px-4 text-center">Inspeksi</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- NTC-RUB-0101 -->
+                      <tr>
+                        <td class="py-3 px-4 font-mono font-bold c-primary">NTC-RUB-0101</td>
+                        <td class="py-3 px-4">
+                          <div class="font-bold c-ink">Gasket Seal Cylinder Head EPDM</div>
+                          <div class="t-11 c-nav">Karet / Rubber</div>
+                        </td>
+                        <td class="py-3 px-4 text-right font-semibold c-body tnum">1.700 PCS</td>
+                        <td class="py-3 px-4 text-right font-semibold c-body tnum">1.000 PCS</td>
+                        <td class="py-3 px-4 text-right font-bold c-ink tnum">2.700 PCS</td>
+                        <td class="py-3 px-4 t-11 c-body">Alokasi Surat Jalan SJ-0092 (Draft)</td>
+                        <td class="py-3 px-4 text-center">
+                          <a href="#modal-fg-1" class="btn-row" style="padding:4px 8px;color:#223548">
+                            <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                            <span>Detail</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                      <!-- NTC-RUB-0104 -->
+                      <tr>
+                        <td class="py-3 px-4 font-mono font-bold c-primary">NTC-RUB-0104</td>
+                        <td class="py-3 px-4">
+                          <div class="font-bold c-ink">Bushing Engine Mount Anti-Vibration</div>
+                          <div class="t-11 c-nav">Karet / Rubber</div>
+                        </td>
+                        <td class="py-3 px-4 text-right font-semibold c-body tnum">0 PCS</td>
+                        <td class="py-3 px-4 text-right font-semibold c-body tnum">1.800 PCS</td>
+                        <td class="py-3 px-4 text-right font-bold c-ink tnum">1.800 PCS</td>
+                        <td class="py-3 px-4 t-11 c-body">Siap alokasi PO baru</td>
+                        <td class="py-3 px-4 text-center">
+                          <a href="#modal-fg-2" class="btn-row" style="padding:4px 8px;color:#223548">
+                            <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                            <span>Detail</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                      <!-- NTC-FOAM-0201 -->
+                      <tr>
+                        <td class="py-3 px-4 font-mono font-bold c-primary">NTC-FOAM-0201</td>
+                        <td class="py-3 px-4">
+                          <div class="font-bold c-ink">Acoustic Foam Barrier Firewall 10mm</div>
+                          <div class="t-11 c-nav">Busa / Foam</div>
+                        </td>
+                        <td class="py-3 px-4 text-right font-semibold c-body tnum">0 PCS</td>
+                        <td class="py-3 px-4 text-right font-semibold c-body tnum">200 PCS</td>
+                        <td class="py-3 px-4 text-right font-bold c-ink tnum">200 PCS</td>
+                        <td class="py-3 px-4 t-11 c-body">Alokasi Surat Jalan SJ-0091 (Printed)</td>
+                        <td class="py-3 px-4 text-center">
+                          <a href="#modal-fg-3" class="btn-row" style="padding:4px 8px;color:#223548">
+                            <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                            <span>Detail</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                      <!-- NTC-EVA-0301 -->
+                      <tr>
+                        <td class="py-3 px-4 font-mono font-bold c-primary">NTC-EVA-0301</td>
+                        <td class="py-3 px-4">
+                          <div class="font-bold c-ink">EVA Sponge Weatherstrip Door Sash</div>
+                          <div class="t-11 c-nav">EVA Sponge</div>
+                        </td>
+                        <td class="py-3 px-4 text-right font-semibold c-body tnum">2.500 PCS</td>
+                        <td class="py-3 px-4 text-right font-semibold c-body tnum">0 PCS</td>
+                        <td class="py-3 px-4 text-right font-bold c-ink tnum">2.500 PCS</td>
+                        <td class="py-3 px-4 t-11 c-body">Ujung Lini inspeksi QC</td>
+                        <td class="py-3 px-4 text-center">
+                          <a href="#modal-fg-4" class="btn-row" style="padding:4px 8px;color:#223548">
+                            <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                            <span>Detail</span>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+
+                    <tfoot>
+                      <tr>
+                        <td colspan="2" class="py-2-5 px-4 text-right uppercase tracking-wider c-body">Total Persediaan Barang Jadi (FG):</td>
+                        <td class="py-2-5 px-4 text-right tnum c-ink">4.200 PCS</td>
+                        <td class="py-2-5 px-4 text-right tnum c-ink">3.000 PCS</td>
+                        <td class="py-2-5 px-4 text-right tnum c-primary">7.200 PCS</td>
+                        <td class="py-2-5 px-4 font-normal c-nav">Satuan Resmi: PCS</td>
+                        <td class="py-2-5 px-4 text-center font-normal c-nav">Read-Only</td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <!-- ===================== FOOTER STATUS BAR (28px) ===================== -->
+    <footer class="footer-status">
+      <div class="footer-group">
+        <span class="footer-strong">PT NUTECH PUNDI ARTA — MINI ERP PROTOTYPE</span>
+        <span class="footer-sep">|</span>
+        <span>Mode: UI Verification (Frontend-Only)</span>
+        <span class="footer-sep">|</span>
+        <span>Single Source of Truth: BRD v3.0</span>
+      </div>
+      <div class="footer-group footer-group--right">
+        <div class="footer-user">
+          <span class="footer-user-label">Simulasi User:</span>
+          <span class="footer-user-value">Direksi &amp; Manajemen</span>
+        </div>
+        <span class="footer-sep">|</span>
+        <span class="footer-baseline">Baseline: 1440 × 900 Desktop</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===================== DEVELOPMENT SHOWCASE BAR (DEV / QA) ===================== -->
+  <aside class="devbar" aria-label="Panel Evaluasi Internal">
+    <div class="devbar-head">
+      <div class="devbar-head-left">
+        <svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>
+        <span class="devbar-title">Evaluasi UI Phase 01</span>
+        <span class="devbar-tag">DEV / QA TOOL</span>
+      </div>
+      <div class="devbar-head-right">
+        <label for="devbar-collapse" class="devbar-icon-btn" title="Ciutkan / Perluas Kontrol Evaluasi" aria-label="Ciutkan atau Perluas Kontrol Evaluasi">
+          <svg class="icon devbar-ico-down" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+          <svg class="icon devbar-ico-up" aria-hidden="true"><use href="#i-chevron-up"/></svg>
+        </label>
+        <label for="devbar-min" class="devbar-icon-btn devbar-icon-btn--close" title="Sembunyikan Panel (Mode Presentasi Bersih)" aria-label="Sembunyikan Panel Evaluasi UI">
+          <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+        </label>
+      </div>
+    </div>
+    <div class="devbar-body">
+      <span class="devbar-body-label">Pola Uji:</span>
+      <a href="../marketing/sales-orders.html" class="devbar-pattern" title="Tabel data padat SAP-style dengan summary row">1. Enterprise Table</a>
+      <a href="dashboard.html" class="devbar-pattern" title="Executive metric cards &amp; multi-track downstream">2. Overview KPI</a>
+      <a href="../marketing/sales-order-form.html" class="devbar-pattern" title="Input Sales Order dengan konversi Pack-to-PCS">3. Dense Form</a>
+      <a href="../marketing/sales-orders-split.html" class="devbar-pattern" title="Master-detail view header &amp; line items">4. Split-Pane Detail</a>
+      <a href="#modal-mat-1" class="devbar-pattern is-active" title="Dialog inspeksi saldo persediaan Read-Only">5. Modal Dialog</a>
+    </div>
+  </aside>
+
+  <div class="devbar-mini">
+    <label for="devbar-min" class="devbar-mini-open" title="Tampilkan Kembali Panel Evaluasi UI (DEV/QA Tool)" aria-label="Buka Panel Evaluasi UI Phase 01">
+      <svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>
+      <span>Panel QA</span>
+    </label>
+    <label for="devbar-off" class="devbar-mini-close" title="Sembunyikan Total (Mode Presentasi)" aria-label="Tutup Panel QA Sepenuhnya">
+      <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+    </label>
+  </div>
+
+  <!-- ===================== READ-ONLY MATERIAL & FG MODALS (:target) ===================== -->
+
+  <!-- Material Modal 1: MAT-EPDM-01 -->
+  <div id="modal-mat-1" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-mat-1">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:520px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div>
+          <span class="t-10 font-bold uppercase tracking-wider c-warning block">Inspeksi Kartu Stok Material (Read-Only)</span>
+          <h3 id="title-mat-1" class="t-14 font-bold c-ink">MAT-EPDM-01 — EPDM Synthetic Rubber Roll 3mm</h3>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2" style="padding:14px;background:#f8f9fa;border:1px solid #d5dce2;border-radius:4px">
+          <div><span class="t-10 c-nav uppercase font-bold block">Kategori</span><span class="font-bold c-ink">Karet / Rubber</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Lokasi Rak</span><span class="font-bold c-ink">Gudang Material Rak A-01</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Stok Fisik (On-Hand)</span><span class="font-bold c-ink tnum">840 Kg</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Stok Bebas (Available)</span><span class="font-bold c-positive tnum">220 Kg</span></div>
+        </div>
+        <div style="padding:12px;background:#f5f6f7;border:1px solid #d5dce2;border-radius:4px">
+          <span class="t-10 font-bold uppercase c-nav block mb-1">Penerimaan Terakhir (GRN)</span>
+          <p class="font-mono font-semibold c-body">GRN-2026-0890 (31 Okt 2026)</p>
+          <p class="t-11 c-nav mt-1">Mutasi masuk/keluar tercatat secara append-only melalui dokumen GRN dan Material Issue.</p>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px">
+        <a href="#" class="btn-row" style="padding:6px 14px;color:#223548;font-weight:600">Tutup</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Material Modal 2: MAT-FOAM-PU10 -->
+  <div id="modal-mat-2" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-mat-2">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:520px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div>
+          <span class="t-10 font-bold uppercase tracking-wider c-warning block">Inspeksi Kartu Stok Material (Read-Only)</span>
+          <h3 id="title-mat-2" class="t-14 font-bold c-ink">MAT-FOAM-PU10 — PU Open-Cell Acoustic Foam Block</h3>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2" style="padding:14px;background:#f8f9fa;border:1px solid #d5dce2;border-radius:4px">
+          <div><span class="t-10 c-nav uppercase font-bold block">Kategori</span><span class="font-bold c-ink">Busa / Foam</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Lokasi Rak</span><span class="font-bold c-ink">Gudang Material Rak B-04</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Stok Fisik (On-Hand)</span><span class="font-bold c-ink tnum">1.250 Sheet</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Stok Bebas (Available)</span><span class="font-bold c-positive tnum">270 Sheet</span></div>
+        </div>
+        <div style="padding:12px;background:#f5f6f7;border:1px solid #d5dce2;border-radius:4px">
+          <span class="t-10 font-bold uppercase c-nav block mb-1">Penerimaan Terakhir (GRN)</span>
+          <p class="font-mono font-semibold c-body">GRN-2026-0892 (08 Nov 2026 · Draft Loading Dock)</p>
+          <p class="t-11 c-nav mt-1">Mutasi masuk/keluar tercatat secara append-only melalui dokumen GRN dan Material Issue.</p>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px">
+        <a href="#" class="btn-row" style="padding:6px 14px;color:#223548;font-weight:600">Tutup</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Material Modal 3: MAT-EVA-SP20 -->
+  <div id="modal-mat-3" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-mat-3">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:520px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div>
+          <span class="t-10 font-bold uppercase tracking-wider c-warning block">Inspeksi Kartu Stok Material (Read-Only)</span>
+          <h3 id="title-mat-3" class="t-14 font-bold c-ink">MAT-EVA-SP20 — EVA High-Density Closed Cell Sheet</h3>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2" style="padding:14px;background:#f8f9fa;border:1px solid #d5dce2;border-radius:4px">
+          <div><span class="t-10 c-nav uppercase font-bold block">Kategori</span><span class="font-bold c-ink">EVA Sponge</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Lokasi Rak</span><span class="font-bold c-ink">Gudang Material Pallet C-02</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Stok Fisik (On-Hand)</span><span class="font-bold c-ink tnum">950 Sheet</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Stok Bebas (Available)</span><span class="font-bold c-positive tnum">250 Sheet</span></div>
+        </div>
+        <div style="padding:12px;background:#f5f6f7;border:1px solid #d5dce2;border-radius:4px">
+          <span class="t-10 font-bold uppercase c-nav block mb-1">Penerimaan Terakhir (GRN)</span>
+          <p class="font-mono font-semibold c-body">GRN-2026-0891 (06 Nov 2026 · Parsial Batch 1)</p>
+          <p class="t-11 c-nav mt-1">Mutasi masuk/keluar tercatat secara append-only melalui dokumen GRN dan Material Issue.</p>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px">
+        <a href="#" class="btn-row" style="padding:6px 14px;color:#223548;font-weight:600">Tutup</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FG Modal 1: NTC-RUB-0101 -->
+  <div id="modal-fg-1" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-fg-1">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:520px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div>
+          <span class="t-10 font-bold uppercase tracking-wider c-primary block">Inspeksi Saldo Barang Jadi (Read-Only)</span>
+          <h3 id="title-fg-1" class="t-14 font-bold c-ink">NTC-RUB-0101 — Gasket Seal Cylinder Head EPDM</h3>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-3">
+          <div class="stat-card-sm" style="padding:12px"><span class="stat-card-sm-label">Ujung Lini</span><div class="t-16 font-bold c-ink tnum mt-1">1.700 PCS</div></div>
+          <div class="stat-card-sm" style="padding:12px"><span class="stat-card-sm-label">Gudang FG</span><div class="t-16 font-bold c-ink tnum mt-1">1.000 PCS</div></div>
+          <div class="stat-card-sm" style="padding:12px;background:#ebf8ff;border-color:rgba(0,87,210,0.3)"><span class="stat-card-sm-label c-primary">Total FG</span><div class="t-16 font-bold c-primary tnum mt-1">2.700 PCS</div></div>
+        </div>
+        <div style="padding:12px;background:#f5f6f7;border:1px solid #d5dce2;border-radius:4px">
+          <span class="t-10 font-bold uppercase c-nav block mb-1">Status Alokasi &amp; Aturan Potong Stok (BR-DEL-03)</span>
+          <p class="font-semibold c-body">Alokasi Surat Jalan SJ-0092 (Draft)</p>
+          <p class="t-11 c-nav mt-1">Stok FG tidak berkurang saat SJ berstatus Draft atau Printed. Pemotongan stok hanya terjadi saat SJ dikonfirmasi <strong>Delivered</strong>.</p>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px">
+        <a href="#" class="btn-row" style="padding:6px 14px;color:#223548;font-weight:600">Tutup</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FG Modal 2: NTC-RUB-0104 -->
+  <div id="modal-fg-2" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-fg-2">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:520px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div>
+          <span class="t-10 font-bold uppercase tracking-wider c-primary block">Inspeksi Saldo Barang Jadi (Read-Only)</span>
+          <h3 id="title-fg-2" class="t-14 font-bold c-ink">NTC-RUB-0104 — Bushing Engine Mount Anti-Vibration</h3>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-3">
+          <div class="stat-card-sm" style="padding:12px"><span class="stat-card-sm-label">Ujung Lini</span><div class="t-16 font-bold c-ink tnum mt-1">0 PCS</div></div>
+          <div class="stat-card-sm" style="padding:12px"><span class="stat-card-sm-label">Gudang FG</span><div class="t-16 font-bold c-ink tnum mt-1">1.800 PCS</div></div>
+          <div class="stat-card-sm" style="padding:12px;background:#ebf8ff;border-color:rgba(0,87,210,0.3)"><span class="stat-card-sm-label c-primary">Total FG</span><div class="t-16 font-bold c-primary tnum mt-1">1.800 PCS</div></div>
+        </div>
+        <div style="padding:12px;background:#f5f6f7;border:1px solid #d5dce2;border-radius:4px">
+          <span class="t-10 font-bold uppercase c-nav block mb-1">Status Alokasi &amp; Aturan Potong Stok (BR-DEL-03)</span>
+          <p class="font-semibold c-body">Siap alokasi PO baru</p>
+          <p class="t-11 c-nav mt-1">Stok FG tidak berkurang saat SJ berstatus Draft atau Printed. Pemotongan stok hanya terjadi saat SJ dikonfirmasi <strong>Delivered</strong>.</p>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px">
+        <a href="#" class="btn-row" style="padding:6px 14px;color:#223548;font-weight:600">Tutup</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FG Modal 3: NTC-FOAM-0201 -->
+  <div id="modal-fg-3" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-fg-3">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:520px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div>
+          <span class="t-10 font-bold uppercase tracking-wider c-primary block">Inspeksi Saldo Barang Jadi (Read-Only)</span>
+          <h3 id="title-fg-3" class="t-14 font-bold c-ink">NTC-FOAM-0201 — Acoustic Foam Barrier Firewall 10mm</h3>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-3">
+          <div class="stat-card-sm" style="padding:12px"><span class="stat-card-sm-label">Ujung Lini</span><div class="t-16 font-bold c-ink tnum mt-1">0 PCS</div></div>
+          <div class="stat-card-sm" style="padding:12px"><span class="stat-card-sm-label">Gudang FG</span><div class="t-16 font-bold c-ink tnum mt-1">200 PCS</div></div>
+          <div class="stat-card-sm" style="padding:12px;background:#ebf8ff;border-color:rgba(0,87,210,0.3)"><span class="stat-card-sm-label c-primary">Total FG</span><div class="t-16 font-bold c-primary tnum mt-1">200 PCS</div></div>
+        </div>
+        <div style="padding:12px;background:#f5f6f7;border:1px solid #d5dce2;border-radius:4px">
+          <span class="t-10 font-bold uppercase c-nav block mb-1">Status Alokasi &amp; Aturan Potong Stok (BR-DEL-03)</span>
+          <p class="font-semibold c-body">Alokasi Surat Jalan SJ-0091 (Printed)</p>
+          <p class="t-11 c-nav mt-1">Stok FG tidak berkurang saat SJ berstatus Draft atau Printed. Pemotongan stok hanya terjadi saat SJ dikonfirmasi <strong>Delivered</strong>.</p>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px">
+        <a href="#" class="btn-row" style="padding:6px 14px;color:#223548;font-weight:600">Tutup</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FG Modal 4: NTC-EVA-0301 -->
+  <div id="modal-fg-4" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-fg-4">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:520px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div>
+          <span class="t-10 font-bold uppercase tracking-wider c-primary block">Inspeksi Saldo Barang Jadi (Read-Only)</span>
+          <h3 id="title-fg-4" class="t-14 font-bold c-ink">NTC-EVA-0301 — EVA Sponge Weatherstrip Door Sash</h3>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-3">
+          <div class="stat-card-sm" style="padding:12px"><span class="stat-card-sm-label">Ujung Lini</span><div class="t-16 font-bold c-ink tnum mt-1">2.500 PCS</div></div>
+          <div class="stat-card-sm" style="padding:12px"><span class="stat-card-sm-label">Gudang FG</span><div class="t-16 font-bold c-ink tnum mt-1">0 PCS</div></div>
+          <div class="stat-card-sm" style="padding:12px;background:#ebf8ff;border-color:rgba(0,87,210,0.3)"><span class="stat-card-sm-label c-primary">Total FG</span><div class="t-16 font-bold c-primary tnum mt-1">2.500 PCS</div></div>
+        </div>
+        <div style="padding:12px;background:#f5f6f7;border:1px solid #d5dce2;border-radius:4px">
+          <span class="t-10 font-bold uppercase c-nav block mb-1">Status Alokasi &amp; Aturan Potong Stok (BR-DEL-03)</span>
+          <p class="font-semibold c-body">Ujung Lini inspeksi QC</p>
+          <p class="t-11 c-nav mt-1">Stok FG tidak berkurang saat SJ berstatus Draft atau Printed. Pemotongan stok hanya terjadi saat SJ dikonfirmasi <strong>Delivered</strong>.</p>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px">
+        <a href="#" class="btn-row" style="padding:6px 14px;color:#223548;font-weight:600">Tutup</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+

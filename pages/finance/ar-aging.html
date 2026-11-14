@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Analisis Umur Piutang (AR Aging Schedule) — NUTECH ERP</title>
+  <link rel="stylesheet" href="../../css/tokens.css" />
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/shell.css" />
+  <link rel="stylesheet" href="../../css/patterns.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+    <symbol id="i-dollar-sign" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" x2="12" y1="2" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></symbol>
+    <symbol id="i-file-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="m9 15 2 2 4-4"/></symbol>
+    <symbol id="i-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+    <symbol id="i-credit-card" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  </svg>
+
+  <input type="checkbox" id="sidebar-toggle" class="shell-state-toggle" aria-label="Toggle Sidebar" />
+  <input type="checkbox" id="role-dropdown-toggle" class="shell-state-toggle" aria-label="Toggle Role Switcher" />
+
+  <div class="erp-shell">
+    <header class="global-topbar">
+      <div class="topbar-left">
+        <label for="sidebar-toggle" class="sidebar-toggle-btn"><svg class="icon-md"><use href="#i-menu"/></svg></label>
+        <div class="brand-lockup"><div class="brand-mark">N</div><div class="brand-Wordmark"><div class="brand-title-row"><span class="brand-title">NUTECH ERP</span><span class="brand-env-badge">PROD-SIM</span></div><div class="brand-subtitle">Sistem Informasi Manufaktur Terintegrasi</div></div></div>
+        <div class="topbar-divider"></div>
+        <div class="plant-context-pill"><span class="plant-dot"></span><span>PLANT CIKARANG-01 • DIVISI KEUANGAN</span></div>
+      </div>
+      <div class="topbar-right">
+        <div class="date-context-box"><span class="date-context-label">Tgl Operasional:</span><span class="date-context-value">04 Nov 2026</span></div>
+        <div class="user-profile-chip"><div class="user-avatar">FN</div><div class="user-info"><span class="user-name">Lina Kusuma</span><span class="user-role">Supervisor Finance &amp; AR</span></div></div>
+      </div>
+    </header>
+
+    <div class="erp-body">
+      <aside class="sidebar-nav">
+        <div class="sidebar-role-box"><div class="sidebar-role-label">Divisi Keuangan</div><div class="sidebar-role-title">Finance</div></div>
+        <div class="sidebar-scroll">
+          <div class="nav-group">
+            <div class="nav-group-label">Dashboard &amp; Ringkasan</div>
+            <ul class="nav-list">
+              <li class="nav-item"><a href="dashboard.html" class="nav-link"><svg class="nav-icon"><use href="#i-dollar-sign"/></svg><span class="nav-text">Dashboard Keuangan &amp; AR</span></a></li>
+            </ul>
+          </div>
+          <div class="nav-group">
+            <div class="nav-group-label">Kontrol Surat Jalan &amp; Penagihan</div>
+            <ul class="nav-list">
+              <li class="nav-item"><a href="ready-to-bill.html" class="nav-link"><svg class="nav-icon"><use href="#i-file-check"/></svg><span class="nav-text">Surat Jalan Siap Tagih</span><span class="nav-badge is-warning">2 SJ</span></a></li>
+              <li class="nav-item"><a href="invoices.html" class="nav-link"><svg class="nav-icon"><use href="#i-file-text"/></svg><span class="nav-text">Manajemen Faktur (Invoice)</span><span class="nav-badge is-primary">1</span></a></li>
+            </ul>
+          </div>
+          <div class="nav-group">
+            <div class="nav-group-label">Manajemen Piutang (AR)</div>
+            <ul class="nav-list">
+              <li class="nav-item"><a href="accounts-receivable.html" class="nav-link"><svg class="nav-icon"><use href="#i-credit-card"/></svg><span class="nav-text">Pelacakan Piutang Dagang</span></a></li>
+              <li class="nav-item"><a href="ar-aging.html" class="nav-link is-active"><svg class="nav-icon"><use href="#i-clock"/></svg><span class="nav-text">AR Aging &amp; Jatuh Tempo</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <div class="main-workspace">
+        <div class="page-header-rail">
+          <div class="header-rail-left">
+            <nav class="breadcrumb-nav">
+              <span class="breadcrumb-item">Divisi Keuangan</span>
+              <svg class="breadcrumb-sep"><use href="#i-chevron-right"/></svg>
+              <span class="breadcrumb-current">Analisis Umur Piutang (AR Aging Schedule)</span>
+            </nav>
+            <div class="page-title-row">
+              <h1 class="page-title">Analisis Umur Piutang (AR Aging) &amp; Tindak Lanjut Penagihan</h1>
+              <span class="mode-badge is-edit"><svg class="icon-xs"><use href="#i-clock"/></svg> KOLEKTIBILITAS PIUTANG</span>
+            </div>
+            <p class="page-subtitle">Pengelompokan saldo piutang pelanggan berdasarkan bucket umur jatuh tempo (Current, 1–30 Hari, 31–60 Hari, &gt;60 Hari).</p>
+          </div>
+        </div>
+
+        <main class="workspace-canvas">
+          <div class="kpi-grid-4 mb-16">
+            <div class="kpi-card is-success"><div class="kpi-header"><span class="kpi-label">Current (Belum Jatuh Tempo)</span><span class="badge is-success">100%</span></div><div class="kpi-value-row"><span class="kpi-value tnum text-success">Rp 20.535.000</span></div><div class="kpi-footer"><span>Sisa 29 hari menuju jatuh tempo (03 Des 2026)</span></div></div>
+            <div class="kpi-card"><div class="kpi-header"><span class="kpi-label">Lewat Jatuh Tempo 1–30 Hari</span></div><div class="kpi-value-row"><span class="kpi-value tnum">Rp 0</span></div><div class="kpi-footer"><span>0 Faktur</span></div></div>
+            <div class="kpi-card"><div class="kpi-header"><span class="kpi-label">Lewat Jatuh Tempo 31–60 Hari</span></div><div class="kpi-value-row"><span class="kpi-value tnum">Rp 0</span></div><div class="kpi-footer"><span>0 Faktur</span></div></div>
+            <div class="kpi-card"><div class="kpi-header"><span class="kpi-label">Macet / &gt; 60 Hari</span></div><div class="kpi-value-row"><span class="kpi-value tnum">Rp 0</span></div><div class="kpi-footer"><span>Kolektibilitas 100% Lancar</span></div></div>
+          </div>
+
+          <div class="section-card">
+            <div class="section-header">
+              <div>
+                <h2 class="section-title">Tabel Matriks Umur Piutang (AR Aging Matrix per 04 Nov 2026)</h2>
+                <p class="section-subtitle">Status jatuh tempo faktur aktif dan tindakan pengingat penagihan</p>
+              </div>
+            </div>
+            <div class="table-container">
+              <table class="data-table">
+                <thead>
+                  <tr>
+                    <th>Customer &amp; No. Invoice</th>
+                    <th>Tgl Faktur</th>
+                    <th>Jatuh Tempo</th>
+                    <th class="text-right">Current (0 Hari)</th>
+                    <th class="text-right">1–30 Hari</th>
+                    <th class="text-right">31–60 Hari</th>
+                    <th class="text-right">&gt; 60 Hari</th>
+                    <th class="text-right">Total Sisa AR</th>
+                    <th>Aksi Tindak Lanjut</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <div class="font-semibold">PT Auto Dinamika Manufaktur</div>
+                      <div class="cell-secondary font-mono">INV-2026-11-001 (Alias: INV-2026-1101)</div>
+                    </td>
+                    <td class="tnum">03 Nov 2026</td>
+                    <td class="tnum font-semibold">03 Des 2026</td>
+                    <td class="text-right tnum font-bold text-success">Rp 20.535.000</td>
+                    <td class="text-right tnum">Rp 0</td>
+                    <td class="text-right tnum">Rp 0</td>
+                    <td class="text-right tnum">Rp 0</td>
+                    <td class="text-right tnum font-bold text-primary">Rp 20.535.000</td>
+                    <td><a href="invoices.html#modal-record-payment" class="btn btn-xs btn-primary">Catat Pelunasan</a></td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </main>
+
+        <footer class="footer-status-bar">
+          <div class="footer-left"><span>Kualitas Piutang: <strong>100% Current (Belum Jatuh Tempo)</strong></span></div>
+          <div class="footer-right"><span class="font-mono">v2.4.0-HTML5</span></div>
+        </footer>
+      </div>
+    </div>
+
+    <div class="dev-showcase-bar">
+      <div class="showcase-left"><span class="showcase-badge">PURE HTML5/CSS3</span><span class="showcase-text">Peran: <strong>Finance</strong> — Analisis Umur Piutang (AR Aging)</span></div>
+      <div class="showcase-links">
+        <a href="dashboard.html" class="showcase-chip">Dashboard Finance</a>
+        <a href="ready-to-bill.html" class="showcase-chip">Siap Tagih (5.200 PCS)</a>
+        <a href="invoices.html" class="showcase-chip">Faktur (Invoice)</a>
+        <a href="accounts-receivable.html" class="showcase-chip">Buku Besar AR</a>
+        <a href="ar-aging.html" class="showcase-chip is-current">AR Aging</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

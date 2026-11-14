@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NUTECH ERP — Master Customer B2B (Marketing)</title>
+  <link rel="stylesheet" href="../../css/tokens.css" />
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/shell.css" />
+  <link rel="stylesheet" href="../../css/patterns.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body>
+
+  <!-- ===================== SVG SPRITE (Lucide, stroke 2) ===================== -->
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-chevron-up" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-user-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></symbol>
+    <symbol id="i-shield-alert" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></symbol>
+    <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+    <symbol id="i-trending-up" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+    <symbol id="i-building-2" viewBox="0 0 24 24"><path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"/><path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"/><path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"/><path d="M10 6h4"/><path d="M10 10h4"/><path d="M10 14h4"/><path d="M10 18h4"/></symbol>
+    <symbol id="i-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+    <symbol id="i-user-check" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="16 11 18 13 22 9"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14"/><line x1="4" x2="4" y1="10" y2="3"/><line x1="12" x2="12" y1="21" y2="12"/><line x1="12" x2="12" y1="8" y2="3"/><line x1="20" x2="20" y1="21" y2="16"/><line x1="20" x2="20" y1="12" y2="3"/><line x1="2" x2="6" y1="14" y2="14"/><line x1="10" x2="14" y1="8" y2="8"/><line x1="18" x2="22" y1="16" y2="16"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  </svg>
+
+  <!-- ===================== PURE-CSS STATE TOGGLES ===================== -->
+  <input type="checkbox" id="sidebar-toggle" class="toggle-input" />
+  <input type="checkbox" id="role-dropdown-toggle" class="toggle-input" />
+  <input type="checkbox" id="devbar-collapse" class="toggle-input" />
+  <input type="checkbox" id="devbar-min" class="toggle-input" />
+  <input type="checkbox" id="devbar-off" class="toggle-input" />
+
+  <div class="app-shell">
+
+    <!-- ===================== TIER 1: GLOBAL TOPBAR (60px) ===================== -->
+    <header class="topbar">
+      <div class="topbar-brand">
+        <div class="topbar-logo">NT</div>
+        <div class="topbar-brand-text">
+          <span class="topbar-title">PT NUTECH PUNDI ARTA</span>
+          <span class="topbar-subtitle">Integrated Manufacturing ERP System</span>
+        </div>
+      </div>
+
+      <div class="topbar-search">
+        <div class="topbar-search-inner">
+          <svg class="icon topbar-search-icon" aria-hidden="true"><use href="#i-search"/></svg>
+          <input type="text" class="topbar-search-input" disabled placeholder="Pencarian dokumen, part, customer... (TBD)" title="Global Search is currently non-active (Pending Decision per BRD)" />
+          <span class="topbar-search-badge">TBD</span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <div class="topbar-proto-pill">
+          <span>PROTOTYPE UI</span>
+          <span>·</span>
+          <span>SIMULASI</span>
+        </div>
+
+        <div class="role-switcher">
+          <label for="role-dropdown-toggle" class="role-btn" aria-label="Ganti Role Simulasi" aria-haspopup="listbox">
+            <svg class="icon role-btn-icon" aria-hidden="true"><use href="#i-user-circle"/></svg>
+            <span class="role-btn-text">
+              <span class="role-btn-caption">Role Aktif</span>
+              <span class="role-btn-value">Marketing</span>
+            </span>
+            <svg class="icon role-btn-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+          </label>
+
+          <label for="role-dropdown-toggle" class="role-dropdown-backdrop" aria-hidden="true"></label>
+
+          <div class="role-menu" role="listbox">
+            <div class="role-menu-head">
+              <p class="role-menu-title">Role Switcher (Simulasi 7 Role)</p>
+              <p class="role-menu-desc">Pilih salah satu role untuk menguji tampilan dan navigasi sesuai hak akses BRD.</p>
+            </div>
+
+            <div class="role-menu-list">
+              <a href="sales-orders.html" class="role-option is-selected" role="option" aria-selected="true">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Staff Marketing &amp; Komersial</span></span>
+                  <span class="role-option-dept">Divisi Komersial</span>
+                </span>
+                <svg class="icon role-option-check" aria-hidden="true"><use href="#i-check"/></svg>
+              </a>
+              <a href="../ppic/spk.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">PPIC Planner</span></span>
+                  <span class="role-option-dept">Divisi Perencanaan Produksi</span>
+                </span>
+              </a>
+              <a href="../purchasing/mrp.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Purchasing Officer</span></span>
+                  <span class="role-option-dept">Divisi Pengadaan</span>
+                </span>
+              </a>
+              <a href="../warehouse/monitoring.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Admin Gudang Bahan Baku</span></span>
+                  <span class="role-option-dept">Gudang Material</span>
+                </span>
+              </a>
+              <a href="../production/monitoring.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Admin Produksi &amp; Pengiriman</span></span>
+                  <span class="role-option-dept">Operasional Pabrik</span>
+                </span>
+              </a>
+              <a href="../finance/dashboard.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Finance &amp; Billing Specialist</span></span>
+                  <span class="role-option-dept">Divisi Keuangan</span>
+                </span>
+              </a>
+              <a href="../management/dashboard.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row">
+                    <span class="role-option-title">Direksi &amp; Manajemen</span>
+                    <span class="role-option-badge">READ ONLY</span>
+                  </span>
+                  <span class="role-option-dept">Executive Board</span>
+                </span>
+              </a>
+            </div>
+
+            <div class="role-menu-foot">
+              <div class="role-menu-foot-row">
+                <svg class="icon icon-14" aria-hidden="true"><use href="#i-shield-alert"/></svg>
+                <span>Tanpa autentikasi backend · Mode UI Mock</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================== TIER 2: PAGE HEADER RAIL ===================== -->
+    <div class="page-header-rail">
+      <div class="page-header-left">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <span>Komersial</span>
+          <span class="breadcrumb-sep">/</span>
+          <span>Master Komersial</span>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Master Customer B2B</span>
+        </nav>
+        <div class="page-title-row">
+          <h1 class="page-title">Master Data Customer B2B &amp; Profil Pelanggan</h1>
+        </div>
+      </div>
+
+      <div class="page-actions">
+        <a href="#modal-add-customer" class="btn-primary-header">
+          <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>
+          <span>Tambah Customer (Simulasi)</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ===================== WORKSPACE FRAME: SIDEBAR + MAIN ===================== -->
+    <div class="app-body">
+
+      <aside class="sidebar" aria-label="Navigasi Role Marketing">
+        <div class="sidebar-scroll">
+          <div class="role-box">
+            <div class="role-box-expanded">
+              <div class="role-box-meta">
+                <span class="role-box-dept">Divisi Komersial</span>
+                <span class="role-box-name">Marketing</span>
+              </div>
+            </div>
+            <div class="role-box-collapsed" title="Marketing (Divisi Komersial)">
+              <div class="role-box-avatar">MA</div>
+            </div>
+          </div>
+
+          <nav class="nav-groups">
+            <div class="nav-group">
+              <h3 class="nav-group-title">Sales Orders</h3>
+              <div class="nav-group-divider"></div>
+              <div class="nav-list">
+                <a href="sales-orders.html" class="nav-item" title="Daftar Sales Order">
+                  <svg class="icon" aria-hidden="true"><use href="#i-file-text"/></svg>
+                  <span class="nav-text"><span class="nav-label">Daftar Sales Order</span><span class="nav-badge">5</span></span>
+                </a>
+                <a href="so-fulfillment.html" class="nav-item" title="Status Pemenuhan Parsial">
+                  <svg class="icon" aria-hidden="true"><use href="#i-trending-up"/></svg>
+                  <span class="nav-text"><span class="nav-label">Status Pemenuhan Parsial</span></span>
+                </a>
+              </div>
+            </div>
+
+            <div class="nav-group">
+              <h3 class="nav-group-title">Master Komersial</h3>
+              <div class="nav-group-divider"></div>
+              <div class="nav-list">
+                <a href="customers.html" class="nav-item is-active" title="Master Customer B2B" aria-current="page">
+                  <svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>
+                  <span class="nav-text"><span class="nav-label">Master Customer B2B</span><span class="nav-badge">5</span></span>
+                </a>
+                <a href="parts.html" class="nav-item" title="Katalog Part Komponen">
+                  <svg class="icon" aria-hidden="true"><use href="#i-box"/></svg>
+                  <span class="nav-text"><span class="nav-label">Katalog Part Komponen</span><span class="nav-badge">6</span></span>
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <div class="sidebar-foot">
+          <label for="sidebar-toggle" class="sidebar-collapse-btn" title="Ciutkan / Perluas Sidebar">
+            <span class="collapse-expanded">
+              <svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg>
+              <span>Ciutkan Sidebar</span>
+            </span>
+            <span class="collapse-collapsed">
+              <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg>
+            </span>
+          </label>
+        </div>
+      </aside>
+
+      <!-- ===================== MAIN WORKSPACE: CUSTOMER MASTER VIEW ===================== -->
+      <main class="main-workspace">
+        <div class="role-page role-page--compact">
+
+          <!-- 1. TOP HEADER & ACTION BAR -->
+          <div class="subview-head">
+            <div>
+              <div class="flex-center-gap-2 mb-1">
+                <span class="badge badge--sm badge--primary flex-center-gap-1">
+                  <svg class="icon icon-12" aria-hidden="true"><use href="#i-building-2"/></svg>
+                  <span>MASTER PELANGGAN B2B</span>
+                </span>
+                <span class="badge badge--sm badge--neutral">5 PERUSAHAAN AKTIF</span>
+              </div>
+              <h2 class="subview-title">Master Data Customer B2B &amp; Profil Pelanggan</h2>
+              <p class="subview-desc">
+                Daftar perusahaan manufaktur otomotif mitra kontrak, alamat pengiriman pabrik, PIC pengadaan, dan termin pembayaran (TOP).
+              </p>
+            </div>
+
+            <a href="#modal-add-customer" class="btn-primary-header" style="height:36px;padding:0 16px;font-weight:700">
+              <svg class="icon icon-16" aria-hidden="true"><use href="#i-plus"/></svg>
+              <span>Tambah Customer (Simulasi)</span>
+            </a>
+          </div>
+
+          <!-- 2. CUSTOMER KPI CARDS ROW -->
+          <div class="grid-cols-4">
+            <div class="stat-card-sm">
+              <span class="stat-card-sm-label">Total Mitra Pelanggan B2B</span>
+              <div class="stat-card-sm-val tnum">5 <span class="t-12 font-normal c-nav">Perusahaan</span></div>
+              <span class="stat-card-sm-note">OEM &amp; Tier-1 Otomotif Aktif</span>
+            </div>
+            <div class="stat-card-sm">
+              <span class="stat-card-sm-label">Termin Net 30 (30 Hari)</span>
+              <div class="stat-card-sm-val tnum c-primary">3 <span class="t-12 font-normal c-nav">Customer</span></div>
+              <span class="stat-card-sm-note">ADM, DNIA, HMMI (21.400 PCS)</span>
+            </div>
+            <div class="stat-card-sm">
+              <span class="stat-card-sm-label">Termin Net 45 (45 Hari)</span>
+              <div class="stat-card-sm-val tnum">2 <span class="t-12 font-normal c-nav">Customer</span></div>
+              <span class="stat-card-sm-note">TMMIN, SHOWA (4.500 PCS)</span>
+            </div>
+            <div class="stat-card-sm">
+              <span class="stat-card-sm-label">Total Portofolio Kontrak SO</span>
+              <div class="stat-card-sm-val tnum c-positive">25.900 <span class="t-12 font-normal c-nav">PCS</span></div>
+              <span class="stat-card-sm-note">5 Sales Order Berjalan</span>
+            </div>
+          </div>
+
+          <!-- 3. PURE-CSS RADIO FILTER + CUSTOMER MASTER TABLE -->
+          <div>
+            <input type="radio" name="cust-term-filter" id="cust-term-all" class="toggle-input" checked />
+            <input type="radio" name="cust-term-filter" id="cust-term-30" class="toggle-input" />
+            <input type="radio" name="cust-term-filter" id="cust-term-45" class="toggle-input" />
+
+            <div class="cust-filter-wrap">
+              <!-- Filter Bar -->
+              <div class="flex-row-between mb-4" style="padding:12px 16px;background:#ffffff;border:1px solid #d5dce2;border-radius:4px">
+                <div class="filter-pill-group">
+                  <span class="t-11 font-bold uppercase tracking-wider c-nav mr-1">Filter Termin:</span>
+                  <label for="cust-term-all" class="filter-pill">Semua (5)</label>
+                  <label for="cust-term-30" class="filter-pill">Net 30</label>
+                  <label for="cust-term-45" class="filter-pill">Net 45</label>
+                </div>
+
+                <div class="input-search input-search--sm" style="width:288px">
+                  <svg class="icon input-search-icon" aria-hidden="true"><use href="#i-search"/></svg>
+                  <input type="text" class="input-search-field" placeholder="Cari Kode, Nama Perusahaan, atau PIC..." />
+                </div>
+              </div>
+
+              <!-- Customer Table -->
+              <div class="panel panel--r4">
+                <div class="matrix-wrap">
+                  <table class="mgmt-subtable cust-table">
+                    <thead>
+                      <tr>
+                        <th class="py-2-5 px-4">Kode Pelanggan</th>
+                        <th class="py-2-5 px-4">Nama Perusahaan B2B &amp; Alamat Pabrik</th>
+                        <th class="py-2-5 px-4">Kontak Person (PIC) &amp; Telepon</th>
+                        <th class="py-2-5 px-4 text-center">Termin (TOP)</th>
+                        <th class="py-2-5 px-4 text-right">SO Aktif</th>
+                        <th class="py-2-5 px-4 text-right">Total Order (PCS)</th>
+                        <th class="py-2-5 px-4 text-center">Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- CUST-ADM-01 -->
+                      <tr data-term="Net 30">
+                        <td class="py-3 px-4 font-mono font-bold c-primary">CUST-ADM-01</td>
+                        <td class="py-3 px-4">
+                          <div class="font-bold c-ink">PT Auto Dinamika Manufaktur</div>
+                          <div class="flex-center-gap-1 t-11 c-nav mt-0-5">
+                            <svg class="icon icon-12 shrink-0" aria-hidden="true"><use href="#i-map-pin"/></svg>
+                            <span>Kawasan Industri Suryacipta Kav. 4-6, Karawang Timur, Jawa Barat</span>
+                          </div>
+                        </td>
+                        <td class="py-3 px-4">
+                          <div class="flex-center-gap-1 font-medium c-body">
+                            <svg class="icon icon-12 c-primary shrink-0" aria-hidden="true"><use href="#i-user-check"/></svg>
+                            <span>Ir. Bambang Sugiarto (Procurement Dept)</span>
+                          </div>
+                          <div class="flex-center-gap-1 t-11 c-nav mt-0-5 font-mono">
+                            <svg class="icon icon-12 shrink-0" aria-hidden="true"><use href="#i-phone"/></svg>
+                            <span>+62 267 861 2200</span>
+                          </div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <span class="badge badge--sm badge--neutral font-bold">Net 30</span>
+                        </td>
+                        <td class="py-3 px-4 text-right font-bold c-ink tnum">1 SO Aktif</td>
+                        <td class="py-3 px-4 text-right font-bold c-primary tnum">13.000 PCS</td>
+                        <td class="py-3 px-4 text-center">
+                          <div class="dt-cell-actions">
+                            <a href="#modal-cust-1" class="btn-row" style="padding:4px 8px;color:#223548">
+                              <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                              <span>Profil</span>
+                            </a>
+                            <a href="sales-order-form.html" class="btn-row" style="padding:4px 8px;background:#ebf8ff;border-color:rgba(0,87,210,0.3);font-weight:700">
+                              <svg class="icon icon-12" aria-hidden="true"><use href="#i-file-text"/></svg>
+                              <span>Buat SO</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- CUST-TMMIN-02 -->
+                      <tr data-term="Net 45">
+                        <td class="py-3 px-4 font-mono font-bold c-primary">CUST-TMMIN-02</td>
+                        <td class="py-3 px-4">
+                          <div class="font-bold c-ink">PT Trans Mega Motor Indonesia</div>
+                          <div class="flex-center-gap-1 t-11 c-nav mt-0-5">
+                            <svg class="icon icon-12 shrink-0" aria-hidden="true"><use href="#i-map-pin"/></svg>
+                            <span>Kawasan Industri KIIC Lot B-1, Telukjambe Barat, Karawang</span>
+                          </div>
+                        </td>
+                        <td class="py-3 px-4">
+                          <div class="flex-center-gap-1 font-medium c-body">
+                            <svg class="icon icon-12 c-primary shrink-0" aria-hidden="true"><use href="#i-user-check"/></svg>
+                            <span>Dwi Prasetyo (Supply Chain Div)</span>
+                          </div>
+                          <div class="flex-center-gap-1 t-11 c-nav mt-0-5 font-mono">
+                            <svg class="icon icon-12 shrink-0" aria-hidden="true"><use href="#i-phone"/></svg>
+                            <span>+62 267 644 1100</span>
+                          </div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <span class="badge badge--sm badge--neutral font-bold">Net 45</span>
+                        </td>
+                        <td class="py-3 px-4 text-right font-bold c-ink tnum">1 SO Aktif</td>
+                        <td class="py-3 px-4 text-right font-bold c-primary tnum">3.000 PCS</td>
+                        <td class="py-3 px-4 text-center">
+                          <div class="dt-cell-actions">
+                            <a href="#modal-cust-2" class="btn-row" style="padding:4px 8px;color:#223548">
+                              <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                              <span>Profil</span>
+                            </a>
+                            <a href="sales-order-form.html" class="btn-row" style="padding:4px 8px;background:#ebf8ff;border-color:rgba(0,87,210,0.3);font-weight:700">
+                              <svg class="icon icon-12" aria-hidden="true"><use href="#i-file-text"/></svg>
+                              <span>Buat SO</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- CUST-DNIA-03 -->
+                      <tr data-term="Net 30">
+                        <td class="py-3 px-4 font-mono font-bold c-primary">CUST-DNIA-03</td>
+                        <td class="py-3 px-4">
+                          <div class="font-bold c-ink">PT Daya Nusantara Industri Auto</div>
+                          <div class="flex-center-gap-1 t-11 c-nav mt-0-5">
+                            <svg class="icon icon-12 shrink-0" aria-hidden="true"><use href="#i-map-pin"/></svg>
+                            <span>Kawasan Industri MM2100 Blok I-1, Cikarang Barat, Bekasi</span>
+                          </div>
+                        </td>
+                        <td class="py-3 px-4">
+                          <div class="flex-center-gap-1 font-medium c-body">
+                            <svg class="icon icon-12 c-primary shrink-0" aria-hidden="true"><use href="#i-user-check"/></svg>
+                            <span>Agus Gunawan (Material Management)</span>
+                          </div>
+                          <div class="flex-center-gap-1 t-11 c-nav mt-0-5 font-mono">
+                            <svg class="icon icon-12 shrink-0" aria-hidden="true"><use href="#i-phone"/></svg>
+                            <span>+62 21 898 0100</span>
+                          </div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <span class="badge badge--sm badge--neutral font-bold">Net 30</span>
+                        </td>
+                        <td class="py-3 px-4 text-right font-bold c-ink tnum">1 SO Aktif</td>
+                        <td class="py-3 px-4 text-right font-bold c-primary tnum">6.000 PCS</td>
+                        <td class="py-3 px-4 text-center">
+                          <div class="dt-cell-actions">
+                            <a href="#modal-cust-3" class="btn-row" style="padding:4px 8px;color:#223548">
+                              <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                              <span>Profil</span>
+                            </a>
+                            <a href="sales-order-form.html" class="btn-row" style="padding:4px 8px;background:#ebf8ff;border-color:rgba(0,87,210,0.3);font-weight:700">
+                              <svg class="icon icon-12" aria-hidden="true"><use href="#i-file-text"/></svg>
+                              <span>Buat SO</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- CUST-HMMI-04 -->
+                      <tr data-term="Net 30">
+                        <td class="py-3 px-4 font-mono font-bold c-primary">CUST-HMMI-04</td>
+                        <td class="py-3 px-4">
+                          <div class="font-bold c-ink">PT Heavy Mobil Manufaktur Indonesia</div>
+                          <div class="flex-center-gap-1 t-11 c-nav mt-0-5">
+                            <svg class="icon icon-12 shrink-0" aria-hidden="true"><use href="#i-map-pin"/></svg>
+                            <span>Kawasan Industri Kota Bukit Indah Blok D-1, Purwakarta</span>
+                          </div>
+                        </td>
+                        <td class="py-3 px-4">
+                          <div class="flex-center-gap-1 font-medium c-body">
+                            <svg class="icon icon-12 c-primary shrink-0" aria-hidden="true"><use href="#i-user-check"/></svg>
+                            <span>Rudi Hartono (Part Sourcing)</span>
+                          </div>
+                          <div class="flex-center-gap-1 t-11 c-nav mt-0-5 font-mono">
+                            <svg class="icon icon-12 shrink-0" aria-hidden="true"><use href="#i-phone"/></svg>
+                            <span>+62 264 351 900</span>
+                          </div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <span class="badge badge--sm badge--neutral font-bold">Net 30</span>
+                        </td>
+                        <td class="py-3 px-4 text-right font-bold c-ink tnum">1 SO Aktif</td>
+                        <td class="py-3 px-4 text-right font-bold c-primary tnum">2.400 PCS</td>
+                        <td class="py-3 px-4 text-center">
+                          <div class="dt-cell-actions">
+                            <a href="#modal-cust-4" class="btn-row" style="padding:4px 8px;color:#223548">
+                              <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                              <span>Profil</span>
+                            </a>
+                            <a href="sales-order-form.html" class="btn-row" style="padding:4px 8px;background:#ebf8ff;border-color:rgba(0,87,210,0.3);font-weight:700">
+                              <svg class="icon icon-12" aria-hidden="true"><use href="#i-file-text"/></svg>
+                              <span>Buat SO</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- CUST-SHOWA-05 -->
+                      <tr data-term="Net 45">
+                        <td class="py-3 px-4 font-mono font-bold c-primary">CUST-SHOWA-05</td>
+                        <td class="py-3 px-4">
+                          <div class="font-bold c-ink">PT Sinar Harapan Otomotif Warga Auto</div>
+                          <div class="flex-center-gap-1 t-11 c-nav mt-0-5">
+                            <svg class="icon icon-12 shrink-0" aria-hidden="true"><use href="#i-map-pin"/></svg>
+                            <span>Kawasan Industri Jababeka Blok C-3, Cikarang, Bekasi</span>
+                          </div>
+                        </td>
+                        <td class="py-3 px-4">
+                          <div class="flex-center-gap-1 font-medium c-body">
+                            <svg class="icon icon-12 c-primary shrink-0" aria-hidden="true"><use href="#i-user-check"/></svg>
+                            <span>Hendra Wijaya (Sub-assembly Dept)</span>
+                          </div>
+                          <div class="flex-center-gap-1 t-11 c-nav mt-0-5 font-mono">
+                            <svg class="icon icon-12 shrink-0" aria-hidden="true"><use href="#i-phone"/></svg>
+                            <span>+62 21 893 4500</span>
+                          </div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <span class="badge badge--sm badge--neutral font-bold">Net 45</span>
+                        </td>
+                        <td class="py-3 px-4 text-right font-bold c-ink tnum">1 SO Aktif</td>
+                        <td class="py-3 px-4 text-right font-bold c-primary tnum">1.500 PCS</td>
+                        <td class="py-3 px-4 text-center">
+                          <div class="dt-cell-actions">
+                            <a href="#modal-cust-5" class="btn-row" style="padding:4px 8px;color:#223548">
+                              <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                              <span>Profil</span>
+                            </a>
+                            <a href="sales-order-form.html" class="btn-row" style="padding:4px 8px;background:#ebf8ff;border-color:rgba(0,87,210,0.3);font-weight:700">
+                              <svg class="icon icon-12" aria-hidden="true"><use href="#i-file-text"/></svg>
+                              <span>Buat SO</span>
+                            </a>
+                          </div>
+                        </td>
+                      </tr>
+                    </tbody>
+
+                    <tfoot>
+                      <tr>
+                        <td colspan="4" class="py-2-5 px-4 text-right uppercase tracking-wider c-body">
+                          Total Portofolio Pelanggan Ditampilkan (5 B2B):
+                        </td>
+                        <td class="py-2-5 px-4 text-right tnum c-ink">5 SO</td>
+                        <td class="py-2-5 px-4 text-right tnum c-primary">25.900 PCS</td>
+                        <td class="py-2-5 px-4 text-center font-normal c-nav">Aktif</td>
+                      </tr>
+                    </tfoot>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <!-- ===================== FOOTER STATUS BAR (28px) ===================== -->
+    <footer class="footer-status">
+      <div class="footer-group">
+        <span class="footer-strong">PT NUTECH PUNDI ARTA — MINI ERP PROTOTYPE</span>
+        <span class="footer-sep">|</span>
+        <span>Mode: UI Verification (Frontend-Only)</span>
+        <span class="footer-sep">|</span>
+        <span>Single Source of Truth: BRD v3.0</span>
+      </div>
+      <div class="footer-group footer-group--right">
+        <div class="footer-user">
+          <span class="footer-user-label">Simulasi User:</span>
+          <span class="footer-user-value">Staff Marketing &amp; Komersial</span>
+        </div>
+        <span class="footer-sep">|</span>
+        <span class="footer-baseline">Baseline: 1440 × 900 Desktop</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===================== DEVELOPMENT SHOWCASE BAR (DEV / QA) ===================== -->
+  <aside class="devbar" aria-label="Panel Evaluasi Internal">
+    <div class="devbar-head">
+      <div class="devbar-head-left">
+        <svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>
+        <span class="devbar-title">Evaluasi UI Phase 01</span>
+        <span class="devbar-tag">DEV / QA TOOL</span>
+      </div>
+      <div class="devbar-head-right">
+        <label for="devbar-collapse" class="devbar-icon-btn" title="Ciutkan / Perluas Kontrol Evaluasi" aria-label="Ciutkan atau Perluas Kontrol Evaluasi">
+          <svg class="icon devbar-ico-down" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+          <svg class="icon devbar-ico-up" aria-hidden="true"><use href="#i-chevron-up"/></svg>
+        </label>
+        <label for="devbar-min" class="devbar-icon-btn devbar-icon-btn--close" title="Sembunyikan Panel (Mode Presentasi Bersih)" aria-label="Sembunyikan Panel Evaluasi UI">
+          <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+        </label>
+      </div>
+    </div>
+    <div class="devbar-body">
+      <span class="devbar-body-label">Pola Uji:</span>
+      <a href="sales-orders.html" class="devbar-pattern is-active" title="Tabel data padat SAP-style dengan summary row">1. Enterprise Table</a>
+      <a href="so-fulfillment.html" class="devbar-pattern" title="Executive metric cards &amp; multi-track downstream">2. Overview KPI</a>
+      <a href="sales-order-form.html" class="devbar-pattern" title="Input Sales Order dengan konversi Pack-to-PCS">3. Dense Form</a>
+      <a href="sales-orders-split.html" class="devbar-pattern" title="Master-detail view header &amp; line items">4. Split-Pane Detail</a>
+      <a href="#modal-add-customer" class="devbar-pattern" title="Dialog registrasi customer B2B baru">5. Modal Dialog</a>
+    </div>
+  </aside>
+
+  <div class="devbar-mini">
+    <label for="devbar-min" class="devbar-mini-open" title="Tampilkan Kembali Panel Evaluasi UI (DEV/QA Tool)" aria-label="Buka Panel Evaluasi UI Phase 01">
+      <svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>
+      <span>Panel QA</span>
+    </label>
+    <label for="devbar-off" class="devbar-mini-close" title="Sembunyikan Total (Mode Presentasi)" aria-label="Tutup Panel QA Sepenuhnya">
+      <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+    </label>
+  </div>
+
+  <!-- ===================== CUSTOMER PROFILE & ADD MODALS (:target) ===================== -->
+
+  <!-- Customer Profile Modal 1: CUST-ADM-01 -->
+  <div id="modal-cust-1" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-cust-1">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:600px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div class="flex-center-gap-2">
+          <svg class="icon icon-16 c-primary" aria-hidden="true"><use href="#i-building-2"/></svg>
+          <div>
+            <span class="t-10 font-bold uppercase tracking-wider c-primary block">Profil Pelanggan B2B · CUST-ADM-01</span>
+            <h3 id="title-cust-1" class="t-15 font-bold c-ink">PT Auto Dinamika Manufaktur</h3>
+          </div>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2" style="padding:14px;background:#f8f9fa;border:1px solid #d5dce2;border-radius:4px">
+          <div class="col-span-2"><span class="t-10 c-nav uppercase font-bold block">Alamat Pengiriman Pabrik</span><span class="font-medium c-ink">Kawasan Industri Suryacipta Kav. 4-6, Karawang Timur, Jawa Barat</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Kontak Person (PIC)</span><span class="font-bold c-body">Ir. Bambang Sugiarto (Procurement Dept)</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Telepon &amp; Termin</span><span class="font-mono font-semibold c-body">+62 267 861 2200 · <strong>Net 30</strong></span></div>
+        </div>
+
+        <div class="mgmt-subtable-wrap">
+          <div class="px-3 py-2 bg-chrome border-b border-subtle t-11 font-bold c-ink flex-row-between">
+            <span>Riwayat Sales Order Terkait</span>
+            <span class="font-mono c-primary">1 Dokumen SO</span>
+          </div>
+          <table class="mgmt-subtable">
+            <thead>
+              <tr><th>No. SO</th><th>No. PO Pelanggan</th><th class="text-right">Order (PCS)</th><th class="text-center">Status Kirim</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-mono font-bold c-primary">SO-2026-0041</td>
+                <td class="font-mono">ADM-PO-2610-8812</td>
+                <td class="text-right font-bold tnum">13.000 PCS</td>
+                <td class="text-center"><span class="badge badge--sm badge--neutral">Partially Shipped</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px;justify-content:space-between">
+        <span class="t-10 c-nav">Data Master Customer · Single Source of Truth</span>
+        <div class="flex-center-gap-2">
+          <a href="sales-order-form.html" class="btn-primary-header" style="height:30px;padding:0 12px;font-size:11px;font-weight:700">Buat SO Baru untuk Customer Ini</a>
+          <a href="#" class="btn-row" style="padding:6px 12px;color:#223548;font-weight:600">Tutup</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Customer Profile Modal 2: CUST-TMMIN-02 -->
+  <div id="modal-cust-2" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-cust-2">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:600px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div class="flex-center-gap-2">
+          <svg class="icon icon-16 c-primary" aria-hidden="true"><use href="#i-building-2"/></svg>
+          <div>
+            <span class="t-10 font-bold uppercase tracking-wider c-primary block">Profil Pelanggan B2B · CUST-TMMIN-02</span>
+            <h3 id="title-cust-2" class="t-15 font-bold c-ink">PT Trans Mega Motor Indonesia</h3>
+          </div>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2" style="padding:14px;background:#f8f9fa;border:1px solid #d5dce2;border-radius:4px">
+          <div class="col-span-2"><span class="t-10 c-nav uppercase font-bold block">Alamat Pengiriman Pabrik</span><span class="font-medium c-ink">Kawasan Industri KIIC Lot B-1, Telukjambe Barat, Karawang</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Kontak Person (PIC)</span><span class="font-bold c-body">Dwi Prasetyo (Supply Chain Div)</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Telepon &amp; Termin</span><span class="font-mono font-semibold c-body">+62 267 644 1100 · <strong>Net 45</strong></span></div>
+        </div>
+
+        <div class="mgmt-subtable-wrap">
+          <div class="px-3 py-2 bg-chrome border-b border-subtle t-11 font-bold c-ink flex-row-between">
+            <span>Riwayat Sales Order Terkait</span>
+            <span class="font-mono c-primary">1 Dokumen SO</span>
+          </div>
+          <table class="mgmt-subtable">
+            <thead>
+              <tr><th>No. SO</th><th>No. PO Pelanggan</th><th class="text-right">Order (PCS)</th><th class="text-center">Status Kirim</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-mono font-bold c-primary">SO-2026-0042</td>
+                <td class="font-mono">TMMIN-P4-09821</td>
+                <td class="text-right font-bold tnum">3.000 PCS</td>
+                <td class="text-center"><span class="badge badge--sm badge--neutral">Pending</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px;justify-content:space-between">
+        <span class="t-10 c-nav">Data Master Customer · Single Source of Truth</span>
+        <div class="flex-center-gap-2">
+          <a href="sales-order-form.html" class="btn-primary-header" style="height:30px;padding:0 12px;font-size:11px;font-weight:700">Buat SO Baru untuk Customer Ini</a>
+          <a href="#" class="btn-row" style="padding:6px 12px;color:#223548;font-weight:600">Tutup</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Customer Profile Modal 3: CUST-DNIA-03 -->
+  <div id="modal-cust-3" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-cust-3">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:600px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div class="flex-center-gap-2">
+          <svg class="icon icon-16 c-primary" aria-hidden="true"><use href="#i-building-2"/></svg>
+          <div>
+            <span class="t-10 font-bold uppercase tracking-wider c-primary block">Profil Pelanggan B2B · CUST-DNIA-03</span>
+            <h3 id="title-cust-3" class="t-15 font-bold c-ink">PT Daya Nusantara Industri Auto</h3>
+          </div>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2" style="padding:14px;background:#f8f9fa;border:1px solid #d5dce2;border-radius:4px">
+          <div class="col-span-2"><span class="t-10 c-nav uppercase font-bold block">Alamat Pengiriman Pabrik</span><span class="font-medium c-ink">Kawasan Industri MM2100 Blok I-1, Cikarang Barat, Bekasi</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Kontak Person (PIC)</span><span class="font-bold c-body">Agus Gunawan (Material Management)</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Telepon &amp; Termin</span><span class="font-mono font-semibold c-body">+62 21 898 0100 · <strong>Net 30</strong></span></div>
+        </div>
+
+        <div class="mgmt-subtable-wrap">
+          <div class="px-3 py-2 bg-chrome border-b border-subtle t-11 font-bold c-ink flex-row-between">
+            <span>Riwayat Sales Order Terkait</span>
+            <span class="font-mono c-primary">1 Dokumen SO</span>
+          </div>
+          <table class="mgmt-subtable">
+            <thead>
+              <tr><th>No. SO</th><th>No. PO Pelanggan</th><th class="text-right">Order (PCS)</th><th class="text-center">Status Kirim</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-mono font-bold c-primary">SO-2026-0043</td>
+                <td class="font-mono">DNIA-PUR-2026-441</td>
+                <td class="text-right font-bold tnum">6.000 PCS</td>
+                <td class="text-center"><span class="badge badge--sm badge--neutral">Fully Delivered</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px;justify-content:space-between">
+        <span class="t-10 c-nav">Data Master Customer · Single Source of Truth</span>
+        <div class="flex-center-gap-2">
+          <a href="sales-order-form.html" class="btn-primary-header" style="height:30px;padding:0 12px;font-size:11px;font-weight:700">Buat SO Baru untuk Customer Ini</a>
+          <a href="#" class="btn-row" style="padding:6px 12px;color:#223548;font-weight:600">Tutup</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Customer Profile Modal 4: CUST-HMMI-04 -->
+  <div id="modal-cust-4" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-cust-4">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:600px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div class="flex-center-gap-2">
+          <svg class="icon icon-16 c-primary" aria-hidden="true"><use href="#i-building-2"/></svg>
+          <div>
+            <span class="t-10 font-bold uppercase tracking-wider c-primary block">Profil Pelanggan B2B · CUST-HMMI-04</span>
+            <h3 id="title-cust-4" class="t-15 font-bold c-ink">PT Heavy Mobil Manufaktur Indonesia</h3>
+          </div>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2" style="padding:14px;background:#f8f9fa;border:1px solid #d5dce2;border-radius:4px">
+          <div class="col-span-2"><span class="t-10 c-nav uppercase font-bold block">Alamat Pengiriman Pabrik</span><span class="font-medium c-ink">Kawasan Industri Kota Bukit Indah Blok D-1, Purwakarta</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Kontak Person (PIC)</span><span class="font-bold c-body">Rudi Hartono (Part Sourcing)</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Telepon &amp; Termin</span><span class="font-mono font-semibold c-body">+62 264 351 900 · <strong>Net 30</strong></span></div>
+        </div>
+
+        <div class="mgmt-subtable-wrap">
+          <div class="px-3 py-2 bg-chrome border-b border-subtle t-11 font-bold c-ink flex-row-between">
+            <span>Riwayat Sales Order Terkait</span>
+            <span class="font-mono c-primary">1 Dokumen SO</span>
+          </div>
+          <table class="mgmt-subtable">
+            <thead>
+              <tr><th>No. SO</th><th>No. PO Pelanggan</th><th class="text-right">Order (PCS)</th><th class="text-center">Status Kirim</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-mono font-bold c-primary">SO-2026-0044</td>
+                <td class="font-mono">HMMI-PO-00914</td>
+                <td class="text-right font-bold tnum">2.400 PCS</td>
+                <td class="text-center"><span class="badge badge--sm badge--neutral">Partially Shipped</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px;justify-content:space-between">
+        <span class="t-10 c-nav">Data Master Customer · Single Source of Truth</span>
+        <div class="flex-center-gap-2">
+          <a href="sales-order-form.html" class="btn-primary-header" style="height:30px;padding:0 12px;font-size:11px;font-weight:700">Buat SO Baru untuk Customer Ini</a>
+          <a href="#" class="btn-row" style="padding:6px 12px;color:#223548;font-weight:600">Tutup</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Customer Profile Modal 5: CUST-SHOWA-05 -->
+  <div id="modal-cust-5" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-cust-5">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:600px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div class="flex-center-gap-2">
+          <svg class="icon icon-16 c-primary" aria-hidden="true"><use href="#i-building-2"/></svg>
+          <div>
+            <span class="t-10 font-bold uppercase tracking-wider c-primary block">Profil Pelanggan B2B · CUST-SHOWA-05</span>
+            <h3 id="title-cust-5" class="t-15 font-bold c-ink">PT Sinar Harapan Otomotif Warga Auto</h3>
+          </div>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2" style="padding:14px;background:#f8f9fa;border:1px solid #d5dce2;border-radius:4px">
+          <div class="col-span-2"><span class="t-10 c-nav uppercase font-bold block">Alamat Pengiriman Pabrik</span><span class="font-medium c-ink">Kawasan Industri Jababeka Blok C-3, Cikarang, Bekasi</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Kontak Person (PIC)</span><span class="font-bold c-body">Hendra Wijaya (Sub-assembly Dept)</span></div>
+          <div><span class="t-10 c-nav uppercase font-bold block">Telepon &amp; Termin</span><span class="font-mono font-semibold c-body">+62 21 893 4500 · <strong>Net 45</strong></span></div>
+        </div>
+
+        <div class="mgmt-subtable-wrap">
+          <div class="px-3 py-2 bg-chrome border-b border-subtle t-11 font-bold c-ink flex-row-between">
+            <span>Riwayat Sales Order Terkait</span>
+            <span class="font-mono c-primary">1 Dokumen SO</span>
+          </div>
+          <table class="mgmt-subtable">
+            <thead>
+              <tr><th>No. SO</th><th>No. PO Pelanggan</th><th class="text-right">Order (PCS)</th><th class="text-center">Status Kirim</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-mono font-bold c-primary">SO-2026-0045</td>
+                <td class="font-mono">SHW-2026-NOV-019</td>
+                <td class="text-right font-bold tnum">1.500 PCS</td>
+                <td class="text-center"><span class="badge badge--sm badge--neutral">Pending</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px;justify-content:space-between">
+        <span class="t-10 c-nav">Data Master Customer · Single Source of Truth</span>
+        <div class="flex-center-gap-2">
+          <a href="sales-order-form.html" class="btn-primary-header" style="height:30px;padding:0 12px;font-size:11px;font-weight:700">Buat SO Baru untuk Customer Ini</a>
+          <a href="#" class="btn-row" style="padding:6px 12px;color:#223548;font-weight:600">Tutup</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Tambah Customer Baru (Simulasi) -->
+  <div id="modal-add-customer" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-add-customer">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:560px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div>
+          <span class="t-10 font-bold uppercase tracking-wider c-primary block">Simulasi Komersial</span>
+          <h3 id="title-add-customer" class="t-15 font-bold c-ink">Registrasi Master Customer B2B Baru</h3>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2">
+          <div>
+            <label for="cust-code" class="block t-11 font-bold c-body mb-1">Kode Pelanggan (Otomatis)</label>
+            <input id="cust-code" type="text" value="CUST-NEW-06" readonly class="field-input field-input--mono font-bold c-primary" style="height:32px;font-size:12px" />
+          </div>
+          <div>
+            <label for="cust-top" class="block t-11 font-bold c-body mb-1">Termin Pembayaran (TOP)</label>
+            <select id="cust-top" class="field-select" style="height:32px;font-size:12px">
+              <option value="Net 30" selected>Net 30 (30 Hari)</option>
+              <option value="Net 45">Net 45 (45 Hari)</option>
+              <option value="Net 60">Net 60 (60 Hari)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="cust-name" class="block t-11 font-bold c-body mb-1">Nama Perusahaan B2B (Fiktif) <span class="req">*</span></label>
+          <input id="cust-name" type="text" placeholder="Contoh: PT Prima Presisi Otomotif Nusantara" class="field-input" style="height:32px;font-size:12px" />
+        </div>
+
+        <div>
+          <label for="cust-addr" class="block t-11 font-bold c-body mb-1">Alamat Pabrik / Kawasan Industri <span class="req">*</span></label>
+          <textarea id="cust-addr" rows="2" placeholder="Contoh: Kawasan Industri Jababeka Tahap V, Cikarang Timur, Bekasi" class="field-textarea" style="min-height:56px;font-size:12px"></textarea>
+        </div>
+
+        <div class="grid-cols-2">
+          <div>
+            <label for="cust-pic" class="block t-11 font-bold c-body mb-1">Kontak Person (PIC) <span class="req">*</span></label>
+            <input id="cust-pic" type="text" placeholder="Contoh: Budi Santoso (Purchasing)" class="field-input" style="height:32px;font-size:12px" />
+          </div>
+          <div>
+            <label for="cust-phone" class="block t-11 font-bold c-body mb-1">No. Telepon / Kantor</label>
+            <input id="cust-phone" type="text" placeholder="+62 21 8900 1234" class="field-input" style="height:32px;font-size:12px" />
+          </div>
+        </div>
+      </div>
+
+      <div class="modal-foot" style="padding:12px 20px;justify-content:space-between">
+        <span class="t-10 c-nav">Mode Simulasi UI Frontend · Tanpa Database Riil</span>
+        <div class="flex-center-gap-2">
+          <a href="#" class="btn-row" style="padding:6px 12px;color:#223548;font-weight:600">Batal</a>
+          <a href="#" class="btn-primary-header" style="height:30px;padding:0 14px;font-size:11px;font-weight:700">Simpan Pelanggan</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+

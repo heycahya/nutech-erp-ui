@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Buat Surat Jalan Baru (Modal Terbuka) — NUTECH ERP</title>
+  <link rel="stylesheet" href="../../css/tokens.css" />
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/shell.css" />
+  <link rel="stylesheet" href="../../css/patterns.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+    <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="18" x2="20" y2="18"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.25" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+    <symbol id="i-activity" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"/></symbol>
+    <symbol id="i-clipboard-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="m9 14 2 2 4-4"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l4 2"/></symbol>
+    <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+    <symbol id="i-file-text" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  </svg>
+
+  <input type="checkbox" id="sidebar-toggle" class="shell-state-toggle" aria-label="Toggle Sidebar" />
+  <input type="checkbox" id="role-dropdown-toggle" class="shell-state-toggle" aria-label="Toggle Role Switcher" />
+
+  <div class="erp-shell">
+    <header class="global-topbar">
+      <div class="topbar-left">
+        <label for="sidebar-toggle" class="sidebar-toggle-btn"><svg class="icon-md"><use href="#i-menu"/></svg></label>
+        <div class="brand-lockup"><div class="brand-mark">N</div><div class="brand-Wordmark"><div class="brand-title-row"><span class="brand-title">NUTECH ERP</span><span class="brand-env-badge">PROD-SIM</span></div><div class="brand-subtitle">Sistem Informasi Manufaktur Terintegrasi</div></div></div>
+        <div class="topbar-divider"></div>
+        <div class="plant-context-pill"><span class="plant-dot"></span><span>PLANT CIKARANG-01 • SHIFT 1 (PAGI)</span></div>
+      </div>
+      <div class="topbar-right">
+        <div class="date-context-box"><span class="date-context-label">Tgl Operasional:</span><span class="date-context-value">04 Nov 2026</span></div>
+        <div class="topbar-divider"></div>
+        <div class="user-profile-chip"><div class="user-avatar">OP</div><div class="user-info"><span class="user-name">Rudi Hartono</span><span class="user-role">Admin Operasional Pabrik</span></div></div>
+      </div>
+    </header>
+
+    <div class="erp-body">
+      <aside class="sidebar-nav">
+        <div class="sidebar-role-box"><div class="sidebar-role-label">Operasional Pabrik</div><div class="sidebar-role-title">Admin Produksi &amp; Pengiriman</div></div>
+        <div class="sidebar-scroll">
+          <div class="nav-group">
+            <div class="nav-group-label">MODUL PENGIRIMAN (Surat Jalan)</div>
+            <ul class="nav-list">
+              <li class="nav-item"><a href="monitoring.html" class="nav-link"><svg class="nav-icon"><use href="#i-truck"/></svg><span class="nav-text">Monitoring Pengiriman</span></a></li>
+              <li class="nav-item"><a href="sj-management.html" class="nav-link is-active"><svg class="nav-icon"><use href="#i-file-text"/></svg><span class="nav-text">Pengelolaan Surat Jalan (SJ)</span><span class="nav-badge is-primary">4</span></a></li>
+              <li class="nav-item"><a href="so-matching.html" class="nav-link"><svg class="nav-icon"><use href="#i-shield"/></svg><span class="nav-text">Pencocokan SO &amp; Tagihan</span></a></li>
+              <li class="nav-item"><a href="history.html" class="nav-link"><svg class="nav-icon"><use href="#i-history"/></svg><span class="nav-text">Riwayat &amp; Log Pengiriman</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+
+      <div class="main-workspace">
+        <div class="page-header-rail">
+          <div class="header-rail-left">
+            <h1 class="page-title">Pengelolaan Dokumen Surat Jalan — State Modal Buat SJ Terbuka</h1>
+            <p class="page-subtitle">Referensi Visual: admin_del_create_sj_modal.png</p>
+          </div>
+        </div>
+        <main class="workspace-canvas"></main>
+        <footer class="footer-status-bar"><div class="footer-left"><span>State Referensi: <strong>admin_del_create_sj_modal.png</strong></span></div></footer>
+      </div>
+    </div>
+
+    <!-- Modal Terbuka (.is-open) untuk Paritas Visual admin_del_create_sj_modal.png -->
+    <div id="modal-create-sj" class="modal-overlay is-open">
+      <a href="sj-management.html" class="modal-backdrop" aria-label="Tutup Modal"></a>
+      <div class="modal-dialog modal-lg">
+        <div class="modal-header">
+          <div>
+            <span class="badge is-primary mb-4">PENERBITAN DOKUMEN EKSPEDISI</span>
+            <h3 class="modal-title">Buat Surat Jalan Baru (Create Delivery Order / SJ)</h3>
+            <p class="modal-subtitle">Pilih referensi Sales Order (SO) dan lokasi pengambilan barang jadi (Ujung Lini atau Gudang FG)</p>
+          </div>
+          <a href="sj-management.html" class="modal-close-btn" title="Tutup"><svg class="icon-sm"><use href="#i-x"/></svg></a>
+        </div>
+        <div class="modal-body">
+          <div class="form-grid-2">
+            <div class="form-group"><label class="form-label">Nomor Surat Jalan (Otomatis)</label><input type="text" class="form-control font-mono" value="SJ-2026-0093" readonly /></div>
+            <div class="form-group"><label class="form-label">Tanggal Pengiriman</label><input type="text" class="form-control tnum" value="04 Nov 2026" readonly /></div>
+            <div class="form-group"><label class="form-label">Pilih Referensi Sales Order (SO Aktif)</label><select class="form-control"><option selected>SO-2026-0041 — PT Auto Dinamika Manufaktur (ADM-PO-2610-8812)</option><option>SO-2026-0042 — PT Trans Mega Motor Indonesia (TMMI-URG-2611-004)</option><option>SO-2026-0044 — PT Heavy Mobil Manufaktur Indonesia (HMMI-PO-2026-331)</option></select></div>
+            <div class="form-group"><label class="form-label">Pilih Lokasi Pengambilan Stok FG</label><select class="form-control"><option selected>Gudang FG Utama (Tersedia: 1.000 PCS NTC-RUB-0101)</option><option>Ujung Lini Produksi (Tersedia: 1.500 PCS NTC-RUB-0101)</option></select></div>
+            <div class="form-group"><label class="form-label">Part FG &amp; Kuantitas Kirim (PCS)</label><input type="text" class="form-control tnum font-bold" value="NTC-RUB-0101 — 1.000 PCS (5 Box @ 200 PCS)" /></div>
+            <div class="form-group"><label class="form-label">No. Polisi Armada &amp; Nama Pengemudi</label><input type="text" class="form-control" value="B 9104 TCD — Budi Santoso" /></div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="sj-management.html" class="btn btn-secondary">Batal</a>
+          <a href="sj-management.html" class="btn btn-primary"><svg class="icon-sm"><use href="#i-check"/></svg> Simpan sebagai Draft SJ</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="dev-showcase-bar">
+      <div class="showcase-left"><span class="showcase-badge">PURE HTML5/CSS3</span><span class="showcase-text">Referensi Visual: <strong>admin_del_create_sj_modal.png</strong></span></div>
+      <div class="showcase-links">
+        <a href="monitoring.html" class="showcase-chip">Monitoring SJ</a>
+        <a href="sj-management.html" class="showcase-chip">Kelola SJ</a>
+        <a href="create-sj-modal.html" class="showcase-chip is-current">Modal Buat SJ</a>
+        <a href="confirm-sj-modal.html" class="showcase-chip">Modal Confirm POD</a>
+        <a href="sj-printed.html" class="showcase-chip">Preview Cetak SJ</a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
+

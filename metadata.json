@@ -1,6 +1,0 @@
-{
-  "name": "Nutech ERP — High-Fidelity UI Prototype",
-  "description": "Sistem Informasi Operasional Terintegrasi PT Nutech Pundi Arta — Prototype Antarmuka Manufaktur Komponen Otomotif",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}

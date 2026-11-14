@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NUTECH ERP — Master Supplier Bahan Baku (Purchasing)</title>
+  <link rel="stylesheet" href="../../css/tokens.css" />
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/shell.css" />
+  <link rel="stylesheet" href="../../css/patterns.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body>
+
+  <!-- ===================== SVG SPRITE ===================== -->
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-chevron-up" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-user-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></symbol>
+    <symbol id="i-shield-alert" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></symbol>
+    <symbol id="i-calculator" viewBox="0 0 24 24"><rect width="16" height="20" x="4" y="2" rx="2"/><line x1="8" x2="16" y1="6" y2="6"/><line x1="16" x2="16" y1="14" y2="18"/><path d="M16 10h.01"/><path d="M12 10h.01"/><path d="M8 10h.01"/><path d="M12 14h.01"/><path d="M8 14h.01"/><path d="M12 18h.01"/><path d="M8 18h.01"/></symbol>
+    <symbol id="i-alert-triangle" viewBox="0 0 24 24"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3"/><path d="M12 9v4"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-shopping-cart" viewBox="0 0 24 24"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></symbol>
+    <symbol id="i-truck" viewBox="0 0 24 24"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14"/><line x1="4" x2="4" y1="10" y2="3"/><line x1="12" x2="12" y1="21" y2="12"/><line x1="12" x2="12" y1="8" y2="3"/><line x1="20" x2="20" y1="21" y2="16"/><line x1="20" x2="20" y1="12" y2="3"/><line x1="2" x2="6" y1="14" y2="14"/><line x1="10" x2="14" y1="8" y2="8"/><line x1="18" x2="22" y1="16" y2="16"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  </svg>
+
+  <!-- ===================== PURE-CSS STATE TOGGLES ===================== -->
+  <input type="checkbox" id="sidebar-toggle" class="toggle-input" />
+  <input type="checkbox" id="role-dropdown-toggle" class="toggle-input" />
+  <input type="checkbox" id="devbar-collapse" class="toggle-input" />
+  <input type="checkbox" id="devbar-min" class="toggle-input" />
+  <input type="checkbox" id="devbar-off" class="toggle-input" />
+
+  <div class="app-shell">
+
+    <!-- ===================== TIER 1: GLOBAL TOPBAR ===================== -->
+    <header class="topbar">
+      <div class="topbar-brand">
+        <div class="topbar-logo">NT</div>
+        <div class="topbar-brand-text">
+          <span class="topbar-title">PT NUTECH PUNDI ARTA</span>
+          <span class="topbar-subtitle">Integrated Manufacturing ERP System</span>
+        </div>
+      </div>
+
+      <div class="topbar-search">
+        <div class="topbar-search-inner">
+          <svg class="icon topbar-search-icon" aria-hidden="true"><use href="#i-search"/></svg>
+          <input type="text" class="topbar-search-input" disabled placeholder="Pencarian dokumen, part, customer... (TBD)" />
+          <span class="topbar-search-badge">TBD</span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <div class="topbar-proto-pill">
+          <span>PROTOTYPE UI</span>
+          <span>·</span>
+          <span>SIMULASI</span>
+        </div>
+
+        <div class="role-switcher">
+          <label for="role-dropdown-toggle" class="role-btn" aria-label="Ganti Role Simulasi" aria-haspopup="listbox">
+            <svg class="icon role-btn-icon" aria-hidden="true"><use href="#i-user-circle"/></svg>
+            <span class="role-btn-text">
+              <span class="role-btn-caption">Role Aktif</span>
+              <span class="role-btn-value">Purchasing</span>
+            </span>
+            <svg class="icon role-btn-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+          </label>
+          <label for="role-dropdown-toggle" class="role-dropdown-backdrop" aria-hidden="true"></label>
+          <div class="role-menu" role="listbox">
+            <div class="role-menu-head">
+              <p class="role-menu-title">Role Switcher (Simulasi 7 Role)</p>
+              <p class="role-menu-desc">Pilih salah satu role untuk menguji tampilan dan navigasi sesuai hak akses BRD.</p>
+            </div>
+            <div class="role-menu-list">
+              <a href="../marketing/sales-orders.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Staff Marketing &amp; Komersial</span></span>
+                  <span class="role-option-dept">Divisi Komersial</span>
+                </span>
+              </a>
+              <a href="../ppic/spk.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">PPIC Planner</span></span>
+                  <span class="role-option-dept">Divisi Perencanaan Produksi</span>
+                </span>
+              </a>
+              <a href="mrp.html" class="role-option is-selected" role="option" aria-selected="true">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Purchasing Officer</span></span>
+                  <span class="role-option-dept">Divisi Pengadaan</span>
+                </span>
+                <svg class="icon role-option-check" aria-hidden="true"><use href="#i-check"/></svg>
+              </a>
+              <a href="../warehouse/monitoring.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Admin Gudang Bahan Baku</span></span>
+                  <span class="role-option-dept">Gudang Material</span>
+                </span>
+              </a>
+              <a href="../production/monitoring.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Admin Produksi &amp; Pengiriman</span></span>
+                  <span class="role-option-dept">Operasional Pabrik</span>
+                </span>
+              </a>
+              <a href="../finance/dashboard.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Finance &amp; Billing Specialist</span></span>
+                  <span class="role-option-dept">Divisi Keuangan</span>
+                </span>
+              </a>
+              <a href="../management/dashboard.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row">
+                    <span class="role-option-title">Direksi &amp; Manajemen</span>
+                    <span class="role-option-badge">READ ONLY</span>
+                  </span>
+                  <span class="role-option-dept">Executive Board</span>
+                </span>
+              </a>
+            </div>
+            <div class="role-menu-foot">
+              <div class="role-menu-foot-row">
+                <svg class="icon icon-14" aria-hidden="true"><use href="#i-shield-alert"/></svg>
+                <span>Tanpa autentikasi backend · Mode UI Mock</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================== TIER 2: PAGE HEADER RAIL ===================== -->
+    <div class="page-header-rail">
+      <div class="page-header-left">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <span>Purchasing</span>
+          <span class="breadcrumb-sep">/</span>
+          <span>Master Pengadaan</span>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Master Supplier</span>
+        </nav>
+        <div class="page-title-row">
+          <h1 class="page-title">Master Data Supplier Bahan Baku Manufaktur (4 Vendor Terdaftar)</h1>
+          <span class="badge badge--11 badge--primary">APPROVED VENDOR LIST</span>
+        </div>
+      </div>
+
+      <div class="page-actions">
+        <a href="#modal-add-supplier" class="btn-primary-header">
+          <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>
+          <span>+ Tambah Supplier Baru</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ===================== WORKSPACE FRAME: SIDEBAR + MAIN ===================== -->
+    <div class="app-body">
+
+      <aside class="sidebar" aria-label="Navigasi Role Purchasing">
+        <div class="sidebar-scroll">
+          <div class="role-box">
+            <div class="role-box-expanded">
+              <div class="role-box-meta">
+                <span class="role-box-dept">Divisi Pengadaan</span>
+                <span class="role-box-name">Purchasing</span>
+              </div>
+            </div>
+            <div class="role-box-collapsed" title="Purchasing">
+              <div class="role-box-avatar">PU</div>
+            </div>
+          </div>
+
+          <nav class="nav-groups">
+            <div class="nav-group">
+              <h3 class="nav-group-title">Kebutuhan Bahan</h3>
+              <div class="nav-group-divider"></div>
+              <div class="nav-list">
+                <a href="mrp.html" class="nav-item" title="Simulasi MRP Demo">
+                  <svg class="icon" aria-hidden="true"><use href="#i-calculator"/></svg>
+                  <span class="nav-text"><span class="nav-label">Simulasi MRP Demo</span></span>
+                </a>
+                <a href="shortage.html" class="nav-item" title="Laporan Kebutuhan (PR)">
+                  <svg class="icon" aria-hidden="true"><use href="#i-alert-triangle"/></svg>
+                  <span class="nav-text"><span class="nav-label">Laporan Kebutuhan (PR)</span><span class="nav-badge">2 Tiket</span></span>
+                </a>
+                <a href="purchase-orders.html" class="nav-item" title="PO Supplier Bahan Baku">
+                  <svg class="icon" aria-hidden="true"><use href="#i-shopping-cart"/></svg>
+                  <span class="nav-text"><span class="nav-label">PO Supplier Bahan Baku</span><span class="nav-badge">3</span></span>
+                </a>
+                <a href="inbound-monitoring.html" class="nav-item" title="Monitoring Inbound Bahan">
+                  <svg class="icon" aria-hidden="true"><use href="#i-truck"/></svg>
+                  <span class="nav-text"><span class="nav-label">Monitoring Inbound Bahan</span></span>
+                </a>
+              </div>
+            </div>
+
+            <div class="nav-group">
+              <h3 class="nav-group-title">Master Pengadaan</h3>
+              <div class="nav-group-divider"></div>
+              <div class="nav-list">
+                <a href="suppliers.html" class="nav-item is-active" title="Master Supplier" aria-current="page">
+                  <svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>
+                  <span class="nav-text"><span class="nav-label">Master Supplier</span><span class="nav-badge">4</span></span>
+                </a>
+                <a href="materials.html" class="nav-item" title="Master Material &amp; UoM">
+                  <svg class="icon" aria-hidden="true"><use href="#i-box"/></svg>
+                  <span class="nav-text"><span class="nav-label">Master Material &amp; UoM</span><span class="nav-badge">3</span></span>
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <div class="sidebar-foot">
+          <label for="sidebar-toggle" class="sidebar-collapse-btn" title="Ciutkan / Perluas Sidebar">
+            <span class="collapse-expanded">
+              <svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg>
+              <span>Ciutkan Sidebar</span>
+            </span>
+            <span class="collapse-collapsed">
+              <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg>
+            </span>
+          </label>
+        </div>
+      </aside>
+
+      <!-- ===================== MAIN WORKSPACE ===================== -->
+      <main class="main-workspace">
+        <div class="role-page">
+
+          <!-- 1. Pure CSS Filter & Tabel 4 Supplier -->
+          <input type="radio" name="sup-cat" id="sup-cat-all" class="toggle-input" checked />
+          <input type="radio" name="sup-cat" id="sup-cat-rub" class="toggle-input" />
+          <input type="radio" name="sup-cat" id="sup-cat-foam" class="toggle-input" />
+          <input type="radio" name="sup-cat" id="sup-cat-eva" class="toggle-input" />
+
+          <div class="pur-sup-wrap">
+            <div class="panel-card">
+              <div class="panel-card-head">
+                <div class="filter-pill-group">
+                  <span style="font-size:11px;font-weight:700;color:#545454;margin-right:4px">Filter Kategori:</span>
+                  <label for="sup-cat-all" class="filter-pill">Semua Supplier (4)</label>
+                  <label for="sup-cat-rub" class="filter-pill">Karet / Rubber (2)</label>
+                  <label for="sup-cat-foam" class="filter-pill">Busa / Foam (1)</label>
+                  <label for="sup-cat-eva" class="filter-pill">EVA Sponge (1)</label>
+                </div>
+              </div>
+
+              <div class="dt-table-wrap">
+                <table class="dt-table pur-sup-table">
+                  <thead>
+                    <tr>
+                      <th style="width:130px">Kode Vendor</th>
+                      <th style="min-width:210px">Nama Perusahaan Supplier</th>
+                      <th style="width:135px">Spesialisasi</th>
+                      <th style="width:185px">Material yang Dipasok</th>
+                      <th style="width:170px">Kontak PIC &amp; Kota</th>
+                      <th class="text-center" style="width:95px">Lead Time</th>
+                      <th class="text-center" style="width:95px">Termin</th>
+                      <th class="text-center" style="width:95px">Status</th>
+                      <th class="text-center" style="width:95px">Aksi</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <!-- Supplier 1 -->
+                    <tr data-cat="Rubber">
+                      <td class="dt-cell-primary font-mono">SUPP-SKR-01</td>
+                      <td>
+                        <div class="dt-cell-name">PT Sintetis Karet Nusantara</div>
+                        <div class="dt-cell-sub">Kawasan Industri Jababeka II, Cikarang</div>
+                      </td>
+                      <td>Compound EPDM &amp; NR</td>
+                      <td><span class="font-mono" style="font-weight:700;color:#0057d2">MAT-EPDM-01</span></td>
+                      <td>
+                        <div>Irwan Setiawan</div>
+                        <div class="dt-cell-sub">021-8934-1120</div>
+                      </td>
+                      <td class="text-center tnum">5 Hari</td>
+                      <td class="text-center"><span class="badge badge--11 badge--neutral-list">Net 30</span></td>
+                      <td class="text-center"><span class="badge badge--11 badge--positive">Active</span></td>
+                      <td class="text-center"><a href="#modal-sup-1" class="btn-row"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span>Detail</span></a></td>
+                    </tr>
+
+                    <!-- Supplier 2 -->
+                    <tr data-cat="Foam">
+                      <td class="dt-cell-primary font-mono">SUPP-PLY-02</td>
+                      <td>
+                        <div class="dt-cell-name">PT Polimer Busa Indonesia</div>
+                        <div class="dt-cell-sub">Kawasan Industri Jatake, Tangerang</div>
+                      </td>
+                      <td>Polyurethane Acoustic Foam</td>
+                      <td><span class="font-mono" style="font-weight:700;color:#0057d2">MAT-FOAM-PU10</span></td>
+                      <td>
+                        <div>Lina Marlina</div>
+                        <div class="dt-cell-sub">021-5902-4481</div>
+                      </td>
+                      <td class="text-center tnum">4 Hari</td>
+                      <td class="text-center"><span class="badge badge--11 badge--neutral-list">Net 45</span></td>
+                      <td class="text-center"><span class="badge badge--11 badge--positive">Active</span></td>
+                      <td class="text-center"><a href="#modal-sup-1" class="btn-row"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span>Detail</span></a></td>
+                    </tr>
+
+                    <!-- Supplier 3 -->
+                    <tr data-cat="EVA">
+                      <td class="dt-cell-primary font-mono">SUPP-IDS-03</td>
+                      <td>
+                        <div class="dt-cell-name">CV Indo Sponge &amp; EVA</div>
+                        <div class="dt-cell-sub">Bantar Gebang Industrial Park, Bekasi</div>
+                      </td>
+                      <td>EVA Sponge High Density</td>
+                      <td><span class="font-mono" style="font-weight:700;color:#0057d2">MAT-EVA-SP20</span></td>
+                      <td>
+                        <div>Haryanto Tan</div>
+                        <div class="dt-cell-sub">021-8250-9910</div>
+                      </td>
+                      <td class="text-center tnum">3 Hari</td>
+                      <td class="text-center"><span class="badge badge--11 badge--neutral-list">Net 30</span></td>
+                      <td class="text-center"><span class="badge badge--11 badge--positive">Active</span></td>
+                      <td class="text-center"><a href="#modal-sup-1" class="btn-row"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span>Detail</span></a></td>
+                    </tr>
+
+                    <!-- Supplier 4 -->
+                    <tr data-cat="Rubber">
+                      <td class="dt-cell-primary font-mono">SUPP-TCH-04</td>
+                      <td>
+                        <div class="dt-cell-name">PT Techno Elastomer Prima</div>
+                        <div class="dt-cell-sub">Kawasan Industri Surya Cipta, Karawang</div>
+                      </td>
+                      <td>Backup Vendor Karet &amp; Seal</td>
+                      <td><span class="font-mono" style="color:#475e75">MAT-EPDM-01 (Cadangan)</span></td>
+                      <td>
+                        <div>Dedi Kurniawan</div>
+                        <div class="dt-cell-sub">0267-441-882</div>
+                      </td>
+                      <td class="text-center tnum">7 Hari</td>
+                      <td class="text-center"><span class="badge badge--11 badge--neutral-list">Net 30</span></td>
+                      <td class="text-center"><span class="badge badge--11 badge--neutral">Standby</span></td>
+                      <td class="text-center"><a href="#modal-sup-1" class="btn-row"><svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg><span>Detail</span></a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <!-- ===================== FOOTER STATUS BAR ===================== -->
+    <footer class="footer-status">
+      <div class="footer-group">
+        <span class="footer-strong">PT NUTECH PUNDI ARTA — MINI ERP PROTOTYPE</span>
+        <span class="footer-sep">|</span>
+        <span>Mode: UI Verification (Frontend-Only)</span>
+        <span class="footer-sep">|</span>
+        <span>Single Source of Truth: BRD v3.0</span>
+      </div>
+      <div class="footer-group footer-group--right">
+        <div class="footer-user">
+          <span class="footer-user-label">Simulasi User:</span>
+          <span class="footer-user-value">Purchasing Officer</span>
+        </div>
+        <span class="footer-sep">|</span>
+        <span class="footer-baseline">Baseline: 1440 × 900 Desktop</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===================== DEVELOPMENT SHOWCASE BAR ===================== -->
+  <aside class="devbar" aria-label="Panel Evaluasi Internal">
+    <div class="devbar-head">
+      <div class="devbar-head-left">
+        <svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>
+        <span class="devbar-title">Evaluasi UI Phase 01</span>
+        <span class="devbar-tag">DEV / QA TOOL</span>
+      </div>
+      <div class="devbar-head-right">
+        <label for="devbar-collapse" class="devbar-icon-btn">
+          <svg class="icon devbar-ico-down" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+          <svg class="icon devbar-ico-up" aria-hidden="true"><use href="#i-chevron-up"/></svg>
+        </label>
+        <label for="devbar-min" class="devbar-icon-btn devbar-icon-btn--close">
+          <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+        </label>
+      </div>
+    </div>
+    <div class="devbar-body">
+      <span class="devbar-body-label">Purchasing:</span>
+      <a href="mrp.html" class="devbar-pattern">1. Simulasi MRP</a>
+      <a href="shortage.html" class="devbar-pattern">2. Kebutuhan PR</a>
+      <a href="purchase-orders.html" class="devbar-pattern">3. PO Supplier</a>
+      <a href="inbound-monitoring.html" class="devbar-pattern">4. Inbound</a>
+      <a href="suppliers.html" class="devbar-pattern is-active">5. Suppliers</a>
+      <a href="materials.html" class="devbar-pattern">6. Materials</a>
+    </div>
+  </aside>
+
+  <div class="devbar-mini">
+    <label for="devbar-min" class="devbar-mini-open">
+      <svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>
+      <span>Panel QA</span>
+    </label>
+    <label for="devbar-off" class="devbar-mini-close">
+      <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+    </label>
+  </div>
+
+  <!-- ===================== MODALS (:target) ===================== -->
+  <div id="modal-sup-1" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title-sup1">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:560px">
+      <div class="modal-head">
+        <div class="modal-head-left">
+          <svg class="icon c-primary" aria-hidden="true"><use href="#i-users"/></svg>
+          <h2 id="modal-title-sup1" class="modal-title">Profil &amp; Riwayat PO Supplier: PT Sintetis Karet Nusantara</h2>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body">
+        <div class="doc-summary">
+          <div class="doc-summary-row"><span class="k">Kode Supplier:</span><span class="v font-mono">SUPP-SKR-01</span></div>
+          <div class="doc-summary-row"><span class="k">Material Utama:</span><span class="v">MAT-EPDM-01 (Rubber Sheet Compound EPDM 3mm)</span></div>
+          <div class="doc-summary-row"><span class="k">PO Berjalan:</span><span class="v tnum">PO-SUPP-2026-0079 (2.000 Kg · 50% Diterima)</span></div>
+        </div>
+      </div>
+      <div class="modal-foot"><a href="#" class="btn btn-primary">Tutup</a></div>
+    </div>
+  </div>
+
+  <div id="modal-add-supplier" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="modal-title-add-sup">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:560px">
+      <div class="modal-head">
+        <div class="modal-head-left">
+          <svg class="icon c-primary" aria-hidden="true"><use href="#i-plus"/></svg>
+          <h2 id="modal-title-add-sup" class="modal-title">Registrasi Vendor Supplier Bahan Baku Baru</h2>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body">
+        <div class="grid-cols-2">
+          <div class="form-field">
+            <label class="form-label">Kode Vendor (Auto)</label>
+            <input type="text" class="form-input font-mono" value="SUPP-NEW-05" readonly />
+          </div>
+          <div class="form-field">
+            <label class="form-label">Nama Perusahaan Supplier <span class="req">*</span></label>
+            <input type="text" class="form-input" placeholder="PT ..." />
+          </div>
+          <div class="form-field">
+            <label class="form-label">Kategori Bahan</label>
+            <select class="form-select">
+              <option>Karet / Rubber</option>
+              <option>Busa / Foam</option>
+              <option>EVA Sponge</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label class="form-label">Termin Pembayaran</label>
+            <select class="form-select">
+              <option>Net 30</option>
+              <option>Net 45</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="modal-foot">
+        <a href="#" class="btn btn-secondary">Batal</a>
+        <a href="#" class="btn btn-primary">Simpan Master Supplier</a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+

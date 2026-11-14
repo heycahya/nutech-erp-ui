@@ -1,0 +1,125 @@
+/* ==========================================================================
+   NUTECH ERP — Design Tokens (Pure CSS3, Zero-JS)
+   Sumber: src/index.css + utilitas Tailwind pada src/components/**
+   Baseline viewport: 1440 x 900 Desktop
+   ========================================================================== */
+
+:root {
+  /* ---------- Brand & Interactive Blue ---------- */
+  --color-primary: #0057d2;
+  --color-primary-deep: #0040b0;
+  --color-primary-hover: #0049b0;
+  --color-primary-active: #00368a;
+  --color-primary-soft-bg: #ebf8ff;      /* active nav, hover info, selected row */
+  --color-primary-soft-alt: #e8f1fb;
+  --color-primary-border-40: rgba(0, 87, 210, 0.4);
+  --color-primary-border-30: rgba(0, 87, 210, 0.3);
+  --color-primary-tint: rgba(0, 87, 210, 0.1);
+
+  /* ---------- Surfaces ---------- */
+  --color-canvas: #ffffff;               /* tabel, kartu, sidebar, modal */
+  --color-chrome: #f5f6f7;               /* topbar, role box, header kartu, filter bar */
+  --color-band: #eaecee;                 /* footer, neutral badge, divider */
+  --color-subtle: #f8f9fa;               /* sub-kartu KPI */
+  --color-disabled-bg: #f0f2f5;          /* tombol / field disabled */
+
+  /* ---------- Ink (hierarki teks) ---------- */
+  --color-ink: #000000;
+  --color-ink-lead: #3c3c3c;
+  --color-ink-body: #223548;
+  --color-ink-list: #354a5f;
+  --color-ink-meta: #475e75;
+  --color-ink-nav: #545454;
+  --color-ink-disabled: #8c9ba5;
+
+  /* ---------- Borders & Hairlines ---------- */
+  --color-hairline: #475e75;             /* kontras tinggi (dropdown, input aktif) */
+  --color-hairline-subtle: #d5dce2;      /* grid 1px utama */
+  --color-divider: #eaecee;              /* pemisah baris ringan */
+
+  /* ---------- Semantic Status ---------- */
+  --status-positive-ink: #10683b;
+  --status-positive-bg: #eaf6ef;
+  --status-positive-alt-bg: #edf7ed;
+  --status-positive-border: rgba(16, 104, 59, 0.2);
+  --status-positive-border-30: rgba(16, 104, 59, 0.3);
+  --status-positive-border-solid: #a5d6a7;
+
+  --status-warning-ink: #8d4b00;
+  --status-warning-bg: #fff6e5;
+  --status-warning-alt-bg: #fff8e1;
+  --status-warning-border: rgba(141, 75, 0, 0.3);
+  --status-warning-border-20: rgba(141, 75, 0, 0.2);
+  --status-warning-border-solid: #ffd54f;
+
+  --status-negative-ink: #b81d24;
+  --status-negative-ink-alt: #c62828;
+  --status-negative-ink-strong: #d32f2f;
+  --status-negative-bg: #fdecee;
+  --status-negative-alt-bg: #fde8e8;
+  --status-negative-border: rgba(211, 47, 47, 0.3);
+
+  --status-neutral-ink: #354a5f;
+  --status-neutral-bg: #eaecee;
+
+  /* ---------- Overlay ---------- */
+  --overlay-backdrop: rgba(0, 0, 0, 0.5);
+
+  /* ---------- Tipografi ---------- */
+  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+
+  --text-9: 9px;
+  --text-10: 10px;
+  --text-11: 11px;
+  --text-12: 12px;
+  --text-13: 13px;
+  --text-14: 14px;
+  --text-15: 15px;
+  --text-16: 16px;
+  --text-18: 18px;
+  --text-20: 20px;
+  --text-28: 28px;
+
+  --tracking-tight: -0.025em;
+  --tracking-wider: 0.05em;
+  --tnum-spacing: -0.01em;
+
+  /* ---------- Border Radius (zero-pill discipline 2px - 8px) ---------- */
+  --radius-xs: 2px;
+  --radius-sm: 3px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 8px;
+
+  /* ---------- Shadows ---------- */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+  /* ---------- Layout Shell (baseline 1440 x 900) ---------- */
+  --viewport-w: 1440px;
+  --viewport-h: 900px;
+  --topbar-h: 60px;
+  --sidebar-w: 248px;
+  --sidebar-w-collapsed: 64px;
+  --footer-h: 28px;
+  --shell-gutter: 24px;
+  --search-w: 400px;
+  --search-h: 36px;
+  --role-menu-w: 310px;
+  --split-left-w: 380px;
+  --modal-w-sm: 560px;
+
+  /* ---------- Z-index ---------- */
+  --z-footer: 20;
+  --z-sidebar: 20;
+  --z-topbar: 30;
+  --z-devbar: 40;
+  --z-modal: 50;
+
+  /* ---------- Motion ---------- */
+  --transition-colors: color 0.15s ease, background-color 0.15s ease, border-color 0.15s ease;
+  --transition-sidebar: width 0.2s ease;
+}
+

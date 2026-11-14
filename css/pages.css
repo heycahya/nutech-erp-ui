@@ -1,0 +1,1432 @@
+/* ==========================================================================
+   NUTECH ERP — Page-Specific & Role-Specific Styles (Fase 2: Management & Marketing)
+   Zero JavaScript · Pure HTML5 & CSS3 (:checked, :target, :hover)
+   ========================================================================== */
+
+/* ==========================================================================
+   SHARED LAYOUT & UTILITIES FOR ROLE VIEWS
+   ========================================================================== */
+.role-page {
+  flex: 1 1 0%;
+  overflow-y: auto;
+  padding: 24px 24px 48px;
+  background-color: var(--color-canvas);
+}
+
+.role-page > * + * {
+  margin-top: 20px;
+}
+
+.role-page--compact > * + * {
+  margin-top: 16px;
+}
+
+/* Flexbox & Grid helpers */
+.flex-row-between {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.flex-row-start {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.flex-center-gap-1 { display: inline-flex; align-items: center; gap: 4px; }
+.flex-center-gap-1-5 { display: inline-flex; align-items: center; gap: 6px; }
+.flex-center-gap-2 { display: inline-flex; align-items: center; gap: 8px; }
+.flex-center-gap-3 { display: inline-flex; align-items: center; gap: 12px; }
+
+.grid-cols-2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.grid-cols-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.grid-cols-4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.grid-cols-5 {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.col-span-2 { grid-column: span 2 / span 2; }
+.col-span-3 { grid-column: span 3 / span 3; }
+
+/* ==========================================================================
+   MODUL MANAGEMENT — EXECUTIVE DASHBOARD & SUB-VIEWS
+   ========================================================================== */
+
+/* 1. Executive Header Banner */
+.exec-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 20px;
+  background-color: #f5f6f7;
+  border: 1px solid #d5dce2;
+  border-radius: 4px;
+}
+
+.exec-header-left > * + * {
+  margin-top: 4px;
+}
+
+.exec-badges-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.exec-badge-ro {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #8d4b00;
+  background-color: #fff6e5;
+  border: 1px solid rgba(141, 75, 0, 0.3);
+  border-radius: 4px;
+}
+
+.exec-badge-ro .icon {
+  width: 14px;
+  height: 14px;
+  color: #8d4b00;
+}
+
+.exec-badge-scope {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 8px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #223548;
+  background-color: #eaecee;
+  border: 1px solid #d5dce2;
+  border-radius: 4px;
+}
+
+.exec-badge-scope .icon {
+  width: 14px;
+  height: 14px;
+  color: #0057d2;
+}
+
+.exec-header-desc {
+  font-size: 12px;
+  color: #545454;
+}
+
+.exec-header-desc strong {
+  color: #000000;
+}
+
+.exec-meta-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 14px;
+  background-color: #ffffff;
+  border: 1px solid #d5dce2;
+  border-radius: 4px;
+}
+
+.exec-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.exec-meta-item .icon {
+  width: 16px;
+  height: 16px;
+  color: #475e75;
+}
+
+.exec-meta-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #545454;
+}
+
+.exec-meta-value {
+  display: block;
+  font-size: 12px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.exec-meta-sep {
+  width: 1px;
+  height: 24px;
+  background-color: #d5dce2;
+}
+
+/* 2. Production Performance Hero — 4 Lane Cards */
+.hero-lanes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 16px;
+  padding: 20px;
+}
+
+.lane-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px;
+  background-color: #ffffff;
+  border: 1px solid #d5dce2;
+  border-radius: 4px;
+  transition: border-color 150ms ease;
+}
+
+.lane-card:hover {
+  border-color: #b0bcc7;
+}
+
+.lane-card--tbd {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px;
+  background-color: #f8f9fa;
+  border: 1px dashed #8c9ba5;
+  border-radius: 4px;
+}
+
+.lane-card-top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 8px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #eaecee;
+}
+
+.lane-card--tbd .lane-card-top {
+  border-bottom-color: #e1e6eb;
+}
+
+.lane-name {
+  font-size: 13px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.lane-process {
+  font-size: 11px;
+  color: #545454;
+}
+
+.lane-part-box {
+  margin-top: 12px;
+  padding: 8px;
+  background-color: #f5f6f7;
+  border: 1px solid #e1e6eb;
+  border-radius: 4px;
+}
+
+.lane-part-code {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 600;
+  color: #0057d2;
+}
+
+.lane-part-desc {
+  font-size: 11px;
+  color: #223548;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lane-metrics {
+  margin-top: 12px;
+  font-size: 12px;
+}
+
+.lane-metric-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.lane-metric-row + .lane-metric-row {
+  margin-top: 6px;
+}
+
+.lane-metric-row--gap {
+  padding-top: 4px;
+  border-top: 1px solid #eaecee;
+}
+
+.lane-progress-section {
+  margin-top: 12px;
+  padding-top: 8px;
+  border-top: 1px solid #eaecee;
+}
+
+.lane-progress-bar {
+  width: 100%;
+  height: 6px;
+  overflow: hidden;
+  background-color: #eaecee;
+  border-radius: 2px;
+}
+
+.lane-progress-fill {
+  height: 100%;
+}
+
+.lane-progress-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 6px;
+  font-size: 10px;
+  color: #545454;
+}
+
+.hero-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 10px 20px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #d5dce2;
+  font-size: 11px;
+  color: #545454;
+}
+
+/* 3. Domain Subtables & Wireframe TBD Boxes */
+.mgmt-subtable-wrap {
+  overflow: hidden;
+  border: 1px solid #d5dce2;
+  border-radius: 4px;
+}
+
+.mgmt-subtable {
+  width: 100%;
+  text-align: left;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+
+.mgmt-subtable thead {
+  background-color: #f5f6f7;
+  border-bottom: 1px solid #d5dce2;
+  font-size: 11px;
+  font-weight: 700;
+  color: #223548;
+}
+
+.mgmt-subtable th {
+  padding: 8px 10px;
+  font-weight: 700;
+}
+
+.mgmt-subtable tbody tr + tr {
+  border-top: 1px solid #d5dce2;
+}
+
+.mgmt-subtable tbody tr:hover {
+  background-color: #f5f6f7;
+}
+
+.mgmt-subtable td {
+  padding: 8px 10px;
+  vertical-align: middle;
+}
+
+.mgmt-subtable tfoot {
+  background-color: #f5f6f7;
+  border-top: 1px solid #d5dce2;
+  font-size: 11px;
+  font-weight: 700;
+  color: #223548;
+}
+
+.mgmt-subtable tfoot td {
+  padding: 6px 10px;
+}
+
+.tbd-dashed-box {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border: 1px dashed #8c9ba5;
+  border-radius: 4px;
+}
+
+.tbd-dashed-box .icon {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  color: #545454;
+}
+
+.domain-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #d5dce2;
+  font-size: 10px;
+  color: #545454;
+}
+
+/* 4. Data Integrity Exceptions & Executive Toolbar */
+.exception-card {
+  padding: 12px;
+  background-color: #ffffff;
+  border: 1px solid #d5dce2;
+  border-radius: 4px;
+}
+
+.exec-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 12px 16px;
+  background-color: #f5f6f7;
+  border: 1px solid #d5dce2;
+  border-radius: 4px;
+}
+
+.exec-toolbar-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 32px;
+  padding: 0 12px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #8c9ba5;
+  background-color: #eaecee;
+  border: 1px solid #d5dce2;
+  border-radius: 4px;
+  cursor: not-allowed;
+}
+
+.exec-toolbar-btn .icon {
+  width: 14px;
+  height: 14px;
+}
+
+/* 5. Management Sub-Views Header & Summary Cards */
+.subview-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 16px;
+  background-color: #f5f6f7;
+  border: 1px solid #d5dce2;
+  border-radius: 4px;
+}
+
+.subview-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.subview-desc {
+  margin-top: 4px;
+  font-size: 12px;
+  color: #545454;
+}
+
+.info-banner-blue {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 10px 16px;
+  background-color: #ebf8ff;
+  border: 1px solid rgba(0, 87, 210, 0.3);
+  border-radius: 4px;
+  font-size: 12px;
+  color: #223548;
+}
+
+.stat-card-sm {
+  padding: 14px;
+  background-color: #ffffff;
+  border: 1px solid #d5dce2;
+  border-radius: 4px;
+}
+
+.stat-card-sm-label {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #545454;
+}
+
+.stat-card-sm-val {
+  margin-top: 4px;
+  font-size: 20px;
+  font-weight: 700;
+  color: #000000;
+}
+
+.stat-card-sm-note {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: #545454;
+}
+
+/* ==========================================================================
+   PURE CSS RADIO FILTERS & TABS FOR MANAGEMENT & MARKETING
+   ========================================================================== */
+
+/* Filter bar pill buttons */
+.filter-pill-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 700;
+  color: #223548;
+  background-color: #ffffff;
+  border: 1px solid #d5dce2;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition-colors);
+}
+
+.filter-pill:hover {
+  background-color: #eaecee;
+}
+
+/* 1. Management Production Monitoring Lane Filter */
+#lane-flt-all:checked ~ .mgmt-filter-wrap label[for="lane-flt-all"],
+#lane-flt-1:checked ~ .mgmt-filter-wrap label[for="lane-flt-1"],
+#lane-flt-2:checked ~ .mgmt-filter-wrap label[for="lane-flt-2"],
+#lane-flt-3:checked ~ .mgmt-filter-wrap label[for="lane-flt-3"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#lane-flt-1:checked ~ .mgmt-filter-wrap .mgmt-lane-table tbody tr:not([data-lane="Lane 1"]),
+#lane-flt-2:checked ~ .mgmt-filter-wrap .mgmt-lane-table tbody tr:not([data-lane="Lane 2"]),
+#lane-flt-3:checked ~ .mgmt-filter-wrap .mgmt-lane-table tbody tr:not([data-lane="Lane 3"]) {
+  display: none;
+}
+
+/* 2. Management Stock Valuation Tabs (Material vs FG) */
+.stock-tabs-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #d5dce2;
+}
+
+.stock-tab-list {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.stock-tab-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #545454;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  transition: var(--transition-colors);
+}
+
+.stock-tab-btn:hover {
+  color: #000000;
+  background-color: #f5f6f7;
+}
+
+.stock-tab-btn .icon {
+  width: 16px;
+  height: 16px;
+}
+
+.stock-panel-material,
+.stock-panel-fg {
+  display: none;
+}
+
+#stock-tab-material:checked ~ .stock-tabs-bar label[for="stock-tab-material"],
+#stock-tab-fg:checked ~ .stock-tabs-bar label[for="stock-tab-fg"] {
+  color: #0057d2;
+  background-color: rgba(235, 248, 255, 0.5);
+  border-bottom-color: #0057d2;
+}
+
+#stock-tab-material:checked ~ .stock-panel-material {
+  display: block;
+}
+
+#stock-tab-fg:checked ~ .stock-panel-fg {
+  display: block;
+}
+
+/* 3. Management AR Aging Billing Filter */
+#ar-flt-all:checked ~ .mgmt-ar-wrap label[for="ar-flt-all"],
+#ar-flt-partial:checked ~ .mgmt-ar-wrap label[for="ar-flt-partial"],
+#ar-flt-unbilled:checked ~ .mgmt-ar-wrap label[for="ar-flt-unbilled"],
+#ar-flt-billed:checked ~ .mgmt-ar-wrap label[for="ar-flt-billed"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#ar-flt-partial:checked ~ .mgmt-ar-wrap .mgmt-ar-table tbody tr:not([data-billing="Partially Billed"]),
+#ar-flt-unbilled:checked ~ .mgmt-ar-wrap .mgmt-ar-table tbody tr:not([data-billing="Unbilled"]),
+#ar-flt-billed:checked ~ .mgmt-ar-wrap .mgmt-ar-table tbody tr:not([data-billing="Fully Billed"]) {
+  display: none;
+}
+
+/* 4. Marketing Split-Pane SO Selector (#so-sel-1 .. #so-sel-5) */
+.so-selector-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 16px;
+  background-color: #eaecee;
+  border-bottom: 1px solid #d5dce2;
+}
+
+.so-selector-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #475e75;
+}
+
+.so-selector-pills {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.so-sel-pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5px 4px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: #223548;
+  background-color: #ffffff;
+  border: 1px solid #d5dce2;
+  border-radius: 4px;
+  cursor: pointer;
+  text-align: center;
+  transition: var(--transition-colors);
+}
+
+.so-sel-pill:hover {
+  border-color: #0057d2;
+  background-color: #f5f6f7;
+}
+
+.so-sel-pill small {
+  font-family: var(--font-sans);
+  font-size: 9px;
+  font-weight: 500;
+  color: #545454;
+}
+
+.so-master-pane,
+.so-detail-pane,
+.so-header-crumb,
+.so-header-title {
+  display: none;
+}
+
+#so-sel-1:checked ~ .app-shell .so-header-crumb-1,
+#so-sel-2:checked ~ .app-shell .so-header-crumb-2,
+#so-sel-3:checked ~ .app-shell .so-header-crumb-3,
+#so-sel-4:checked ~ .app-shell .so-header-crumb-4,
+#so-sel-5:checked ~ .app-shell .so-header-crumb-5 {
+  display: inline;
+}
+
+#so-sel-1:checked ~ .app-shell .so-header-title-1,
+#so-sel-2:checked ~ .app-shell .so-header-title-2,
+#so-sel-3:checked ~ .app-shell .so-header-title-3,
+#so-sel-4:checked ~ .app-shell .so-header-title-4,
+#so-sel-5:checked ~ .app-shell .so-header-title-5 {
+  display: block;
+}
+
+#so-sel-1:checked ~ .app-shell label[for="so-sel-1"],
+#so-sel-2:checked ~ .app-shell label[for="so-sel-2"],
+#so-sel-3:checked ~ .app-shell label[for="so-sel-3"],
+#so-sel-4:checked ~ .app-shell label[for="so-sel-4"],
+#so-sel-5:checked ~ .app-shell label[for="so-sel-5"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#so-sel-1:checked ~ .app-shell label[for="so-sel-1"] small,
+#so-sel-2:checked ~ .app-shell label[for="so-sel-2"] small,
+#so-sel-3:checked ~ .app-shell label[for="so-sel-3"] small,
+#so-sel-4:checked ~ .app-shell label[for="so-sel-4"] small,
+#so-sel-5:checked ~ .app-shell label[for="so-sel-5"] small {
+  color: #ebf8ff;
+}
+
+#so-sel-1:checked ~ .app-shell .so-master-1,
+#so-sel-2:checked ~ .app-shell .so-master-2,
+#so-sel-3:checked ~ .app-shell .so-master-3,
+#so-sel-4:checked ~ .app-shell .so-master-4,
+#so-sel-5:checked ~ .app-shell .so-master-5 {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 0%;
+}
+
+#so-sel-1:checked ~ .app-shell .so-detail-1,
+#so-sel-2:checked ~ .app-shell .so-detail-2,
+#so-sel-3:checked ~ .app-shell .so-detail-3,
+#so-sel-4:checked ~ .app-shell .so-detail-4,
+#so-sel-5:checked ~ .app-shell .so-detail-5 {
+  display: block;
+}
+
+/* 5. Marketing SO Form — Order Type Radio Toggle (Rutin vs Urgent) */
+.order-type-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.order-type-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 12px;
+  font-size: 12px;
+  font-weight: 700;
+  color: #545454;
+  background-color: #ffffff;
+  border: 1px solid #d5dce2;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: var(--transition-colors);
+}
+
+.order-type-btn:hover {
+  background-color: #f5f6f7;
+}
+
+.urgent-order-callout {
+  display: none;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 12px;
+  background-color: #fef8ec;
+  border: 1px solid #f59e0b;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #8d4b00;
+}
+
+.urgent-order-callout .icon {
+  width: 16px;
+  height: 16px;
+  margin-top: 2px;
+  flex-shrink: 0;
+  color: #8d4b00;
+}
+
+#order-type-rutin:checked ~ .form-card label[for="order-type-rutin"] {
+  color: #0057d2;
+  background-color: #ebf8ff;
+  border-color: #0057d2;
+}
+
+#order-type-urgent:checked ~ .form-card label[for="order-type-urgent"] {
+  color: #8d4b00;
+  background-color: #fef8ec;
+  border-color: #8d4b00;
+}
+
+#order-type-urgent:checked ~ .form-card .urgent-order-callout {
+  display: flex;
+}
+
+/* 6. Marketing Customers Payment Term Filter (#cust-term-all / #cust-term-30 / #cust-term-45) */
+#cust-term-all:checked ~ .cust-filter-wrap label[for="cust-term-all"],
+#cust-term-30:checked ~ .cust-filter-wrap label[for="cust-term-30"],
+#cust-term-45:checked ~ .cust-filter-wrap label[for="cust-term-45"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#cust-term-30:checked ~ .cust-filter-wrap .cust-table tbody tr:not([data-term="Net 30"]),
+#cust-term-45:checked ~ .cust-filter-wrap .cust-table tbody tr:not([data-term="Net 45"]) {
+  display: none;
+}
+
+/* 7. Marketing Parts Category & Lane Filter */
+#part-cat-all:checked ~ .part-filter-wrap label[for="part-cat-all"],
+#part-cat-rub:checked ~ .part-filter-wrap label[for="part-cat-rub"],
+#part-cat-foam:checked ~ .part-filter-wrap label[for="part-cat-foam"],
+#part-cat-eva:checked ~ .part-filter-wrap label[for="part-cat-eva"],
+#part-lane-all:checked ~ .part-filter-wrap label[for="part-lane-all"],
+#part-lane-1:checked ~ .part-filter-wrap label[for="part-lane-1"],
+#part-lane-2:checked ~ .part-filter-wrap label[for="part-lane-2"],
+#part-lane-3:checked ~ .part-filter-wrap label[for="part-lane-3"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#part-cat-rub:checked ~ .part-filter-wrap .part-table tbody tr:not([data-cat="Karet / Rubber"]),
+#part-cat-foam:checked ~ .part-filter-wrap .part-table tbody tr:not([data-cat="Busa / Foam"]),
+#part-cat-eva:checked ~ .part-filter-wrap .part-table tbody tr:not([data-cat="EVA Sponge"]),
+#part-lane-1:checked ~ .part-filter-wrap .part-table tbody tr:not([data-lane="Lane 1"]),
+#part-lane-2:checked ~ .part-filter-wrap .part-table tbody tr:not([data-lane="Lane 2"]),
+#part-lane-3:checked ~ .part-filter-wrap .part-table tbody tr:not([data-lane="Lane 3"]) {
+  display: none;
+}
+
+
+/* ==========================================================================
+   FASE 3 & FASE 4 — PURE CSS INTERACTIONS, FILTERS, TABS & SPLIT-PANES
+   ========================================================================== */
+
+/* Standalone Open Modal State (.is-open on .modal-overlay) */
+.modal-overlay.is-open {
+  display: flex;
+}
+
+/* Generic Split-Pane Master-Detail Layout (12-Column Grid) */
+.split-grid-12 {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 20px;
+  align-items: start;
+}
+
+.col-span-4 { grid-column: span 4 / span 4; }
+.col-span-5 { grid-column: span 5 / span 5; }
+.col-span-6 { grid-column: span 6 / span 6; }
+.col-span-7 { grid-column: span 7 / span 7; }
+.col-span-8 { grid-column: span 8 / span 8; }
+.col-span-12 { grid-column: span 12 / span 12; }
+
+/* Card & Section Containers for Role Views */
+.panel-card {
+  background-color: #ffffff;
+  border: 1px solid #d5dce2;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.panel-card-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background-color: #f5f6f7;
+  border-bottom: 1px solid #d5dce2;
+}
+
+.panel-card-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panel-card-sub {
+  font-size: 11px;
+  color: #545454;
+}
+
+.panel-card-body {
+  padding: 16px;
+}
+
+.panel-card-foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  background-color: #f8f9fa;
+  border-top: 1px solid #d5dce2;
+  font-size: 11px;
+  color: #545454;
+}
+
+/* Alert & Discipline Callout Banners */
+.callout-banner {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 12px 16px;
+  border-radius: 4px;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.callout-banner .icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.callout-banner--warn {
+  background-color: #fff8e1;
+  border: 1px solid #ffd54f;
+  color: #8d4b00;
+}
+
+.callout-banner--info {
+  background-color: #f0f7ff;
+  border: 1px solid #90caf9;
+  color: #1e3a5f;
+}
+
+.callout-banner--danger {
+  background-color: #fde8e8;
+  border: 1px solid #ef9a9a;
+  color: #c53929;
+}
+
+.callout-banner--success {
+  background-color: #eaf6ef;
+  border: 1px solid #a5d6a7;
+  color: #10683b;
+}
+
+/* Progress Bar Helpers */
+.progress-track {
+  width: 100%;
+  height: 6px;
+  background-color: #e0e4e8;
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  border-radius: 2px;
+}
+
+.progress-fill--primary { background-color: #0057d2; }
+.progress-fill--positive { background-color: #10683b; }
+.progress-fill--warning { background-color: #d97706; }
+.progress-fill--danger { background-color: #c53929; }
+
+/* ==========================================================================
+   MODUL PPIC — FILTERS & VIEW TOGGLES
+   ========================================================================== */
+
+/* 1. PPIC SPK Filter (All / Active / Draft & Lane 1-3) */
+#spk-flt-all:checked ~ .ppic-spk-wrap label[for="spk-flt-all"],
+#spk-flt-active:checked ~ .ppic-spk-wrap label[for="spk-flt-active"],
+#spk-flt-draft:checked ~ .ppic-spk-wrap label[for="spk-flt-draft"],
+#spk-flt-l1:checked ~ .ppic-spk-wrap label[for="spk-flt-l1"],
+#spk-flt-l2:checked ~ .ppic-spk-wrap label[for="spk-flt-l2"],
+#spk-flt-l3:checked ~ .ppic-spk-wrap label[for="spk-flt-l3"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#spk-flt-active:checked ~ .ppic-spk-wrap .ppic-spk-table tbody tr:not([data-status="Active"]),
+#spk-flt-draft:checked ~ .ppic-spk-wrap .ppic-spk-table tbody tr:not([data-status="Draft"]),
+#spk-flt-l1:checked ~ .ppic-spk-wrap .ppic-spk-table tbody tr:not([data-lane="lane-1"]),
+#spk-flt-l2:checked ~ .ppic-spk-wrap .ppic-spk-table tbody tr:not([data-lane="lane-2"]),
+#spk-flt-l3:checked ~ .ppic-spk-wrap .ppic-spk-table tbody tr:not([data-lane="lane-3"]) {
+  display: none;
+}
+
+/* 2. PPIC Daily Targets View Mode (Table vs Matrix) & Lane Filter */
+.ppic-dt-view-table,
+.ppic-dt-view-matrix {
+  display: none;
+}
+
+#dt-view-table:checked ~ .ppic-dt-wrap label[for="dt-view-table"],
+#dt-view-matrix:checked ~ .ppic-dt-wrap label[for="dt-view-matrix"],
+#dt-lane-all:checked ~ .ppic-dt-wrap label[for="dt-lane-all"],
+#dt-lane-1:checked ~ .ppic-dt-wrap label[for="dt-lane-1"],
+#dt-lane-2:checked ~ .ppic-dt-wrap label[for="dt-lane-2"],
+#dt-lane-3:checked ~ .ppic-dt-wrap label[for="dt-lane-3"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#dt-view-table:checked ~ .ppic-dt-wrap .ppic-dt-view-table {
+  display: block;
+}
+
+#dt-view-matrix:checked ~ .ppic-dt-wrap .ppic-dt-view-matrix {
+  display: block;
+}
+
+#dt-lane-1:checked ~ .ppic-dt-wrap .ppic-dt-table tbody tr:not([data-lane="lane-1"]),
+#dt-lane-2:checked ~ .ppic-dt-wrap .ppic-dt-table tbody tr:not([data-lane="lane-2"]),
+#dt-lane-3:checked ~ .ppic-dt-wrap .ppic-dt-table tbody tr:not([data-lane="lane-3"]) {
+  display: none;
+}
+
+/* 3. PPIC Gap Monitoring Filters (Date / Lane / Gap Status) */
+#gap-flt-all:checked ~ .ppic-gap-wrap label[for="gap-flt-all"],
+#gap-flt-04:checked ~ .ppic-gap-wrap label[for="gap-flt-04"],
+#gap-flt-03:checked ~ .ppic-gap-wrap label[for="gap-flt-03"],
+#gap-flt-02:checked ~ .ppic-gap-wrap label[for="gap-flt-02"],
+#gap-flt-def:checked ~ .ppic-gap-wrap label[for="gap-flt-def"],
+#gap-flt-sur:checked ~ .ppic-gap-wrap label[for="gap-flt-sur"],
+#gap-flt-on:checked ~ .ppic-gap-wrap label[for="gap-flt-on"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#gap-flt-04:checked ~ .ppic-gap-wrap .ppic-gap-table tbody tr:not([data-date="2026-11-04"]),
+#gap-flt-03:checked ~ .ppic-gap-wrap .ppic-gap-table tbody tr:not([data-date="2026-11-03"]),
+#gap-flt-02:checked ~ .ppic-gap-wrap .ppic-gap-table tbody tr:not([data-date="2026-11-02"]),
+#gap-flt-def:checked ~ .ppic-gap-wrap .ppic-gap-table tbody tr:not([data-gap="deficit"]),
+#gap-flt-sur:checked ~ .ppic-gap-wrap .ppic-gap-table tbody tr:not([data-gap="surplus"]),
+#gap-flt-on:checked ~ .ppic-gap-wrap .ppic-gap-table tbody tr:not([data-gap="ontarget"]) {
+  display: none;
+}
+
+/* 4. PPIC Pack Ratio Filter */
+#pr-lane-all:checked ~ .ppic-pr-wrap label[for="pr-lane-all"],
+#pr-lane-1:checked ~ .ppic-pr-wrap label[for="pr-lane-1"],
+#pr-lane-2:checked ~ .ppic-pr-wrap label[for="pr-lane-2"],
+#pr-lane-3:checked ~ .ppic-pr-wrap label[for="pr-lane-3"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#pr-lane-1:checked ~ .ppic-pr-wrap .ppic-pr-table tbody tr:not([data-lane="lane-1"]),
+#pr-lane-2:checked ~ .ppic-pr-wrap .ppic-pr-table tbody tr:not([data-lane="lane-2"]),
+#pr-lane-3:checked ~ .ppic-pr-wrap .ppic-pr-table tbody tr:not([data-lane="lane-3"]) {
+  display: none;
+}
+
+/* ==========================================================================
+   MODUL PURCHASING — FILTERS & SPLIT-PANE PO SELECTOR
+   ========================================================================== */
+
+/* 1. Purchasing PO Filter & Split-Pane Detail Selector */
+#po-flt-all:checked ~ .pur-po-wrap label[for="po-flt-all"],
+#po-flt-sent:checked ~ .pur-po-wrap label[for="po-flt-sent"],
+#po-flt-partial:checked ~ .pur-po-wrap label[for="po-flt-partial"],
+#po-flt-received:checked ~ .pur-po-wrap label[for="po-flt-received"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#po-flt-sent:checked ~ .pur-po-wrap .pur-po-table tbody tr:not([data-status="Sent to Supplier"]),
+#po-flt-partial:checked ~ .pur-po-wrap .pur-po-table tbody tr:not([data-status="Partially Received"]),
+#po-flt-received:checked ~ .pur-po-wrap .pur-po-table tbody tr:not([data-status="Fully Received"]) {
+  display: none;
+}
+
+.po-detail-pane {
+  display: none;
+}
+
+#po-sel-1:checked ~ .pur-po-wrap .po-detail-1,
+#po-sel-2:checked ~ .pur-po-wrap .po-detail-2,
+#po-sel-3:checked ~ .pur-po-wrap .po-detail-3 {
+  display: block;
+}
+
+#po-sel-1:checked ~ .pur-po-wrap label[for="po-sel-1"],
+#po-sel-2:checked ~ .pur-po-wrap label[for="po-sel-2"],
+#po-sel-3:checked ~ .pur-po-wrap label[for="po-sel-3"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#po-sel-1:checked ~ .pur-po-wrap tr[data-po="1"],
+#po-sel-2:checked ~ .pur-po-wrap tr[data-po="2"],
+#po-sel-3:checked ~ .pur-po-wrap tr[data-po="3"] {
+  background-color: rgba(232, 240, 254, 0.65);
+}
+
+/* 2. Purchasing Shortage / PR Filter */
+#pr-flt-all:checked ~ .pur-pr-wrap label[for="pr-flt-all"],
+#pr-flt-open:checked ~ .pur-pr-wrap label[for="pr-flt-open"],
+#pr-flt-ordered:checked ~ .pur-pr-wrap label[for="pr-flt-ordered"],
+#pr-flt-urgent:checked ~ .pur-pr-wrap label[for="pr-flt-urgent"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#pr-flt-open:checked ~ .pur-pr-wrap .pur-pr-table tbody tr:not([data-status="Open"]),
+#pr-flt-ordered:checked ~ .pur-pr-wrap .pur-pr-table tbody tr:not([data-status="PO Ordered"]),
+#pr-flt-urgent:checked ~ .pur-pr-wrap .pur-pr-table tbody tr:not([data-urgency="Urgent"]) {
+  display: none;
+}
+
+/* 3. Purchasing Suppliers & Materials Category Filter */
+#sup-cat-all:checked ~ .pur-sup-wrap label[for="sup-cat-all"],
+#sup-cat-rub:checked ~ .pur-sup-wrap label[for="sup-cat-rub"],
+#sup-cat-foam:checked ~ .pur-sup-wrap label[for="sup-cat-foam"],
+#sup-cat-eva:checked ~ .pur-sup-wrap label[for="sup-cat-eva"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#sup-cat-rub:checked ~ .pur-sup-wrap .pur-sup-table tbody tr:not([data-cat="Rubber"]),
+#sup-cat-foam:checked ~ .pur-sup-wrap .pur-sup-table tbody tr:not([data-cat="Foam"]),
+#sup-cat-eva:checked ~ .pur-sup-wrap .pur-sup-table tbody tr:not([data-cat="EVA"]) {
+  display: none;
+}
+
+/* ==========================================================================
+   MODUL WAREHOUSE — FILTERS & SPLIT-PANE GRN / ISSUE / LEDGER
+   ========================================================================== */
+
+/* 1. Warehouse GRN Split-Pane & Status Filter */
+.grn-detail-pane {
+  display: none;
+}
+
+#grn-sel-1:checked ~ .wh-grn-wrap .grn-detail-1,
+#grn-sel-2:checked ~ .wh-grn-wrap .grn-detail-2,
+#grn-sel-3:checked ~ .wh-grn-wrap .grn-detail-3 {
+  display: block;
+}
+
+#grn-sel-1:checked ~ .wh-grn-wrap label[for="grn-sel-1"],
+#grn-sel-2:checked ~ .wh-grn-wrap label[for="grn-sel-2"],
+#grn-sel-3:checked ~ .wh-grn-wrap label[for="grn-sel-3"],
+#grn-flt-all:checked ~ .wh-grn-wrap label[for="grn-flt-all"],
+#grn-flt-ver:checked ~ .wh-grn-wrap label[for="grn-flt-ver"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#grn-sel-1:checked ~ .wh-grn-wrap tr[data-grn="1"],
+#grn-sel-2:checked ~ .wh-grn-wrap tr[data-grn="2"],
+#grn-sel-3:checked ~ .wh-grn-wrap tr[data-grn="3"] {
+  background-color: rgba(232, 240, 254, 0.65);
+}
+
+/* 2. Warehouse Material Issue Split-Pane & Lane Filter */
+.issue-detail-pane {
+  display: none;
+}
+
+#iss-sel-1:checked ~ .wh-iss-wrap .issue-detail-1,
+#iss-sel-2:checked ~ .wh-iss-wrap .issue-detail-2,
+#iss-sel-3:checked ~ .wh-iss-wrap .issue-detail-3 {
+  display: block;
+}
+
+#iss-sel-1:checked ~ .wh-iss-wrap label[for="iss-sel-1"],
+#iss-sel-2:checked ~ .wh-iss-wrap label[for="iss-sel-2"],
+#iss-sel-3:checked ~ .wh-iss-wrap label[for="iss-sel-3"],
+#iss-lane-all:checked ~ .wh-iss-wrap label[for="iss-lane-all"],
+#iss-lane-1:checked ~ .wh-iss-wrap label[for="iss-lane-1"],
+#iss-lane-2:checked ~ .wh-iss-wrap label[for="iss-lane-2"],
+#iss-lane-3:checked ~ .wh-iss-wrap label[for="iss-lane-3"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#iss-lane-1:checked ~ .wh-iss-wrap .wh-iss-table tbody tr:not([data-lane="Lane 1"]),
+#iss-lane-2:checked ~ .wh-iss-wrap .wh-iss-table tbody tr:not([data-lane="Lane 2"]),
+#iss-lane-3:checked ~ .wh-iss-wrap .wh-iss-table tbody tr:not([data-lane="Lane 3"]) {
+  display: none;
+}
+
+/* 3. Warehouse Stock Ledger Filters */
+#led-flt-all:checked ~ .wh-led-wrap label[for="led-flt-all"],
+#led-flt-in:checked ~ .wh-led-wrap label[for="led-flt-in"],
+#led-flt-out:checked ~ .wh-led-wrap label[for="led-flt-out"],
+#led-flt-adj:checked ~ .wh-led-wrap label[for="led-flt-adj"],
+#led-mat-all:checked ~ .wh-led-wrap label[for="led-mat-all"],
+#led-mat-1:checked ~ .wh-led-wrap label[for="led-mat-1"],
+#led-mat-2:checked ~ .wh-led-wrap label[for="led-mat-2"],
+#led-mat-3:checked ~ .wh-led-wrap label[for="led-mat-3"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#led-flt-in:checked ~ .wh-led-wrap .wh-led-table tbody tr:not([data-type="IN"]),
+#led-flt-out:checked ~ .wh-led-wrap .wh-led-table tbody tr:not([data-type="OUT"]),
+#led-flt-adj:checked ~ .wh-led-wrap .wh-led-table tbody tr:not([data-type="ADJUST"]),
+#led-mat-1:checked ~ .wh-led-wrap .wh-led-table tbody tr:not([data-mat="MAT-EPDM-01"]),
+#led-mat-2:checked ~ .wh-led-wrap .wh-led-table tbody tr:not([data-mat="MAT-FOAM-PU10"]),
+#led-mat-3:checked ~ .wh-led-wrap .wh-led-table tbody tr:not([data-mat="MAT-EVA-SP20"]) {
+  display: none;
+}
+
+/* ==========================================================================
+   MODUL ADMIN PRODUKSI & PENGIRIMAN — SPLIT-PANE & TABS
+   ========================================================================== */
+
+/* 1. Production Daily Report Split-Pane Selector & Filters */
+.dpr-detail-pane {
+  display: none;
+}
+
+#dpr-sel-1:checked ~ .prod-dpr-wrap .dpr-detail-1,
+#dpr-sel-2:checked ~ .prod-dpr-wrap .dpr-detail-2,
+#dpr-sel-3:checked ~ .prod-dpr-wrap .dpr-detail-3 {
+  display: block;
+}
+
+#dpr-sel-1:checked ~ .prod-dpr-wrap label[for="dpr-sel-1"],
+#dpr-sel-2:checked ~ .prod-dpr-wrap label[for="dpr-sel-2"],
+#dpr-sel-3:checked ~ .prod-dpr-wrap label[for="dpr-sel-3"],
+#dpr-lane-all:checked ~ .prod-dpr-wrap label[for="dpr-lane-all"],
+#dpr-lane-1:checked ~ .prod-dpr-wrap label[for="dpr-lane-1"],
+#dpr-lane-2:checked ~ .prod-dpr-wrap label[for="dpr-lane-2"],
+#dpr-lane-3:checked ~ .prod-dpr-wrap label[for="dpr-lane-3"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#dpr-lane-1:checked ~ .prod-dpr-wrap .prod-dpr-table tbody tr:not([data-lane="lane-1"]),
+#dpr-lane-2:checked ~ .prod-dpr-wrap .prod-dpr-table tbody tr:not([data-lane="lane-2"]),
+#dpr-lane-3:checked ~ .prod-dpr-wrap .prod-dpr-table tbody tr:not([data-lane="lane-3"]) {
+  display: none;
+}
+
+/* 2. Delivery SJ Management Split-Pane Selector & Status Filter */
+.sj-detail-pane {
+  display: none;
+}
+
+#sj-sel-1:checked ~ .del-sj-wrap .sj-detail-1,
+#sj-sel-2:checked ~ .del-sj-wrap .sj-detail-2,
+#sj-sel-3:checked ~ .del-sj-wrap .sj-detail-3,
+#sj-sel-4:checked ~ .del-sj-wrap .sj-detail-4 {
+  display: block;
+}
+
+#sj-sel-1:checked ~ .del-sj-wrap label[for="sj-sel-1"],
+#sj-sel-2:checked ~ .del-sj-wrap label[for="sj-sel-2"],
+#sj-sel-3:checked ~ .del-sj-wrap label[for="sj-sel-3"],
+#sj-sel-4:checked ~ .del-sj-wrap label[for="sj-sel-4"],
+#sj-flt-all:checked ~ .del-sj-wrap label[for="sj-flt-all"],
+#sj-flt-draft:checked ~ .del-sj-wrap label[for="sj-flt-draft"],
+#sj-flt-printed:checked ~ .del-sj-wrap label[for="sj-flt-printed"],
+#sj-flt-delivered:checked ~ .del-sj-wrap label[for="sj-flt-delivered"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#sj-flt-draft:checked ~ .del-sj-wrap .del-sj-table tbody tr:not([data-status="Draft"]),
+#sj-flt-printed:checked ~ .del-sj-wrap .del-sj-table tbody tr:not([data-status="Printed"]),
+#sj-flt-delivered:checked ~ .del-sj-wrap .del-sj-table tbody tr:not([data-status="Delivered"]) {
+  display: none;
+}
+
+/* 3. Delivery SO Matching Tabs (SO Summary vs SJ Billing Gate) */
+.som-panel-so,
+.som-panel-gate {
+  display: none;
+}
+
+#som-tab-so:checked ~ .del-som-wrap label[for="som-tab-so"],
+#som-tab-gate:checked ~ .del-som-wrap label[for="som-tab-gate"],
+#som-flt-all:checked ~ .del-som-wrap label[for="som-flt-all"],
+#som-flt-matched:checked ~ .del-som-wrap label[for="som-flt-matched"],
+#som-flt-exc:checked ~ .del-som-wrap label[for="som-flt-exc"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#som-tab-so:checked ~ .del-som-wrap .som-panel-so {
+  display: block;
+}
+
+#som-tab-gate:checked ~ .del-som-wrap .som-panel-gate {
+  display: block;
+}
+
+#som-flt-matched:checked ~ .del-som-wrap .del-som-table tbody tr:not([data-match="Matched"]),
+#som-flt-exc:checked ~ .del-som-wrap .del-som-table tbody tr:not([data-match="Exception"]) {
+  display: none;
+}
+
+/* ==========================================================================
+   MODUL FINANCE — READY TO BILL, INVOICES & AR TABS
+   ========================================================================== */
+
+/* 1. Finance Ready To Bill Filter */
+#rtb-flt-all:checked ~ .fin-rtb-wrap label[for="rtb-flt-all"],
+#rtb-flt-eligible:checked ~ .fin-rtb-wrap label[for="rtb-flt-eligible"],
+#rtb-flt-locked:checked ~ .fin-rtb-wrap label[for="rtb-flt-locked"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+#rtb-flt-eligible:checked ~ .fin-rtb-wrap .fin-rtb-table tbody tr.rtb-row:not([data-elig="eligible"]),
+#rtb-flt-locked:checked ~ .fin-rtb-wrap .fin-rtb-table tbody tr.rtb-row:not([data-elig="locked"]) {
+  display: none;
+}
+
+/* 2. Finance Invoices Split-Pane Selector & Filter */
+.inv-detail-pane {
+  display: none;
+}
+
+#inv-sel-1:checked ~ .fin-inv-wrap .inv-detail-1,
+#inv-sel-2:checked ~ .fin-inv-wrap .inv-detail-2 {
+  display: block;
+}
+
+#inv-sel-1:checked ~ .fin-inv-wrap label[for="inv-sel-1"],
+#inv-sel-2:checked ~ .fin-inv-wrap label[for="inv-sel-2"],
+#inv-flt-all:checked ~ .fin-inv-wrap label[for="inv-flt-all"],
+#inv-flt-partial:checked ~ .fin-inv-wrap label[for="inv-flt-partial"],
+#inv-flt-unpaid:checked ~ .fin-inv-wrap label[for="inv-flt-unpaid"],
+#inv-flt-paid:checked ~ .fin-inv-wrap label[for="inv-flt-paid"] {
+  color: #ffffff;
+  background-color: #0057d2;
+  border-color: #0057d2;
+}
+
+/* 3. Finance Accounts Receivable 3-Tab Switcher (Invoices / Customers / Payments) */
+.ar-tab-panel-invoices,
+.ar-tab-panel-customers,
+.ar-tab-panel-payments {
+  display: none;
+}
+
+#ar-tab-invoices:checked ~ .fin-ar-wrap label[for="ar-tab-invoices"],
+#ar-tab-customers:checked ~ .fin-ar-wrap label[for="ar-tab-customers"],
+#ar-tab-payments:checked ~ .fin-ar-wrap label[for="ar-tab-payments"] {
+  color: #0057d2;
+  background-color: #f0f7ff;
+  border-bottom: 2px solid #0057d2;
+}
+
+#ar-tab-invoices:checked ~ .fin-ar-wrap .ar-tab-panel-invoices {
+  display: block;
+}
+
+#ar-tab-customers:checked ~ .fin-ar-wrap .ar-tab-panel-customers {
+  display: block;
+}
+
+#ar-tab-payments:checked ~ .fin-ar-wrap .ar-tab-panel-payments {
+  display: block;
+}
+
+/* Surat Jalan Printed Document Preview Styling */
+.sj-paper-sheet {
+  background-color: #ffffff;
+  border: 2px solid #223548;
+  border-radius: 4px;
+  padding: 20px;
+  font-size: 11px;
+  color: #000000;
+}
+
+.sj-paper-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #000000;
+  margin-bottom: 12px;
+}
+
+.sj-sign-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+  padding-top: 12px;
+  border-top: 1px dashed #8c9ba5;
+  text-align: center;
+}
+
+.sj-sign-box {
+  padding: 8px;
+  border: 1px solid #d5dce2;
+  border-radius: 4px;
+  background-color: #f8f9fa;
+}

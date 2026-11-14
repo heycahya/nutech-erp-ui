@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NUTECH ERP — Katalog Part Komponen (Marketing)</title>
+  <link rel="stylesheet" href="../../css/tokens.css" />
+  <link rel="stylesheet" href="../../css/base.css" />
+  <link rel="stylesheet" href="../../css/shell.css" />
+  <link rel="stylesheet" href="../../css/patterns.css" />
+  <link rel="stylesheet" href="../../css/pages.css" />
+</head>
+<body>
+
+  <!-- ===================== SVG SPRITE (Lucide, stroke 2) ===================== -->
+  <svg class="svg-sprite" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></symbol>
+    <symbol id="i-chevron-down" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></symbol>
+    <symbol id="i-chevron-up" viewBox="0 0 24 24"><path d="m18 15-6-6-6 6"/></symbol>
+    <symbol id="i-chevron-left" viewBox="0 0 24 24"><path d="m15 18-6-6 6-6"/></symbol>
+    <symbol id="i-chevron-right" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="M20 6 9 17l-5-5"/></symbol>
+    <symbol id="i-user-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="10" r="3"/><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"/></symbol>
+    <symbol id="i-shield-alert" viewBox="0 0 24 24"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="M12 8v4"/><path d="M12 16h.01"/></symbol>
+    <symbol id="i-file-text" viewBox="0 0 24 24"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z"/><path d="M14 2v4a2 2 0 0 0 2 2h4"/><path d="M10 9H8"/><path d="M16 13H8"/><path d="M16 17H8"/></symbol>
+    <symbol id="i-trending-up" viewBox="0 0 24 24"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="i-box" viewBox="0 0 24 24"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></symbol>
+    <symbol id="i-factory" viewBox="0 0 24 24"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></symbol>
+    <symbol id="i-layers" viewBox="0 0 24 24"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></symbol>
+    <symbol id="i-help-circle" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></symbol>
+    <symbol id="i-sliders" viewBox="0 0 24 24"><line x1="4" x2="4" y1="21" y2="14"/><line x1="4" x2="4" y1="10" y2="3"/><line x1="12" x2="12" y1="21" y2="12"/><line x1="12" x2="12" y1="8" y2="3"/><line x1="20" x2="20" y1="21" y2="16"/><line x1="20" x2="20" y1="12" y2="3"/><line x1="2" x2="6" y1="14" y2="14"/><line x1="10" x2="14" y1="8" y2="8"/><line x1="18" x2="22" y1="16" y2="16"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M5 12h14"/><path d="M12 5v14"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></symbol>
+    <symbol id="i-x" viewBox="0 0 24 24"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></symbol>
+  </svg>
+
+  <!-- ===================== PURE-CSS STATE TOGGLES ===================== -->
+  <input type="checkbox" id="sidebar-toggle" class="toggle-input" />
+  <input type="checkbox" id="role-dropdown-toggle" class="toggle-input" />
+  <input type="checkbox" id="devbar-collapse" class="toggle-input" />
+  <input type="checkbox" id="devbar-min" class="toggle-input" />
+  <input type="checkbox" id="devbar-off" class="toggle-input" />
+
+  <div class="app-shell">
+
+    <!-- ===================== TIER 1: GLOBAL TOPBAR (60px) ===================== -->
+    <header class="topbar">
+      <div class="topbar-brand">
+        <div class="topbar-logo">NT</div>
+        <div class="topbar-brand-text">
+          <span class="topbar-title">PT NUTECH PUNDI ARTA</span>
+          <span class="topbar-subtitle">Integrated Manufacturing ERP System</span>
+        </div>
+      </div>
+
+      <div class="topbar-search">
+        <div class="topbar-search-inner">
+          <svg class="icon topbar-search-icon" aria-hidden="true"><use href="#i-search"/></svg>
+          <input type="text" class="topbar-search-input" disabled placeholder="Pencarian dokumen, part, customer... (TBD)" title="Global Search is currently non-active (Pending Decision per BRD)" />
+          <span class="topbar-search-badge">TBD</span>
+        </div>
+      </div>
+
+      <div class="topbar-right">
+        <div class="topbar-proto-pill">
+          <span>PROTOTYPE UI</span>
+          <span>·</span>
+          <span>SIMULASI</span>
+        </div>
+
+        <div class="role-switcher">
+          <label for="role-dropdown-toggle" class="role-btn" aria-label="Ganti Role Simulasi" aria-haspopup="listbox">
+            <svg class="icon role-btn-icon" aria-hidden="true"><use href="#i-user-circle"/></svg>
+            <span class="role-btn-text">
+              <span class="role-btn-caption">Role Aktif</span>
+              <span class="role-btn-value">Marketing</span>
+            </span>
+            <svg class="icon role-btn-chevron" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+          </label>
+
+          <label for="role-dropdown-toggle" class="role-dropdown-backdrop" aria-hidden="true"></label>
+
+          <div class="role-menu" role="listbox">
+            <div class="role-menu-head">
+              <p class="role-menu-title">Role Switcher (Simulasi 7 Role)</p>
+              <p class="role-menu-desc">Pilih salah satu role untuk menguji tampilan dan navigasi sesuai hak akses BRD.</p>
+            </div>
+
+            <div class="role-menu-list">
+              <a href="sales-orders.html" class="role-option is-selected" role="option" aria-selected="true">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Staff Marketing &amp; Komersial</span></span>
+                  <span class="role-option-dept">Divisi Komersial</span>
+                </span>
+                <svg class="icon role-option-check" aria-hidden="true"><use href="#i-check"/></svg>
+              </a>
+              <a href="../ppic/spk.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">PPIC Planner</span></span>
+                  <span class="role-option-dept">Divisi Perencanaan Produksi</span>
+                </span>
+              </a>
+              <a href="../purchasing/mrp.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Purchasing Officer</span></span>
+                  <span class="role-option-dept">Divisi Pengadaan</span>
+                </span>
+              </a>
+              <a href="../warehouse/monitoring.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Admin Gudang Bahan Baku</span></span>
+                  <span class="role-option-dept">Gudang Material</span>
+                </span>
+              </a>
+              <a href="../production/monitoring.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Admin Produksi &amp; Pengiriman</span></span>
+                  <span class="role-option-dept">Operasional Pabrik</span>
+                </span>
+              </a>
+              <a href="../finance/dashboard.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row"><span class="role-option-title">Finance &amp; Billing Specialist</span></span>
+                  <span class="role-option-dept">Divisi Keuangan</span>
+                </span>
+              </a>
+              <a href="../management/dashboard.html" class="role-option" role="option" aria-selected="false">
+                <span class="role-option-main">
+                  <span class="role-option-row">
+                    <span class="role-option-title">Direksi &amp; Manajemen</span>
+                    <span class="role-option-badge">READ ONLY</span>
+                  </span>
+                  <span class="role-option-dept">Executive Board</span>
+                </span>
+              </a>
+            </div>
+
+            <div class="role-menu-foot">
+              <div class="role-menu-foot-row">
+                <svg class="icon icon-14" aria-hidden="true"><use href="#i-shield-alert"/></svg>
+                <span>Tanpa autentikasi backend · Mode UI Mock</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ===================== TIER 2: PAGE HEADER RAIL ===================== -->
+    <div class="page-header-rail">
+      <div class="page-header-left">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <span>Komersial</span>
+          <span class="breadcrumb-sep">/</span>
+          <span>Master Komersial</span>
+          <span class="breadcrumb-sep">/</span>
+          <span class="breadcrumb-current">Katalog Part Komponen</span>
+        </nav>
+        <div class="page-title-row">
+          <h1 class="page-title">Katalog Part Komponen Manufaktur Otomotif (UoM: PCS)</h1>
+        </div>
+      </div>
+
+      <div class="page-actions">
+        <a href="#modal-add-part" class="btn-primary-header">
+          <svg class="icon" aria-hidden="true"><use href="#i-plus"/></svg>
+          <span>Tambah Part (Simulasi)</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ===================== WORKSPACE FRAME: SIDEBAR + MAIN ===================== -->
+    <div class="app-body">
+
+      <aside class="sidebar" aria-label="Navigasi Role Marketing">
+        <div class="sidebar-scroll">
+          <div class="role-box">
+            <div class="role-box-expanded">
+              <div class="role-box-meta">
+                <span class="role-box-dept">Divisi Komersial</span>
+                <span class="role-box-name">Marketing</span>
+              </div>
+            </div>
+            <div class="role-box-collapsed" title="Marketing (Divisi Komersial)">
+              <div class="role-box-avatar">MA</div>
+            </div>
+          </div>
+
+          <nav class="nav-groups">
+            <div class="nav-group">
+              <h3 class="nav-group-title">Sales Orders</h3>
+              <div class="nav-group-divider"></div>
+              <div class="nav-list">
+                <a href="sales-orders.html" class="nav-item" title="Daftar Sales Order">
+                  <svg class="icon" aria-hidden="true"><use href="#i-file-text"/></svg>
+                  <span class="nav-text"><span class="nav-label">Daftar Sales Order</span><span class="nav-badge">5</span></span>
+                </a>
+                <a href="so-fulfillment.html" class="nav-item" title="Status Pemenuhan Parsial">
+                  <svg class="icon" aria-hidden="true"><use href="#i-trending-up"/></svg>
+                  <span class="nav-text"><span class="nav-label">Status Pemenuhan Parsial</span></span>
+                </a>
+              </div>
+            </div>
+
+            <div class="nav-group">
+              <h3 class="nav-group-title">Master Komersial</h3>
+              <div class="nav-group-divider"></div>
+              <div class="nav-list">
+                <a href="customers.html" class="nav-item" title="Master Customer B2B">
+                  <svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>
+                  <span class="nav-text"><span class="nav-label">Master Customer B2B</span><span class="nav-badge">5</span></span>
+                </a>
+                <a href="parts.html" class="nav-item is-active" title="Katalog Part Komponen" aria-current="page">
+                  <svg class="icon" aria-hidden="true"><use href="#i-box"/></svg>
+                  <span class="nav-text"><span class="nav-label">Katalog Part Komponen</span><span class="nav-badge">6</span></span>
+                </a>
+              </div>
+            </div>
+          </nav>
+        </div>
+
+        <div class="sidebar-foot">
+          <label for="sidebar-toggle" class="sidebar-collapse-btn" title="Ciutkan / Perluas Sidebar">
+            <span class="collapse-expanded">
+              <svg class="icon" aria-hidden="true"><use href="#i-chevron-left"/></svg>
+              <span>Ciutkan Sidebar</span>
+            </span>
+            <span class="collapse-collapsed">
+              <svg class="icon" aria-hidden="true"><use href="#i-chevron-right"/></svg>
+            </span>
+          </label>
+        </div>
+      </aside>
+
+      <!-- ===================== MAIN WORKSPACE: PART CATALOG VIEW ===================== -->
+      <main class="main-workspace">
+        <div class="role-page role-page--compact">
+
+          <!-- 1. TOP HEADER & ACTION BAR -->
+          <div class="subview-head">
+            <div>
+              <div class="flex-center-gap-2 mb-1">
+                <span class="badge badge--sm badge--primary flex-center-gap-1">
+                  <svg class="icon icon-12" aria-hidden="true"><use href="#i-box"/></svg>
+                  <span>KATALOG PART KOMPONEN</span>
+                </span>
+                <span class="badge badge--sm badge--positive">SATUAN RESMI: PCS</span>
+                <span class="badge badge--sm badge--neutral">6 ITEM AKTIF</span>
+              </div>
+              <h2 class="subview-title">Katalog Part Komponen Manufaktur Otomotif (UoM: PCS)</h2>
+              <p class="subview-desc">
+                Spesifikasi nomor part, kategori bahan baku, rasio standar konversi Pack-to-PCS, serta penetapan lini produksi aktif.
+              </p>
+            </div>
+
+            <a href="#modal-add-part" class="btn-primary-header" style="height:36px;padding:0 16px;font-weight:700">
+              <svg class="icon icon-16" aria-hidden="true"><use href="#i-plus"/></svg>
+              <span>Tambah Part (Simulasi)</span>
+            </a>
+          </div>
+
+          <!-- 2. PURE-CSS RADIO FILTER + PARTS CATALOG TABLE -->
+          <div>
+            <!-- Category Radio Filters -->
+            <input type="radio" name="part-cat-filter" id="part-cat-all" class="toggle-input" checked />
+            <input type="radio" name="part-cat-filter" id="part-cat-rub" class="toggle-input" />
+            <input type="radio" name="part-cat-filter" id="part-cat-foam" class="toggle-input" />
+            <input type="radio" name="part-cat-filter" id="part-cat-eva" class="toggle-input" />
+
+            <!-- Lane Radio Filters -->
+            <input type="radio" name="part-lane-filter" id="part-lane-all" class="toggle-input" checked />
+            <input type="radio" name="part-lane-filter" id="part-lane-1" class="toggle-input" />
+            <input type="radio" name="part-lane-filter" id="part-lane-2" class="toggle-input" />
+            <input type="radio" name="part-lane-filter" id="part-lane-3" class="toggle-input" />
+
+            <div class="part-filter-wrap">
+              <!-- Filter Bar -->
+              <div class="mb-4" style="padding:12px 16px;background:#ffffff;border:1px solid #d5dce2;border-radius:4px">
+                <div class="flex-row-between">
+                  <div class="filter-pill-group">
+                    <span class="t-11 font-bold uppercase tracking-wider c-nav mr-1">Kategori:</span>
+                    <label for="part-cat-all" class="filter-pill">Semua</label>
+                    <label for="part-cat-rub" class="filter-pill">Karet / Rubber</label>
+                    <label for="part-cat-foam" class="filter-pill">Busa / Foam</label>
+                    <label for="part-cat-eva" class="filter-pill">EVA Sponge</label>
+                  </div>
+
+                  <div class="input-search input-search--sm" style="width:288px">
+                    <svg class="icon input-search-icon" aria-hidden="true"><use href="#i-search"/></svg>
+                    <input type="text" class="input-search-field" placeholder="Cari Part Number atau Deskripsi..." />
+                  </div>
+                </div>
+
+                <div class="filter-pill-group mt-2-5 pt-2-5 border-t border-divider">
+                  <span class="t-11 font-bold uppercase tracking-wider c-nav mr-1">Lini Produksi:</span>
+                  <label for="part-lane-all" class="filter-pill">Semua Lini</label>
+                  <label for="part-lane-1" class="filter-pill">Lini 1 (Rubber)</label>
+                  <label for="part-lane-2" class="filter-pill">Lini 2 (Foam)</label>
+                  <label for="part-lane-3" class="filter-pill">Lini 3 (EVA)</label>
+                </div>
+              </div>
+
+              <!-- Parts Table -->
+              <div class="panel panel--r4">
+                <div class="matrix-wrap">
+                  <table class="mgmt-subtable part-table">
+                    <thead>
+                      <tr>
+                        <th class="py-2-5 px-4">Part Number</th>
+                        <th class="py-2-5 px-4">Deskripsi Komponen</th>
+                        <th class="py-2-5 px-4">Kategori Material</th>
+                        <th class="py-2-5 px-4">Lini Produksi Aktif</th>
+                        <th class="py-2-5 px-4 text-center">UoM Resmi</th>
+                        <th class="py-2-5 px-4 text-right">Rasio Pack</th>
+                        <th class="py-2-5 px-4 text-right">Harga Acuan (Rp)</th>
+                        <th class="py-2-5 px-4 text-right">Demand SO</th>
+                        <th class="py-2-5 px-4 text-center">Aksi</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <!-- PART-001: NTC-RUB-0101 -->
+                      <tr data-cat="Karet / Rubber" data-lane="Lane 1">
+                        <td class="py-3 px-4 font-mono font-bold c-primary">NTC-RUB-0101</td>
+                        <td class="py-3 px-4 font-bold c-ink">Gasket Seal Cylinder Head EPDM</td>
+                        <td class="py-3 px-4">
+                          <span class="badge badge--sm badge--neutral font-semibold">Karet / Rubber</span>
+                        </td>
+                        <td class="py-3 px-4">
+                          <div class="flex-center-gap-1 font-bold c-body">
+                            <svg class="icon icon-12 c-primary shrink-0" aria-hidden="true"><use href="#i-factory"/></svg>
+                            <span>Lane 1 (Rubber Cutting)</span>
+                          </div>
+                          <div class="t-10 c-nav">Rubber Cutting &amp; Molding</div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <span class="badge badge--sm badge--primary font-mono">PCS</span>
+                        </td>
+                        <td class="py-3 px-4 text-right font-mono font-bold c-body tnum">1 Pack = 50 PCS</td>
+                        <td class="py-3 px-4 text-right font-mono c-ink tnum">Rp 12.500</td>
+                        <td class="py-3 px-4 text-right tnum">
+                          <div class="font-bold c-primary">5.000 PCS</div>
+                          <div class="t-10 c-nav">1 SO Aktif</div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <a href="#modal-part-1" class="btn-row" style="padding:4px 8px;color:#223548">
+                            <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                            <span>Spesifikasi</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                      <!-- PART-002: NTC-RUB-0104 -->
+                      <tr data-cat="Karet / Rubber" data-lane="Lane 1">
+                        <td class="py-3 px-4 font-mono font-bold c-primary">NTC-RUB-0104</td>
+                        <td class="py-3 px-4 font-bold c-ink">Bushing Engine Mount Anti-Vibration</td>
+                        <td class="py-3 px-4">
+                          <span class="badge badge--sm badge--neutral font-semibold">Karet / Rubber</span>
+                        </td>
+                        <td class="py-3 px-4">
+                          <div class="flex-center-gap-1 font-bold c-body">
+                            <svg class="icon icon-12 c-primary shrink-0" aria-hidden="true"><use href="#i-factory"/></svg>
+                            <span>Lane 1 (Rubber Cutting)</span>
+                          </div>
+                          <div class="t-10 c-nav">Rubber Cutting &amp; Molding</div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <span class="badge badge--sm badge--primary font-mono">PCS</span>
+                        </td>
+                        <td class="py-3 px-4 text-right font-mono font-bold c-body tnum">1 Pack = 40 PCS</td>
+                        <td class="py-3 px-4 text-right font-mono c-ink tnum">Rp 18.200</td>
+                        <td class="py-3 px-4 text-right tnum">
+                          <div class="font-bold c-primary">2.400 PCS</div>
+                          <div class="t-10 c-nav">1 SO Aktif</div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <a href="#modal-part-2" class="btn-row" style="padding:4px 8px;color:#223548">
+                            <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                            <span>Spesifikasi</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                      <!-- PART-003: NTC-FOAM-0201 -->
+                      <tr data-cat="Busa / Foam" data-lane="Lane 2">
+                        <td class="py-3 px-4 font-mono font-bold c-primary">NTC-FOAM-0201</td>
+                        <td class="py-3 px-4 font-bold c-ink">Acoustic Foam Barrier Firewall 10mm</td>
+                        <td class="py-3 px-4">
+                          <span class="badge badge--sm badge--neutral font-semibold">Busa / Foam</span>
+                        </td>
+                        <td class="py-3 px-4">
+                          <div class="flex-center-gap-1 font-bold c-body">
+                            <svg class="icon icon-12 c-primary shrink-0" aria-hidden="true"><use href="#i-factory"/></svg>
+                            <span>Lane 2 (Foam Slicing)</span>
+                          </div>
+                          <div class="t-10 c-nav">Foam Slicing &amp; Acoustic Forming</div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <span class="badge badge--sm badge--primary font-mono">PCS</span>
+                        </td>
+                        <td class="py-3 px-4 text-right font-mono font-bold c-body tnum">1 Pack = 25 PCS</td>
+                        <td class="py-3 px-4 text-right font-mono c-ink tnum">Rp 24.500</td>
+                        <td class="py-3 px-4 text-right tnum">
+                          <div class="font-bold c-primary">3.000 PCS</div>
+                          <div class="t-10 c-nav">1 SO Aktif</div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <a href="#modal-part-3" class="btn-row" style="padding:4px 8px;color:#223548">
+                            <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                            <span>Spesifikasi</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                      <!-- PART-004: NTC-FOAM-0208 -->
+                      <tr data-cat="Busa / Foam" data-lane="Lane 2">
+                        <td class="py-3 px-4 font-mono font-bold c-primary">NTC-FOAM-0208</td>
+                        <td class="py-3 px-4 font-bold c-ink">Polyurethane Seat Wedge NVH Pad</td>
+                        <td class="py-3 px-4">
+                          <span class="badge badge--sm badge--neutral font-semibold">Busa / Foam</span>
+                        </td>
+                        <td class="py-3 px-4">
+                          <div class="flex-center-gap-1 font-bold c-body">
+                            <svg class="icon icon-12 c-primary shrink-0" aria-hidden="true"><use href="#i-factory"/></svg>
+                            <span>Lane 2 (Foam Slicing)</span>
+                          </div>
+                          <div class="t-10 c-nav">Foam Slicing &amp; Acoustic Forming</div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <span class="badge badge--sm badge--primary font-mono">PCS</span>
+                        </td>
+                        <td class="py-3 px-4 text-right font-mono font-bold c-body tnum">1 Pack = 20 PCS</td>
+                        <td class="py-3 px-4 text-right font-mono c-ink tnum">Rp 32.000</td>
+                        <td class="py-3 px-4 text-right tnum">
+                          <div class="font-bold c-primary">1.500 PCS</div>
+                          <div class="t-10 c-nav">1 SO Aktif</div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <a href="#modal-part-4" class="btn-row" style="padding:4px 8px;color:#223548">
+                            <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                            <span>Spesifikasi</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                      <!-- PART-005: NTC-EVA-0301 -->
+                      <tr data-cat="EVA Sponge" data-lane="Lane 3">
+                        <td class="py-3 px-4 font-mono font-bold c-primary">NTC-EVA-0301</td>
+                        <td class="py-3 px-4 font-bold c-ink">EVA Sponge Weatherstrip Door Sash</td>
+                        <td class="py-3 px-4">
+                          <span class="badge badge--sm badge--neutral font-semibold">EVA Sponge</span>
+                        </td>
+                        <td class="py-3 px-4">
+                          <div class="flex-center-gap-1 font-bold c-body">
+                            <svg class="icon icon-12 c-primary shrink-0" aria-hidden="true"><use href="#i-factory"/></svg>
+                            <span>Lane 3 (EVA Die-cut)</span>
+                          </div>
+                          <div class="t-10 c-nav">EVA Die-cut &amp; Precision Stamping</div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <span class="badge badge--sm badge--primary font-mono">PCS</span>
+                        </td>
+                        <td class="py-3 px-4 text-right font-mono font-bold c-body tnum">1 Pack = 100 PCS</td>
+                        <td class="py-3 px-4 text-right font-mono c-ink tnum">Rp 8.750</td>
+                        <td class="py-3 px-4 text-right tnum">
+                          <div class="font-bold c-primary">8.000 PCS</div>
+                          <div class="t-10 c-nav">1 SO Aktif</div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <a href="#modal-part-5" class="btn-row" style="padding:4px 8px;color:#223548">
+                            <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                            <span>Spesifikasi</span>
+                          </a>
+                        </td>
+                      </tr>
+
+                      <!-- PART-006: NTC-EVA-0305 -->
+                      <tr data-cat="EVA Sponge" data-lane="Lane 3">
+                        <td class="py-3 px-4 font-mono font-bold c-primary">NTC-EVA-0305</td>
+                        <td class="py-3 px-4 font-bold c-ink">EVA Die-cut Insulation Bracket Battery</td>
+                        <td class="py-3 px-4">
+                          <span class="badge badge--sm badge--neutral font-semibold">EVA Sponge</span>
+                        </td>
+                        <td class="py-3 px-4">
+                          <div class="flex-center-gap-1 font-bold c-body">
+                            <svg class="icon icon-12 c-primary shrink-0" aria-hidden="true"><use href="#i-factory"/></svg>
+                            <span>Lane 3 (EVA Die-cut)</span>
+                          </div>
+                          <div class="t-10 c-nav">EVA Die-cut &amp; Precision Stamping</div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <span class="badge badge--sm badge--primary font-mono">PCS</span>
+                        </td>
+                        <td class="py-3 px-4 text-right font-mono font-bold c-body tnum">1 Pack = 60 PCS</td>
+                        <td class="py-3 px-4 text-right font-mono c-ink tnum">Rp 14.300</td>
+                        <td class="py-3 px-4 text-right tnum">
+                          <div class="font-bold c-primary">6.000 PCS</div>
+                          <div class="t-10 c-nav">1 SO Aktif</div>
+                        </td>
+                        <td class="py-3 px-4 text-center">
+                          <a href="#modal-part-6" class="btn-row" style="padding:4px 8px;color:#223548">
+                            <svg class="icon icon-12 c-primary" aria-hidden="true"><use href="#i-eye"/></svg>
+                            <span>Spesifikasi</span>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </main>
+    </div>
+
+    <!-- ===================== FOOTER STATUS BAR (28px) ===================== -->
+    <footer class="footer-status">
+      <div class="footer-group">
+        <span class="footer-strong">PT NUTECH PUNDI ARTA — MINI ERP PROTOTYPE</span>
+        <span class="footer-sep">|</span>
+        <span>Mode: UI Verification (Frontend-Only)</span>
+        <span class="footer-sep">|</span>
+        <span>Single Source of Truth: BRD v3.0</span>
+      </div>
+      <div class="footer-group footer-group--right">
+        <div class="footer-user">
+          <span class="footer-user-label">Simulasi User:</span>
+          <span class="footer-user-value">Staff Marketing &amp; Komersial</span>
+        </div>
+        <span class="footer-sep">|</span>
+        <span class="footer-baseline">Baseline: 1440 × 900 Desktop</span>
+      </div>
+    </footer>
+  </div>
+
+  <!-- ===================== DEVELOPMENT SHOWCASE BAR (DEV / QA) ===================== -->
+  <aside class="devbar" aria-label="Panel Evaluasi Internal">
+    <div class="devbar-head">
+      <div class="devbar-head-left">
+        <svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>
+        <span class="devbar-title">Evaluasi UI Phase 01</span>
+        <span class="devbar-tag">DEV / QA TOOL</span>
+      </div>
+      <div class="devbar-head-right">
+        <label for="devbar-collapse" class="devbar-icon-btn" title="Ciutkan / Perluas Kontrol Evaluasi" aria-label="Ciutkan atau Perluas Kontrol Evaluasi">
+          <svg class="icon devbar-ico-down" aria-hidden="true"><use href="#i-chevron-down"/></svg>
+          <svg class="icon devbar-ico-up" aria-hidden="true"><use href="#i-chevron-up"/></svg>
+        </label>
+        <label for="devbar-min" class="devbar-icon-btn devbar-icon-btn--close" title="Sembunyikan Panel (Mode Presentasi Bersih)" aria-label="Sembunyikan Panel Evaluasi UI">
+          <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+        </label>
+      </div>
+    </div>
+    <div class="devbar-body">
+      <span class="devbar-body-label">Pola Uji:</span>
+      <a href="sales-orders.html" class="devbar-pattern is-active" title="Tabel data padat SAP-style dengan summary row">1. Enterprise Table</a>
+      <a href="so-fulfillment.html" class="devbar-pattern" title="Executive metric cards &amp; multi-track downstream">2. Overview KPI</a>
+      <a href="sales-order-form.html" class="devbar-pattern" title="Input Sales Order dengan konversi Pack-to-PCS">3. Dense Form</a>
+      <a href="sales-orders-split.html" class="devbar-pattern" title="Master-detail view header &amp; line items">4. Split-Pane Detail</a>
+      <a href="#modal-add-part" class="devbar-pattern" title="Dialog registrasi part komponen baru">5. Modal Dialog</a>
+    </div>
+  </aside>
+
+  <div class="devbar-mini">
+    <label for="devbar-min" class="devbar-mini-open" title="Tampilkan Kembali Panel Evaluasi UI (DEV/QA Tool)" aria-label="Buka Panel Evaluasi UI Phase 01">
+      <svg class="icon" aria-hidden="true"><use href="#i-sliders"/></svg>
+      <span>Panel QA</span>
+    </label>
+    <label for="devbar-off" class="devbar-mini-close" title="Sembunyikan Total (Mode Presentasi)" aria-label="Tutup Panel QA Sepenuhnya">
+      <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+    </label>
+  </div>
+
+  <!-- ===================== PART SPECIFICATION & ADD MODALS (:target) ===================== -->
+
+  <!-- Part Spec Modal 1: NTC-RUB-0101 -->
+  <div id="modal-part-1" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-part-1">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:580px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div class="flex-center-gap-2">
+          <svg class="icon icon-16 c-primary" aria-hidden="true"><use href="#i-layers"/></svg>
+          <div>
+            <span class="t-10 font-bold uppercase tracking-wider c-primary block">Spesifikasi Teknis Part · NTC-RUB-0101</span>
+            <h3 id="title-part-1" class="t-15 font-bold c-ink">Gasket Seal Cylinder Head EPDM</h3>
+          </div>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2">
+          <div class="stat-card-sm" style="padding:12px">
+            <span class="t-10 c-nav font-bold uppercase block">Kategori &amp; Satuan</span>
+            <div class="mt-1 font-bold c-ink">Karet / Rubber</div>
+            <div class="mt-0-5 t-11 c-primary font-semibold">Satuan Resmi: PCS (Terkunci)</div>
+          </div>
+          <div class="stat-card-sm" style="padding:12px">
+            <span class="t-10 c-nav font-bold uppercase block">Konversi Pack &amp; Harga</span>
+            <div class="mt-1 font-mono font-bold c-ink">1 Pack = 50 PCS</div>
+            <div class="mt-0-5 t-11 c-nav">Harga Acuan: <span class="font-mono font-bold c-ink">Rp 12.500 / PCS</span></div>
+          </div>
+        </div>
+
+        <div style="padding:14px;background:#f8f9fa;border:1px solid #d5dce2;border-radius:4px">
+          <span class="t-10 c-nav font-bold uppercase block">Penetapan Lini Produksi (BRD §2.1)</span>
+          <div class="font-bold c-ink mt-1">Lane 1 (Rubber Cutting)</div>
+          <div class="t-11 c-meta">Proses utama: Rubber Cutting &amp; Molding</div>
+        </div>
+
+        <div class="flex-row-start" style="padding:14px;background:#fffdfa;border:1px solid rgba(255,213,79,0.8);border-radius:4px;color:#8d4b00;font-size:11px">
+          <svg class="icon icon-16 shrink-0 mt-0-5" aria-hidden="true"><use href="#i-help-circle"/></svg>
+          <div>
+            <strong class="block">Bill of Materials (BOM) &amp; Scrap Allowance:</strong>
+            Spesifikasi konsumsi bahan baku riil dan batas toleransi scrap allowance merupakan <em>DESIGN ASSUMPTION (Placeholder Demo per BRD Section 8.4)</em> yang akan dikonfigurasi resmi sebelum fase go-live.
+          </div>
+        </div>
+
+        <div class="mgmt-subtable-wrap">
+          <div class="px-3 py-2 bg-chrome border-b border-subtle t-11 font-bold c-ink">Sales Order Aktif yang Menggunakan Part Ini</div>
+          <table class="mgmt-subtable">
+            <thead>
+              <tr><th>No. SO</th><th>Customer</th><th class="text-right">Kuantitas Order</th><th class="text-right">Terkirim</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-mono font-bold c-primary">SO-2026-0041</td>
+                <td>PT Auto Dinamika Manufaktur</td>
+                <td class="text-right font-bold tnum">5.000 PCS</td>
+                <td class="text-right c-positive tnum">2.500 PCS</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px;justify-content:space-between">
+        <span class="t-10 c-nav">Katalog Part Nutech ERP · Single Source of Truth</span>
+        <a href="#" class="btn-row" style="padding:6px 14px;color:#223548;font-weight:600">Tutup</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part Spec Modal 2: NTC-RUB-0104 -->
+  <div id="modal-part-2" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-part-2">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:580px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div class="flex-center-gap-2">
+          <svg class="icon icon-16 c-primary" aria-hidden="true"><use href="#i-layers"/></svg>
+          <div>
+            <span class="t-10 font-bold uppercase tracking-wider c-primary block">Spesifikasi Teknis Part · NTC-RUB-0104</span>
+            <h3 id="title-part-2" class="t-15 font-bold c-ink">Bushing Engine Mount Anti-Vibration</h3>
+          </div>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2">
+          <div class="stat-card-sm" style="padding:12px">
+            <span class="t-10 c-nav font-bold uppercase block">Kategori &amp; Satuan</span>
+            <div class="mt-1 font-bold c-ink">Karet / Rubber</div>
+            <div class="mt-0-5 t-11 c-primary font-semibold">Satuan Resmi: PCS (Terkunci)</div>
+          </div>
+          <div class="stat-card-sm" style="padding:12px">
+            <span class="t-10 c-nav font-bold uppercase block">Konversi Pack &amp; Harga</span>
+            <div class="mt-1 font-mono font-bold c-ink">1 Pack = 40 PCS</div>
+            <div class="mt-0-5 t-11 c-nav">Harga Acuan: <span class="font-mono font-bold c-ink">Rp 18.200 / PCS</span></div>
+          </div>
+        </div>
+
+        <div style="padding:14px;background:#f8f9fa;border:1px solid #d5dce2;border-radius:4px">
+          <span class="t-10 c-nav font-bold uppercase block">Penetapan Lini Produksi (BRD §2.1)</span>
+          <div class="font-bold c-ink mt-1">Lane 1 (Rubber Cutting)</div>
+          <div class="t-11 c-meta">Proses utama: Rubber Cutting &amp; Molding</div>
+        </div>
+
+        <div class="flex-row-start" style="padding:14px;background:#fffdfa;border:1px solid rgba(255,213,79,0.8);border-radius:4px;color:#8d4b00;font-size:11px">
+          <svg class="icon icon-16 shrink-0 mt-0-5" aria-hidden="true"><use href="#i-help-circle"/></svg>
+          <div>
+            <strong class="block">Bill of Materials (BOM) &amp; Scrap Allowance:</strong>
+            Spesifikasi konsumsi bahan baku riil dan batas toleransi scrap allowance merupakan <em>DESIGN ASSUMPTION (Placeholder Demo per BRD Section 8.4)</em> yang akan dikonfigurasi resmi sebelum fase go-live.
+          </div>
+        </div>
+
+        <div class="mgmt-subtable-wrap">
+          <div class="px-3 py-2 bg-chrome border-b border-subtle t-11 font-bold c-ink">Sales Order Aktif yang Menggunakan Part Ini</div>
+          <table class="mgmt-subtable">
+            <thead>
+              <tr><th>No. SO</th><th>Customer</th><th class="text-right">Kuantitas Order</th><th class="text-right">Terkirim</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-mono font-bold c-primary">SO-2026-0044</td>
+                <td>PT Heavy Mobil Manufaktur Indonesia</td>
+                <td class="text-right font-bold tnum">2.400 PCS</td>
+                <td class="text-right c-positive tnum">1.200 PCS</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px;justify-content:space-between">
+        <span class="t-10 c-nav">Katalog Part Nutech ERP · Single Source of Truth</span>
+        <a href="#" class="btn-row" style="padding:6px 14px;color:#223548;font-weight:600">Tutup</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part Spec Modal 3: NTC-FOAM-0201 -->
+  <div id="modal-part-3" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-part-3">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:580px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div class="flex-center-gap-2">
+          <svg class="icon icon-16 c-primary" aria-hidden="true"><use href="#i-layers"/></svg>
+          <div>
+            <span class="t-10 font-bold uppercase tracking-wider c-primary block">Spesifikasi Teknis Part · NTC-FOAM-0201</span>
+            <h3 id="title-part-3" class="t-15 font-bold c-ink">Acoustic Foam Barrier Firewall 10mm</h3>
+          </div>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2">
+          <div class="stat-card-sm" style="padding:12px">
+            <span class="t-10 c-nav font-bold uppercase block">Kategori &amp; Satuan</span>
+            <div class="mt-1 font-bold c-ink">Busa / Foam</div>
+            <div class="mt-0-5 t-11 c-primary font-semibold">Satuan Resmi: PCS (Terkunci)</div>
+          </div>
+          <div class="stat-card-sm" style="padding:12px">
+            <span class="t-10 c-nav font-bold uppercase block">Konversi Pack &amp; Harga</span>
+            <div class="mt-1 font-mono font-bold c-ink">1 Pack = 25 PCS</div>
+            <div class="mt-0-5 t-11 c-nav">Harga Acuan: <span class="font-mono font-bold c-ink">Rp 24.500 / PCS</span></div>
+          </div>
+        </div>
+
+        <div style="padding:14px;background:#f8f9fa;border:1px solid #d5dce2;border-radius:4px">
+          <span class="t-10 c-nav font-bold uppercase block">Penetapan Lini Produksi (BRD §2.1)</span>
+          <div class="font-bold c-ink mt-1">Lane 2 (Foam Slicing)</div>
+          <div class="t-11 c-meta">Proses utama: Foam Slicing &amp; Acoustic Forming</div>
+        </div>
+
+        <div class="flex-row-start" style="padding:14px;background:#fffdfa;border:1px solid rgba(255,213,79,0.8);border-radius:4px;color:#8d4b00;font-size:11px">
+          <svg class="icon icon-16 shrink-0 mt-0-5" aria-hidden="true"><use href="#i-help-circle"/></svg>
+          <div>
+            <strong class="block">Bill of Materials (BOM) &amp; Scrap Allowance:</strong>
+            Spesifikasi konsumsi bahan baku riil dan batas toleransi scrap allowance merupakan <em>DESIGN ASSUMPTION (Placeholder Demo per BRD Section 8.4)</em> yang akan dikonfigurasi resmi sebelum fase go-live.
+          </div>
+        </div>
+
+        <div class="mgmt-subtable-wrap">
+          <div class="px-3 py-2 bg-chrome border-b border-subtle t-11 font-bold c-ink">Sales Order Aktif yang Menggunakan Part Ini</div>
+          <table class="mgmt-subtable">
+            <thead>
+              <tr><th>No. SO</th><th>Customer</th><th class="text-right">Kuantitas Order</th><th class="text-right">Terkirim</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-mono font-bold c-primary">SO-2026-0042</td>
+                <td>PT Trans Mega Motor Indonesia</td>
+                <td class="text-right font-bold tnum">3.000 PCS</td>
+                <td class="text-right c-positive tnum">0 PCS</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px;justify-content:space-between">
+        <span class="t-10 c-nav">Katalog Part Nutech ERP · Single Source of Truth</span>
+        <a href="#" class="btn-row" style="padding:6px 14px;color:#223548;font-weight:600">Tutup</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part Spec Modal 4: NTC-FOAM-0208 -->
+  <div id="modal-part-4" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-part-4">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:580px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div class="flex-center-gap-2">
+          <svg class="icon icon-16 c-primary" aria-hidden="true"><use href="#i-layers"/></svg>
+          <div>
+            <span class="t-10 font-bold uppercase tracking-wider c-primary block">Spesifikasi Teknis Part · NTC-FOAM-0208</span>
+            <h3 id="title-part-4" class="t-15 font-bold c-ink">Polyurethane Seat Wedge NVH Pad</h3>
+          </div>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2">
+          <div class="stat-card-sm" style="padding:12px">
+            <span class="t-10 c-nav font-bold uppercase block">Kategori &amp; Satuan</span>
+            <div class="mt-1 font-bold c-ink">Busa / Foam</div>
+            <div class="mt-0-5 t-11 c-primary font-semibold">Satuan Resmi: PCS (Terkunci)</div>
+          </div>
+          <div class="stat-card-sm" style="padding:12px">
+            <span class="t-10 c-nav font-bold uppercase block">Konversi Pack &amp; Harga</span>
+            <div class="mt-1 font-mono font-bold c-ink">1 Pack = 20 PCS</div>
+            <div class="mt-0-5 t-11 c-nav">Harga Acuan: <span class="font-mono font-bold c-ink">Rp 32.000 / PCS</span></div>
+          </div>
+        </div>
+
+        <div style="padding:14px;background:#f8f9fa;border:1px solid #d5dce2;border-radius:4px">
+          <span class="t-10 c-nav font-bold uppercase block">Penetapan Lini Produksi (BRD §2.1)</span>
+          <div class="font-bold c-ink mt-1">Lane 2 (Foam Slicing)</div>
+          <div class="t-11 c-meta">Proses utama: Foam Slicing &amp; Acoustic Forming</div>
+        </div>
+
+        <div class="flex-row-start" style="padding:14px;background:#fffdfa;border:1px solid rgba(255,213,79,0.8);border-radius:4px;color:#8d4b00;font-size:11px">
+          <svg class="icon icon-16 shrink-0 mt-0-5" aria-hidden="true"><use href="#i-help-circle"/></svg>
+          <div>
+            <strong class="block">Bill of Materials (BOM) &amp; Scrap Allowance:</strong>
+            Spesifikasi konsumsi bahan baku riil dan batas toleransi scrap allowance merupakan <em>DESIGN ASSUMPTION (Placeholder Demo per BRD Section 8.4)</em> yang akan dikonfigurasi resmi sebelum fase go-live.
+          </div>
+        </div>
+
+        <div class="mgmt-subtable-wrap">
+          <div class="px-3 py-2 bg-chrome border-b border-subtle t-11 font-bold c-ink">Sales Order Aktif yang Menggunakan Part Ini</div>
+          <table class="mgmt-subtable">
+            <thead>
+              <tr><th>No. SO</th><th>Customer</th><th class="text-right">Kuantitas Order</th><th class="text-right">Terkirim</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-mono font-bold c-primary">SO-2026-0045</td>
+                <td>PT Sinar Harapan Otomotif Warga Auto</td>
+                <td class="text-right font-bold tnum">1.500 PCS</td>
+                <td class="text-right c-positive tnum">0 PCS</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px;justify-content:space-between">
+        <span class="t-10 c-nav">Katalog Part Nutech ERP · Single Source of Truth</span>
+        <a href="#" class="btn-row" style="padding:6px 14px;color:#223548;font-weight:600">Tutup</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part Spec Modal 5: NTC-EVA-0301 -->
+  <div id="modal-part-5" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-part-5">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:580px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div class="flex-center-gap-2">
+          <svg class="icon icon-16 c-primary" aria-hidden="true"><use href="#i-layers"/></svg>
+          <div>
+            <span class="t-10 font-bold uppercase tracking-wider c-primary block">Spesifikasi Teknis Part · NTC-EVA-0301</span>
+            <h3 id="title-part-5" class="t-15 font-bold c-ink">EVA Sponge Weatherstrip Door Sash</h3>
+          </div>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2">
+          <div class="stat-card-sm" style="padding:12px">
+            <span class="t-10 c-nav font-bold uppercase block">Kategori &amp; Satuan</span>
+            <div class="mt-1 font-bold c-ink">EVA Sponge</div>
+            <div class="mt-0-5 t-11 c-primary font-semibold">Satuan Resmi: PCS (Terkunci)</div>
+          </div>
+          <div class="stat-card-sm" style="padding:12px">
+            <span class="t-10 c-nav font-bold uppercase block">Konversi Pack &amp; Harga</span>
+            <div class="mt-1 font-mono font-bold c-ink">1 Pack = 100 PCS</div>
+            <div class="mt-0-5 t-11 c-nav">Harga Acuan: <span class="font-mono font-bold c-ink">Rp 8.750 / PCS</span></div>
+          </div>
+        </div>
+
+        <div style="padding:14px;background:#f8f9fa;border:1px solid #d5dce2;border-radius:4px">
+          <span class="t-10 c-nav font-bold uppercase block">Penetapan Lini Produksi (BRD §2.1)</span>
+          <div class="font-bold c-ink mt-1">Lane 3 (EVA Die-cut)</div>
+          <div class="t-11 c-meta">Proses utama: EVA Die-cut &amp; Precision Stamping</div>
+        </div>
+
+        <div class="flex-row-start" style="padding:14px;background:#fffdfa;border:1px solid rgba(255,213,79,0.8);border-radius:4px;color:#8d4b00;font-size:11px">
+          <svg class="icon icon-16 shrink-0 mt-0-5" aria-hidden="true"><use href="#i-help-circle"/></svg>
+          <div>
+            <strong class="block">Bill of Materials (BOM) &amp; Scrap Allowance:</strong>
+            Spesifikasi konsumsi bahan baku riil dan batas toleransi scrap allowance merupakan <em>DESIGN ASSUMPTION (Placeholder Demo per BRD Section 8.4)</em> yang akan dikonfigurasi resmi sebelum fase go-live.
+          </div>
+        </div>
+
+        <div class="mgmt-subtable-wrap">
+          <div class="px-3 py-2 bg-chrome border-b border-subtle t-11 font-bold c-ink">Sales Order Aktif yang Menggunakan Part Ini</div>
+          <table class="mgmt-subtable">
+            <thead>
+              <tr><th>No. SO</th><th>Customer</th><th class="text-right">Kuantitas Order</th><th class="text-right">Terkirim</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-mono font-bold c-primary">SO-2026-0041</td>
+                <td>PT Auto Dinamika Manufaktur</td>
+                <td class="text-right font-bold tnum">8.000 PCS</td>
+                <td class="text-right c-positive tnum">4.000 PCS</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px;justify-content:space-between">
+        <span class="t-10 c-nav">Katalog Part Nutech ERP · Single Source of Truth</span>
+        <a href="#" class="btn-row" style="padding:6px 14px;color:#223548;font-weight:600">Tutup</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Part Spec Modal 6: NTC-EVA-0305 -->
+  <div id="modal-part-6" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-part-6">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:580px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div class="flex-center-gap-2">
+          <svg class="icon icon-16 c-primary" aria-hidden="true"><use href="#i-layers"/></svg>
+          <div>
+            <span class="t-10 font-bold uppercase tracking-wider c-primary block">Spesifikasi Teknis Part · NTC-EVA-0305</span>
+            <h3 id="title-part-6" class="t-15 font-bold c-ink">EVA Die-cut Insulation Bracket Battery</h3>
+          </div>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2">
+          <div class="stat-card-sm" style="padding:12px">
+            <span class="t-10 c-nav font-bold uppercase block">Kategori &amp; Satuan</span>
+            <div class="mt-1 font-bold c-ink">EVA Sponge</div>
+            <div class="mt-0-5 t-11 c-primary font-semibold">Satuan Resmi: PCS (Terkunci)</div>
+          </div>
+          <div class="stat-card-sm" style="padding:12px">
+            <span class="t-10 c-nav font-bold uppercase block">Konversi Pack &amp; Harga</span>
+            <div class="mt-1 font-mono font-bold c-ink">1 Pack = 60 PCS</div>
+            <div class="mt-0-5 t-11 c-nav">Harga Acuan: <span class="font-mono font-bold c-ink">Rp 14.300 / PCS</span></div>
+          </div>
+        </div>
+
+        <div style="padding:14px;background:#f8f9fa;border:1px solid #d5dce2;border-radius:4px">
+          <span class="t-10 c-nav font-bold uppercase block">Penetapan Lini Produksi (BRD §2.1)</span>
+          <div class="font-bold c-ink mt-1">Lane 3 (EVA Die-cut)</div>
+          <div class="t-11 c-meta">Proses utama: EVA Die-cut &amp; Precision Stamping</div>
+        </div>
+
+        <div class="flex-row-start" style="padding:14px;background:#fffdfa;border:1px solid rgba(255,213,79,0.8);border-radius:4px;color:#8d4b00;font-size:11px">
+          <svg class="icon icon-16 shrink-0 mt-0-5" aria-hidden="true"><use href="#i-help-circle"/></svg>
+          <div>
+            <strong class="block">Bill of Materials (BOM) &amp; Scrap Allowance:</strong>
+            Spesifikasi konsumsi bahan baku riil dan batas toleransi scrap allowance merupakan <em>DESIGN ASSUMPTION (Placeholder Demo per BRD Section 8.4)</em> yang akan dikonfigurasi resmi sebelum fase go-live.
+          </div>
+        </div>
+
+        <div class="mgmt-subtable-wrap">
+          <div class="px-3 py-2 bg-chrome border-b border-subtle t-11 font-bold c-ink">Sales Order Aktif yang Menggunakan Part Ini</div>
+          <table class="mgmt-subtable">
+            <thead>
+              <tr><th>No. SO</th><th>Customer</th><th class="text-right">Kuantitas Order</th><th class="text-right">Terkirim</th></tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="font-mono font-bold c-primary">SO-2026-0043</td>
+                <td>PT Daya Nusantara Industri Auto</td>
+                <td class="text-right font-bold tnum">6.000 PCS</td>
+                <td class="text-right c-positive tnum">6.000 PCS</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="modal-foot" style="padding:12px 20px;justify-content:space-between">
+        <span class="t-10 c-nav">Katalog Part Nutech ERP · Single Source of Truth</span>
+        <a href="#" class="btn-row" style="padding:6px 14px;color:#223548;font-weight:600">Tutup</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Tambah Part Baru (Simulasi) -->
+  <div id="modal-add-part" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="title-add-part">
+    <a href="#" class="modal-backdrop-link" aria-label="Tutup dialog"></a>
+    <div class="modal-dialog" style="max-width:540px;border-radius:4px">
+      <div class="modal-head" style="padding:14px 20px">
+        <div>
+          <span class="t-10 font-bold uppercase tracking-wider c-primary block">Simulasi Master Item</span>
+          <h3 id="title-add-part" class="t-15 font-bold c-ink">Registrasi Part Komponen Baru</h3>
+        </div>
+        <a href="#" class="modal-close" aria-label="Tutup Dialog"><svg class="icon" aria-hidden="true"><use href="#i-x"/></svg></a>
+      </div>
+
+      <div class="modal-body" style="padding:20px;font-size:12px">
+        <div class="grid-cols-2">
+          <div>
+            <label for="part-no" class="block t-11 font-bold c-body mb-1">Nomor Part (Part Number) <span class="req">*</span></label>
+            <input id="part-no" type="text" value="NTC-RUB-0105" placeholder="Contoh: NTC-RUB-0105" class="field-input field-input--mono font-bold c-primary" style="height:32px;font-size:12px" />
+          </div>
+          <div>
+            <label for="part-cat" class="block t-11 font-bold c-body mb-1">Kategori Material</label>
+            <select id="part-cat" class="field-select" style="height:32px;font-size:12px">
+              <option value="Karet / Rubber" selected>Karet / Rubber (Lini 1)</option>
+              <option value="Busa / Foam">Busa / Foam (Lini 2)</option>
+              <option value="EVA Sponge">EVA Sponge (Lini 3)</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="part-desc" class="block t-11 font-bold c-body mb-1">Deskripsi Part Komponen <span class="req">*</span></label>
+          <input id="part-desc" type="text" placeholder="Contoh: Rubber Boot Steering Gearbox Seal" class="field-input" style="height:32px;font-size:12px" />
+        </div>
+
+        <div class="grid-cols-2">
+          <div>
+            <label for="part-pack" class="block t-11 font-bold c-body mb-1">Rasio Pack (PCS/pack) <span class="req">*</span></label>
+            <input id="part-pack" type="number" min="1" value="50" class="field-input tnum" style="height:32px;font-size:12px" />
+          </div>
+          <div>
+            <label for="part-price" class="block t-11 font-bold c-body mb-1">Harga Acuan (Rp / PCS)</label>
+            <input id="part-price" type="number" min="1000" step="500" value="15000" class="field-input tnum" style="height:32px;font-size:12px" />
+          </div>
+        </div>
+
+        <div style="padding:10px;background:#f8f9fa;border:1px solid #d5dce2;border-radius:4px;font-size:11px;color:#545454">
+          Satuan resmi secara otomatis disetel ke <strong>PCS</strong> sesuai kebijakan single UoM Nutech ERP.
+        </div>
+      </div>
+
+      <div class="modal-foot" style="padding:12px 20px;justify-content:space-between">
+        <span class="t-10 c-nav">Mode Simulasi UI Frontend · Tanpa Database Riil</span>
+        <div class="flex-center-gap-2">
+          <a href="#" class="btn-row" style="padding:6px 12px;color:#223548;font-weight:600">Batal</a>
+          <a href="#" class="btn-primary-header" style="height:30px;padding:0 14px;font-size:11px;font-weight:700">Simpan Part</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+

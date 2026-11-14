@@ -1,0 +1,239 @@
+/* ==========================================================================
+   NUTECH ERP — Base: Reset, Typography, Tabular Numbers, Scrollbar, Utilities
+   ========================================================================== */
+
+/* ---------- Reset (setara Tailwind preflight) ---------- */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: var(--color-hairline-subtle);
+}
+
+html {
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+  tab-size: 4;
+  font-family: var(--font-sans);
+}
+
+body {
+  margin: 0;
+  line-height: inherit;
+  background-color: var(--color-canvas);
+  color: var(--color-ink-body);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+p, ul, ol, dl, dd, figure, blockquote { margin: 0; }
+ul, ol { padding: 0; list-style: none; }
+
+a { color: inherit; text-decoration: inherit; }
+b, strong { font-weight: bolder; }
+em { font-style: italic; }
+u { text-decoration: underline; }
+
+code, kbd, samp, pre { font-family: var(--font-mono); font-size: 1em; }
+
+table {
+  border-collapse: collapse;
+  border-color: inherit;
+  text-indent: 0;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  font-feature-settings: inherit;
+  letter-spacing: inherit;
+  color: inherit;
+  margin: 0;
+  padding: 0;
+  background-color: transparent;
+  border-radius: 0;
+}
+
+button,
+[type="button"],
+[type="submit"] {
+  -webkit-appearance: button;
+  appearance: button;
+  background-color: transparent;
+  background-image: none;
+  cursor: pointer;
+}
+
+button:disabled,
+input:disabled,
+select:disabled { cursor: not-allowed; }
+
+select { appearance: auto; }
+
+textarea { resize: vertical; }
+
+::placeholder { color: var(--color-ink-nav); opacity: 1; }
+
+svg, img, video { display: block; max-width: 100%; }
+svg { vertical-align: middle; }
+
+label { cursor: pointer; }
+
+:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 1px; }
+
+/* ---------- Mandatory Tabular Figures untuk seluruh angka ERP ---------- */
+.tnum,
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: var(--tnum-spacing);
+}
+
+.mono { font-family: var(--font-mono); }
+
+/* ---------- Custom Scrollbar 6px (high-density ERP views) ---------- */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #f5f6f7; }
+::-webkit-scrollbar-thumb { background: #d5dce2; border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: #475e75; }
+
+/* ---------- Pure-CSS Toggle Primitives (pengganti useState) ---------- */
+.toggle-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.svg-sprite { position: absolute; width: 0; height: 0; overflow: hidden; }
+
+/* ---------- Icon (Lucide inline sprite, stroke 2) ---------- */
+.icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.icon-12 { width: 12px; height: 12px; }
+.icon-14 { width: 14px; height: 14px; }
+.icon-20 { width: 20px; height: 20px; }
+.icon-48 { width: 48px; height: 48px; }
+
+/* ---------- Utility Dasar ---------- */
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.grid { display: grid; }
+.block { display: block; }
+.hidden { display: none; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.flex-1 { flex: 1 1 0%; min-width: 0; }
+.shrink-0 { flex-shrink: 0; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-baseline { align-items: baseline; }
+.justify-between { justify-content: space-between; }
+.justify-center { justify-content: center; }
+.justify-end { justify-content: flex-end; }
+
+.gap-1 { gap: 4px; }
+.gap-1-5 { gap: 6px; }
+.gap-2 { gap: 8px; }
+.gap-2-5 { gap: 10px; }
+.gap-3 { gap: 12px; }
+.gap-4 { gap: 16px; }
+.gap-5 { gap: 20px; }
+.gap-6 { gap: 24px; }
+
+.mt-0-5 { margin-top: 2px; }
+.mt-1 { margin-top: 4px; }
+.mt-2 { margin-top: 8px; }
+.mb-1 { margin-bottom: 4px; }
+
+.space-y-1 > * + * { margin-top: 4px; }
+.space-y-1-5 > * + * { margin-top: 6px; }
+.space-y-2 > * + * { margin-top: 8px; }
+.space-y-3 > * + * { margin-top: 12px; }
+.space-y-4 > * + * { margin-top: 16px; }
+.space-y-5 > * + * { margin-top: 20px; }
+.space-y-6 > * + * { margin-top: 24px; }
+
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.text-center { text-align: center; }
+.uppercase { text-transform: uppercase; }
+.whitespace-nowrap { white-space: nowrap; }
+.select-none { user-select: none; }
+.truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+.font-normal { font-weight: 400; }
+
+.t-9 { font-size: 9px; }
+.t-10 { font-size: 10px; }
+.t-11 { font-size: 11px; }
+.t-12 { font-size: 12px; }
+.t-13 { font-size: 13px; }
+.t-14 { font-size: 14px; }
+.t-15 { font-size: 15px; }
+.t-16 { font-size: 16px; }
+.t-18 { font-size: 18px; }
+.t-20 { font-size: 20px; }
+.t-28 { font-size: 28px; }
+.tracking-wider { letter-spacing: var(--tracking-wider); }
+.tracking-tight { letter-spacing: var(--tracking-tight); }
+.leading-tight { line-height: 1.25; }
+.leading-snug { line-height: 1.375; }
+.leading-relaxed { line-height: 1.625; }
+.leading-none { line-height: 1; }
+
+.c-ink { color: var(--color-ink); }
+.c-body { color: var(--color-ink-body); }
+.c-list { color: var(--color-ink-list); }
+.c-meta { color: var(--color-ink-meta); }
+.c-nav { color: var(--color-ink-nav); }
+.c-disabled { color: var(--color-ink-disabled); }
+.c-primary { color: var(--color-primary); }
+.c-positive { color: var(--status-positive-ink); }
+.c-warning { color: var(--status-warning-ink); }
+.c-negative { color: var(--status-negative-ink); }
+.c-negative-alt { color: var(--status-negative-ink-alt); }
+
+.w-full { width: 100%; }
+.min-w-0 { min-width: 0; }
+
